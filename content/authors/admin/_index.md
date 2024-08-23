@@ -9,8 +9,8 @@ superuser: true
 role: ''
 
 # Status emoji
-status:
-  icon: ☕️
+# status:
+  # icon: ☕️
 
 # Organizations/Affiliations
 #organizations:
@@ -63,11 +63,11 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-#email: ""
+email: "haozhou1@usf.edu"
 ---
 
-Alice Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+MOTIF-Lab, led by Dr. Hao Zhou at the University of South Florida, is dedicated to tackling the persistent challenge of traffic congestion. Their unique approach involves "teaching new technologies old tricks" – integrating traditional traffic flow and network knowledge with cutting-edge technologies like self-driving vehicles and machine learning. The lab is actively seeking PhD students and postdocs to join their research efforts.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+The lab boasts talented researchers like Yuhang Wang, a PhD student with experience in both transportation and computer science, and Shengming Yuan, whose focus lies in electric vehicles and control systems. Together, they are working towards a future of optimized mobility through a harmonious blend of established theories and frontier technologies.
 
 {{< icon name="download" pack="fas" >}} {{< staticref "uploads/resume.pdf" "newtab" >}}Download{{< /staticref >}} my resumé as a PDF.
