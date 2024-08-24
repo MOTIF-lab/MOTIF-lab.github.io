@@ -12,5 +12,9 @@ main:
     weight: 20
   - name: Team
     url: team/
-  - name: Feature Research
-    url: future_research/
+    weight: 20
+  - name: Contact us
+    url: contact/
+    weight: 20
+
+

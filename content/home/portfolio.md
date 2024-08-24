@@ -28,12 +28,12 @@ content:
   filter_button:
     - name: All
       tag: '*'
-    - name: Machine Learning
-      tag: ML
-    - name: Computer Vision
-      tag: CV
-    - name: NLP
-      tag: NLP
+    - name: Autonomouse Vehicles
+      tag: AV
+    - name: Traffic Flow
+      tag: TF
+    - name: Electronic Vehicles
+      tag: EV
 
 design:
   columns: '1'

@@ -17,16 +17,10 @@ author: admin
 #      path:  # enter filename of a video in /assets/media
 #  css_class: fullscreen
 ---
-
-
 # MOTIF: **M**ob**ility** **O**ptimized by **T**raditional **I**deas and **F**rontier
 
-### technologies: Our Philosophy to Reduce Traffic Congestion
+### Technologies: Our Philosophy to Reduce Traffic Congestion
 
 {style="font-size: 1.2rem; background: #FFB76B; background: linear-gradient(to right, #FFB76B 0%, #FFA73D 30%, #FF7C00 60%, #FF7F04 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"}
-
-Check out our recent researches and study below
-
-
 
 <a href="https://clustrmaps.com/site/1c0za"  title="Visit tracker"><img src="https://www.clustrmaps.com/map_v2.png?d=6fGN-roMfQ-7lF-JDskye3fGekmJ8zimx2v9TFVttpg&cl=ffffff" /></a>

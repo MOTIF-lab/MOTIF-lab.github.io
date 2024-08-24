@@ -1,8 +1,8 @@
 ---
-title: Cosmetics Semantic Search
-summary: Write about your project here...
+title: Electronic Vehicles Control
+summary: ...
 tags:
-  - NLP
-date: 2022-01-01
+  - EV
+date: 2024-08-07
 external_link: http://github.com
 ---

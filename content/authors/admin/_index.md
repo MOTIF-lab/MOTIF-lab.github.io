@@ -20,10 +20,10 @@ role: ''
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include traffic flow thoery, and AI-based vehicle technologies .
 
-#interests:
-#- Traffic flow theory
-#- Autonomous driving
-#- Vehicle technologies
+interests:
+- Traffic flow theory
+- Autonomous driving
+- Vehicle technologies
 
 #education:
 #  courses:
@@ -67,4 +67,4 @@ email: "haozhou1@usf.edu"
 ---
 MOTIF-Lab, led by Dr. Hao Zhou at the University of South Florida, is dedicated to tackling the persistent challenge of traffic congestion. Their unique approach involves "teaching new technologies old tricks" – integrating traditional traffic flow and network knowledge with cutting-edge technologies like self-driving vehicles and machine learning. The lab is actively seeking PhD students and postdocs to join their research efforts.
 
-{{< icon name="download" pack="fas" >}} {{< staticref "uploads/resume.pdf" "newtab" >}}Download{{< /staticref >}} my resumé as a PDF.
+{{< icon name="download" pack="fas" >}} {{< staticref "uploads/resume.pdf" "newtab" >}}Download{{< /staticref >}} Our CV as a PDF.
