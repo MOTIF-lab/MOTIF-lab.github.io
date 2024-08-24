@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Alice Wu (吳恩達)
+title: MOTIF-Lab
 
 # Is this the primary user of the site?
 superuser: true
@@ -14,16 +14,16 @@ role: ''
 
 # Organizations/Affiliations
 #organizations:
-#- name: 腾讯
+#- name: University of South Florida
 #  url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: My research interests include traffic flow thoery, and AI-based vehicle technologies .
 
 #interests:
-#- Artificial Intelligence
-#- Computational Linguistics
-#- Information Retrieval
+#- Traffic flow theory
+#- Autonomous driving
+#- Vehicle technologies
 
 #education:
 #  courses:
@@ -65,9 +65,6 @@ social:
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "haozhou1@usf.edu"
 ---
-
 MOTIF-Lab, led by Dr. Hao Zhou at the University of South Florida, is dedicated to tackling the persistent challenge of traffic congestion. Their unique approach involves "teaching new technologies old tricks" – integrating traditional traffic flow and network knowledge with cutting-edge technologies like self-driving vehicles and machine learning. The lab is actively seeking PhD students and postdocs to join their research efforts.
-
-The lab boasts talented researchers like Yuhang Wang, a PhD student with experience in both transportation and computer science, and Shengming Yuan, whose focus lies in electric vehicles and control systems. Together, they are working towards a future of optimized mobility through a harmonious blend of established theories and frontier technologies.
 
 {{< icon name="download" pack="fas" >}} {{< staticref "uploads/resume.pdf" "newtab" >}}Download{{< /staticref >}} my resumé as a PDF.
