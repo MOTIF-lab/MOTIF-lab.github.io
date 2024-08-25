@@ -28,11 +28,11 @@ content:
   filter_button:
     - name: All
       tag: '*'
-    - name: Autonomouse Vehicles
-      tag: AV
-    - name: Traffic Flow
+    - name: Traffic Flow and Network Science
       tag: TF
-    - name: Electronic Vehicles
+    - name: Autonomous Driving
+      tag: AV
+    - name: Electric Vehicles
       tag: EV
 
 design:
