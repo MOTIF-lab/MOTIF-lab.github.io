@@ -28,7 +28,7 @@ content:
   filter_button:
     - name: All
       tag: '*'
-    - name: Traffic Flow and Network Science
+    - name: Traffic Flow Theory
       tag: TF
     - name: Autonomous Driving
       tag: AV
