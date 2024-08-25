@@ -1,6 +1,7 @@
-# [Hugo Portfolio Theme](https://github.com/wowchemy/starter-hugo-portfolio-theme)
+This is the homepage of the MOTIF traffic research lab at University of South Florida led by Dr. Hao Zhou, a transportation professor at Civil and Environmental Department, College of Engineering. 
 
-[![Screenshot](preview.png)](https://hugoblox.com/hugo-themes/)
+<!-- # [Hugo Portfolio Theme](https://github.com/wowchemy/starter-hugo-portfolio-theme)
+
 
 The **Hugo Portfolio Template** empowers you to easily create a portfolio website. Make it your own by choosing a color theme and grid layout!
 
@@ -30,3 +31,4 @@ Today we ask you to defend the open source independence of the Wowchemy website 
 We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
 
 ### [❤️ Click here to become a GitHub Sponsor, unlocking awesome perks such as _exclusive academic templates and widgets_](https://github.com/sponsors/gcushen)
+ -->
