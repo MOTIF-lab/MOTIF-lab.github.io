@@ -9,7 +9,7 @@ headless: true
 # Order that this section appears on the page.
 weight: 20
 
-title: Researches
+title: Experience
 subtitle: 
 
 # Date format for experience
@@ -21,7 +21,7 @@ date_format: Aug 2024
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
-:
+Experience:
   - title: CEO
     company: GenCoin
     company_url: ''
