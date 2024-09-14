@@ -1,7 +1,7 @@
 ---
 title: "Yuhang Wang"
 role: "PhD"
-avatar: "/uploads/Yuhang.jpg"
+avatar: "images/Yuhang.jpg"
 bio: "Yuhang is committed to combining Traffic Thoery with AI technology."
 interests:
   - Drive Assist System

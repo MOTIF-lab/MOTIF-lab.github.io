@@ -1,7 +1,7 @@
 ---
 title: "Shengming Yuan"
 role: "PhD"
-avatar: "/uploads/Shengming.jpg"
+avatar: "images/Shengming.jpg"
 bio: "Shengming"
 interests:
   - 深度学习
