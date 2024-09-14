@@ -1,6 +1,6 @@
 ---
 title: "Abdulaziz Abdulrahman A Alhuraish"
-role: "PhD"
+role: "Master"
 avatar: "/uploads/Aziz.jpg"
 bio: "Aziz"
 interests:

@@ -24,7 +24,7 @@
     {{ end }}
   </div>
 
-  <!-- Students Section -->
+  <!-- PhD Section -->
   <h2 class="section-title">Ph.D Students</h2>
   <div class="team-grid">
     {{ range where .Pages "Params.role" "==" "PhD" }}
@@ -45,6 +45,28 @@
       </div>
     {{ end }}
   </div>
+
+    <!-- Master Section -->
+    <h2 class="section-title">Master Students</h2>
+    <div class="team-grid">
+      {{ range where .Pages "Params.role" "==" "Master" }}
+        <div class="team-card">
+          <div class="card-inner">
+            <div class="card-front">
+              {{ with .Params.avatar }}
+                <img src="{{ . | relURL }}" class="team-avatar" alt="{{ $.Title }}">
+              {{ end }}
+              <h3 class="team-name">{{ .Title }}</h3>
+              <p class="team-role">{{ .Params.role }}</p>
+            </div>
+            <div class="card-back">
+              <p>{{ .Params.bio | truncate 100 }}</p>
+              <a href="{{ .Permalink }}" class="btn-details">Details</a>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
 
     <!-- Other Team Members Section -->
     <h2 class="section-title">Connection</h2>
