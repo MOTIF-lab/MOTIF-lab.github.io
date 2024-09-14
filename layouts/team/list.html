@@ -1,0 +1,254 @@
+{{ define "main" }}
+<div class="team-container">
+  <h1 class="team-title">{{ .Title }}</h1>
+  
+  <!-- Advisors Section -->
+  <h2 class="section-title">Advisor</h2>
+  <div class="team-grid advisors-grid">
+    {{ range where .Pages "Params.role" "advisor" }}
+      <div class="team-card advisor-card">
+        <div class="card-inner">
+          <div class="card-front">
+            {{ with .Params.avatar }}
+              <img src="{{ . | relURL }}" class="team-avatar" alt="{{ $.Title }}">
+            {{ end }}
+            <h3 class="team-name">{{ .Title }}</h3>
+            <p class="team-role">{{ .Params.role }}</p>
+          </div>
+          <div class="card-back">
+            <p>{{ .Params.bio | truncate 150 }}</p>
+            <a href="{{ .Permalink }}" class="btn-details">Details</a>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
+  <!-- Students Section -->
+  <h2 class="section-title">Ph.D Students</h2>
+  <div class="team-grid">
+    {{ range where .Pages "Params.role" "==" "PhD" }}
+      <div class="team-card">
+        <div class="card-inner">
+          <div class="card-front">
+            {{ with .Params.avatar }}
+              <img src="{{ . | relURL }}" class="team-avatar" alt="{{ $.Title }}">
+            {{ end }}
+            <h3 class="team-name">{{ .Title }}</h3>
+            <p class="team-role">{{ .Params.role }}</p>
+          </div>
+          <div class="card-back">
+            <p>{{ .Params.bio | truncate 100 }}</p>
+            <a href="{{ .Permalink }}" class="btn-details">Details</a>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
+    <!-- Other Team Members Section -->
+    <h2 class="section-title">Connection</h2>
+    <div class="team-grid">
+      {{ range where .Pages "Params.role" "==" "connection" }}
+        <div class="team-card">
+          <div class="card-inner">
+            <div class="card-front">
+              {{ with .Params.avatar }}
+                <img src="{{ . | relURL }}" class="team-avatar" alt="{{ $.Title }}">
+              {{ end }}
+              <h3 class="team-name">{{ .Title }}</h3>
+              <p class="team-role">{{ .Params.role }}</p>
+            </div>
+            <div class="card-back">
+              <p>{{ .Params.bio | truncate 100 }}</p>
+              <a href="{{ .Permalink }}" class="btn-details">Details</a>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+</div>
+
+<style>
+:root {
+  --usf-green: #006747;
+  --usf-gold: #CFC493;
+  --background-color: #f0f0f0;
+  --card-bg-color: rgba(255, 255, 255, 0.9);
+  --text-color: #333;
+  --highlight-color: #FF6B6B;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23006747" opacity="0.1"/></svg>');
+  background-size: 100px 100px;
+}
+
+.team-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-title, .section-title {
+  color: var(--usf-green);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.team-title::after, .section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--usf-gold);
+  margin: 10px auto;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.advisors-grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.team-card {
+  background: var(--card-bg-color);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 350px;
+  perspective: 1000px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.team-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, var(--usf-green), var(--usf-gold));
+}
+
+.advisor-card {
+  height: 400px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.team-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, var(--usf-green), var(--usf-gold));
+  color: white;
+}
+
+.team-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--usf-gold);
+  margin-bottom: 1rem;
+}
+
+.advisor-card .team-avatar {
+  width: 150px;
+  height: 150px;
+}
+
+.team-name {
+  color: var(--usf-green);
+  margin: 0.5rem 0;
+}
+
+.team-role {
+  color: var(--highlight-color);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.btn-details {
+  background: var(--usf-green);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-details:hover {
+  background: var(--usf-gold);
+  color: var(--usf-green);
+}
+
+@media (max-width: 768px) {
+  .team-grid, .advisors-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.team-card:hover {
+  animation: pulse 2s infinite;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Traffic light effect */
+.team-card::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+  height: 10px;
+  background: red;
+  border-radius: 5px;
+  box-shadow: 0 15px 0 yellow, 0 30px 0 green;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.team-card:hover::after {
+  opacity: 1;
+}
+</style>
+{{ end }}

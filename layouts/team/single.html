@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      {{ with .Params.avatar }}
+        <img src="{{ . | relURL }}" class="img-fluid rounded-circle" alt="{{ $.Title }}">
+      {{ end }}
+    </div>
+    <div class="col-md-8">
+      <h1>{{ .Title }}</h1>
+      <p><strong>Position:</strong> {{ .Params.role }}</p>
+      {{ with .Params.bio }}
+        <p><strong>Introduction:</strong> {{ . }}</p>
+      {{ end }}
+      {{ with .Params.interests }}
+        <p><strong>Research interests:</strong> {{ delimit . ", " }}</p>
+      {{ end }}
+      {{ with .Params.education }}
+        <h2>Education background</h2>
+        <ul>
+          {{ range . }}
+            <li>{{ .course }} - {{ .institution }} ({{ .year }})</li>
+          {{ end }}
+        </ul>
+      {{ end }}
+      {{ with .Params.social }}
+        <h2>Homepage</h2>
+        <ul>
+          {{ range . }}
+            <li><a href="{{ .link }}" target="_blank">{{ .name }}</a></li>
+          {{ end }}
+        </ul>
+      {{ end }}
+      {{ with .Content }}
+        <h2>Details</h2>
+        {{ . }}
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

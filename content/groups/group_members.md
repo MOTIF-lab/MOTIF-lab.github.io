@@ -1,17 +1,17 @@
 ---
 # Documentation: https://docs.hugoblox.com/managing-content/
 
-title: "Team"
+title: "Group_members"
 subtitle: ""
 summary: ""
 authors: []
 tags: []
 categories: []
-date: 2024-09-14T13:07:46-04:00
-lastmod: 2024-09-14T13:07:46-04:00
+date: 2024-09-14T12:22:52-04:00
+lastmod: 2024-09-14T12:22:52-04:00
 featured: false
 draft: false
-
+widget: group
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
