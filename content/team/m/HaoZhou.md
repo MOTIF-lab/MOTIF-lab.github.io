@@ -1,7 +1,7 @@
 ---
 title: "Dr. Hao Zhou"
 role: "advisor"
-avatar: "images/HaoZhou.jpg"
+avatar: "images/new_hao.jpeg"
 bio: "Hao Zhou, Assistant Professor at USF, leads the MOTIF Lab to reduce traffic congestion by merging traditional traffic theories with self-driving and machine learning technologies."
 interests:
   - Traffic flow theory
