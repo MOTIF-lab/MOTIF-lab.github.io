@@ -1,6 +1,6 @@
 ---
 title: "Shengming Yuan"
-role: "PhD"
+role: "Ph.D. student"
 avatar: "images/Shengming.jpg"
 bio: "Shengming"
 interests:
@@ -10,7 +10,10 @@ education:
     course: Transportation
     institution: University of South Florida
     year: 2024-Present
-
+  - degree: Undergraduate
+    course: Computer science
+    institution: Penn state
+    year: 2020-2024
 social:
   - name: 
     link: 
