@@ -1,4 +1,4 @@
 ---
-title: Team introduction
+title: Team members
 type: team
 ---
