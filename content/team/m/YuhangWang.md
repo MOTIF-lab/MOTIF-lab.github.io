@@ -4,9 +4,9 @@ role: "PhD"
 avatar: "images/Yuhang.jpg"
 bio: "Yuhang is committed to combining Traffic Thoery with AI technology."
 interests:
-  - Drive Assist System
-  - Traffic Security
-  - Deep Learning-based Controller
+  - Driver Assist System
+  - Traffic Safety
+  - Learning-based Motion Planning
   - Computer Graphics
 education:
   - degree: Ph.D student
