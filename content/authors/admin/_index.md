@@ -13,9 +13,9 @@ role: ''
   # icon: ☕️
 
 # Organizations/Affiliations
-#organizations:
-#- name: University of South Florida
-#  url: ""
+ organizations:
+ - name: University of South Florida
+- url: "https://www.usf.edu/engineering/cee/faculty-staff/index.aspx"
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include traffic flow thoery, and AI-based vehicle technologies .
@@ -52,9 +52,9 @@ social:
   #   icon_pack: fab
   #   link: https://instagram.com/geocushen
 # Uncomment below for Github link
-#- icon: github
-#  icon_pack: fab
-#  link: https://github.com/gcushen
+ -icon: github
+  icon_pack: fab
+  link: https://github.com/MOTIF-lab
 
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
