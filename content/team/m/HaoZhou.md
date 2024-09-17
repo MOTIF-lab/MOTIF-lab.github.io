@@ -1,7 +1,7 @@
 ---
 title: "Dr. Hao Zhou"
 role: "advisor"
-avatar: "images/headshot_small.jpg"
+avatar: "images/HaoZhou.jpg"
 bio: "Hao Zhou, Assistant Professor at USF, leads the lab research at the intersection between traditional traffic theories and new technologies including self-driving and AI."
 interests:
   - Traffic flow theory
