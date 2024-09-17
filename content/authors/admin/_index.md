@@ -13,7 +13,7 @@ role: ''
   # icon: ☕️
 
 # Organizations/Affiliations
- organizations:
+organizations:
  - name: University of South Florida
    url: "https://www.usf.edu/engineering/cee/faculty-staff/index.aspx"
 
