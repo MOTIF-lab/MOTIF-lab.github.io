@@ -45,6 +45,7 @@ social:
   - icon: envelope
     icon_pack: fas
     link: 'about/#contact' # For a direct email link, use "mailto:test@example.org".
+    email: 'mailto:haozhou1@usf.edu'
   - icon: twitter
     icon_pack: fab
     link: https://twitter.com/hao_nanking
@@ -59,7 +60,6 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "haozhou1@usf.edu"
 ---
 MOTIF-Lab, led by Dr. Hao Zhou at the University of South Florida, is dedicated to tackling the persistent challenge of traffic congestion. Their unique approach involves "teaching new technologies old tricks" – integrating traditional traffic flow and network knowledge with cutting-edge technologies like self-driving vehicles and machine learning. The lab is actively seeking PhD students and postdocs to join their research efforts.
 
