@@ -1,5 +1,5 @@
 ---
-title: "Abdulaziz Abdulrahman A Alhuraish"
+title: "Abdulaziz Alhuraish"
 role: "Master"
 avatar: "/images/Aziz.jpg"
 bio: "Aziz"
