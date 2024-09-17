@@ -1,6 +1,6 @@
 ---
 title: "Shengming Yuan"
-role: "Ph.D. student"
+role: "PhD"
 avatar: "images/Shengming.jpg"
 bio: "Shengming"
 interests:

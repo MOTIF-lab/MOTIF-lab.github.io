@@ -1,7 +1,7 @@
 ---
 title: "Abdulaziz Abdulrahman A Alhuraish"
-role: "Master student"
-avatar: "/uploads/Aziz.jpg"
+role: "Master"
+avatar: "/images/Aziz.jpg"
 bio: "Aziz"
 interests:
   - Tansportation
