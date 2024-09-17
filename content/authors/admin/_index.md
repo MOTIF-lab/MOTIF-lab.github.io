@@ -15,7 +15,7 @@ role: ''
 # Organizations/Affiliations
  organizations:
  - name: University of South Florida
- - url: "https://www.usf.edu/engineering/cee/faculty-staff/index.aspx"
+   url: "https://www.usf.edu/engineering/cee/faculty-staff/index.aspx"
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include traffic flow thoery, and AI-based vehicle technologies .
