@@ -20,6 +20,8 @@ education:
 social:
   - name: Homepage
     link: http://myweb.usf.edu/~shengming/
+  - name: Google Scholar
+    link: https://scholar.google.com/citations?user=Gxh0r28AAAAJ&hl=en
   - name: GitHub
     link: https://github.com/ssysm
   - name: LinkedIn
