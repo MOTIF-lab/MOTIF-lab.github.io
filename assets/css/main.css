@@ -701,6 +701,123 @@ img { max-width: 100%; height: auto; display: block; }
 .course h3 { margin: .15rem 0 .25rem; }
 .course-meta { color: var(--text-muted); font-size: .9rem; margin: 0 0 .5rem; }
 
+/* ----- course single-page header ----- */
+.course-header {
+  background: linear-gradient(135deg, var(--usf-green) 0%, var(--usf-green-dark, #003E2A) 100%);
+  color: #fff;
+  padding: 3rem 0 3.25rem;
+  border-bottom: 4px solid var(--usf-gold);
+}
+.course-header .eyebrow {
+  color: var(--usf-gold);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-size: .8rem;
+  margin: 0 0 1rem;
+}
+.course-header-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+  gap: 2.5rem;
+  align-items: start;
+}
+.course-code-big {
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--usf-gold);
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin: 0 0 .25rem;
+}
+.course-title {
+  font-size: 2.6rem;
+  letter-spacing: -.01em;
+  margin: 0 0 .75rem;
+  color: #fff;
+  line-height: 1.1;
+}
+.course-tagline {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,.92);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+  max-width: 60ch;
+}
+.course-status {
+  display: inline-block;
+  margin: .5rem 0 0;
+  padding: .25rem .65rem;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: rgba(183, 159, 77, .25);
+  border: 1px solid var(--usf-gold);
+  color: var(--usf-gold-light, #e8dcb1);
+  border-radius: 999px;
+}
+.course-meta-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem;
+  backdrop-filter: blur(2px);
+}
+.course-meta-card dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 1rem;
+  row-gap: .55rem;
+  font-size: .92rem;
+}
+.course-meta-card dt {
+  color: var(--usf-gold);
+  font-weight: 700;
+  letter-spacing: .04em;
+  font-size: .78rem;
+  text-transform: uppercase;
+  align-self: center;
+}
+.course-meta-card dd {
+  margin: 0;
+  color: rgba(255,255,255,.95);
+  line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+  .course-header-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .course-title { font-size: 2rem; }
+  .course-tagline { font-size: 1.05rem; }
+}
+
+/* ----- course body content ----- */
+.course-content { max-width: 80ch; }
+.course-content h2 {
+  font-size: 1.7rem;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--usf-gold);
+  color: var(--usf-green-dark);
+}
+.course-content h3 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  color: var(--usf-green);
+}
+.course-content h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+/* Lab callouts: any list item that begins with "Lab." gets a gold ribbon.
+   Driven by CSS only -- the markdown is plain bullets with **Lab.** prefix. */
+.course-content li strong:first-child {
+  color: var(--usf-gold);
+}
+.course-content hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0 1.5rem;
+}
+
 /* ----- news ----- */
 .news-list { list-style: none; padding: 0; margin: 0; }
 .news-list li {

@@ -1,0 +1,34 @@
+{{ define "main" }}
+<section class="course-header">
+  <div class="container">
+    <p class="eyebrow">Teaching · {{ .Site.Params.university | default "USF" }}</p>
+    <div class="course-header-grid">
+      <div>
+        <p class="course-code-big">{{ .Params.code }}</p>
+        <h1 class="course-title">{{ .Title }}</h1>
+        {{ with .Params.tagline }}<p class="course-tagline">{{ . }}</p>{{ end }}
+        {{ with .Params.status }}<p class="course-status">{{ . }}</p>{{ end }}
+      </div>
+      <aside class="course-meta-card">
+        <dl>
+          {{ with .Params.level }}<dt>Level</dt><dd>{{ . }}</dd>{{ end }}
+          {{ with .Params.semester }}<dt>Semester</dt><dd>{{ . }}</dd>{{ end }}
+          {{ with .Params.credits }}<dt>Credits</dt><dd>{{ . }}</dd>{{ end }}
+          {{ with .Params.format }}<dt>Format</dt><dd>{{ . }}</dd>{{ end }}
+          {{ with .Params.instructor }}<dt>Instructor</dt><dd>{{ . }}</dd>{{ end }}
+          {{ with .Params.prereqs }}<dt>Prereqs</dt><dd>{{ . }}</dd>{{ end }}
+          {{ with .Params.audience }}<dt>Audience</dt><dd>{{ . }}</dd>{{ end }}
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="course-content prose">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}
