@@ -444,6 +444,93 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--usf-gold-light);
   color: var(--usf-green-dark);
 }
+.pill-topic {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border);
+  font-weight: 500;
+  text-transform: none;
+}
+
+/* ----- publication filter bar ----- */
+.pub-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  align-items: end;
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.5rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.pub-filters label { display: flex; flex-direction: column; gap: .25rem; }
+.pub-filters .filter-label {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--usf-green-dark);
+}
+.pub-filters select {
+  font: inherit;
+  padding: .4rem .6rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  min-width: 11rem;
+}
+.pub-filters select:focus {
+  outline: 2px solid var(--usf-green);
+  outline-offset: 1px;
+}
+.filter-summary {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: .9rem;
+  font-style: italic;
+}
+
+/* ----- publication item with thumbnail ----- */
+.pub-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.pub-item:last-child { border-bottom: none; }
+.pub-item:has(> .pub-thumb-link) ~ .pub-item:not(:has(> .pub-thumb-link)) { /* no-op fallback */ }
+/* Items without a thumb collapse to a single column */
+.pub-item:not(:has(.pub-thumb-link)) { grid-template-columns: 1fr; }
+.pub-thumb-link {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+.pub-thumb {
+  width: 100%;
+  height: 105px;
+  object-fit: cover;
+  display: block;
+}
+.pub-topics { margin: .25rem 0 .35rem; }
+.pub-empty {
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .pub-item { grid-template-columns: 1fr; }
+  .pub-thumb { height: 160px; }
+  .pub-filters { flex-direction: column; align-items: stretch; }
+  .filter-summary { margin-left: 0; }
+}
 
 /* ----- projects ----- */
 .project-card { position: relative; }

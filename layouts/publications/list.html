@@ -1,40 +1,125 @@
 {{ define "main" }}
+{{ $pubs := .Pages }}
+
+{{/* Build the union of all years and topics for the filter dropdowns */}}
+{{ $byYearForList := $pubs.GroupByParam "year" "desc" }}
+{{ $years := slice }}
+{{ range $byYearForList }}{{ $years = $years | append .Key }}{{ end }}
+
+{{ $allTopics := slice }}
+{{ range $pubs }}
+  {{ with .Params.topics }}{{ range . }}{{ $allTopics = $allTopics | append . }}{{ end }}{{ end }}
+{{ end }}
+{{ $topics := $allTopics | uniq | sort }}
+
 <section class="page-header">
   <div class="container">
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
   </div>
 </section>
+
 <section class="section">
   <div class="container prose">
     {{ .Content }}
-    {{ $pubs := .Pages }}
-    {{ $byYear := $pubs.GroupByParamDate "year" "2006" "desc" }}
-    {{ if not $byYear }}
-      {{ $byYear = $pubs.GroupByDate "2006" "desc" }}
-    {{ end }}
-    {{ range $byYear }}
-    <h2 class="year-heading">{{ .Key }}</h2>
-    <ul class="pub-list">
-      {{ range .Pages }}
-      <li>
-        <p class="pub-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
-        <p class="pub-authors">{{ with .Params.authors }}{{ delimit . ", " }}{{ end }}</p>
-        <p class="pub-meta">
-          {{ with .Params.venue }}<em>{{ . }}</em>{{ end }}
-          {{ with .Params.year }} · {{ . }}{{ end }}
-          {{ with .Params.doi }} · <a href="https://doi.org/{{ . }}" rel="noopener">doi:{{ . }}</a>{{ end }}
-        </p>
-        <p class="pub-links">
-          {{ with .Params.pdf }}<a class="pill" href="{{ . }}" rel="noopener">PDF</a>{{ end }}
-          {{ with .Params.code }}<a class="pill" href="{{ . }}" rel="noopener">Code</a>{{ end }}
-          {{ with .Params.preprint }}<a class="pill" href="{{ . }}" rel="noopener">Preprint</a>{{ end }}
-          {{ with .Params.slides }}<a class="pill" href="{{ . }}" rel="noopener">Slides</a>{{ end }}
-        </p>
-      </li>
+
+    <div class="pub-filters" id="pub-filters">
+      <label>
+        <span class="filter-label">Year</span>
+        <select id="filter-year">
+          <option value="">All years</option>
+          {{ range $years }}<option value="{{ . }}">{{ . }}</option>{{ end }}
+        </select>
+      </label>
+      <label>
+        <span class="filter-label">Topic</span>
+        <select id="filter-topic">
+          <option value="">All topics</option>
+          {{ range $topics }}<option value="{{ . }}">{{ . }}</option>{{ end }}
+        </select>
+      </label>
+      <span class="filter-summary" id="filter-summary"></span>
+    </div>
+
+    {{ $byYear := $pubs.GroupByParam "year" "desc" }}
+    <div id="pub-groups">
+      {{ range $byYear }}
+      <section class="pub-year-group" data-year="{{ .Key }}">
+        <h2 class="year-heading">{{ .Key }}</h2>
+        <ul class="pub-list">
+          {{ range .Pages }}
+          <li class="pub-item"
+              data-year="{{ .Params.year }}"
+              data-topics="{{ delimit (.Params.topics | default slice) "|" }}">
+            {{ if .Params.thumb }}
+            <a class="pub-thumb-link" href="{{ .RelPermalink }}">
+              <img class="pub-thumb" src="{{ .Params.thumb | relURL }}" alt="" loading="lazy">
+            </a>
+            {{ end }}
+            <div class="pub-body">
+              <p class="pub-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+              <p class="pub-authors">{{ with .Params.authors }}{{ delimit . ", " }}{{ end }}</p>
+              <p class="pub-meta">
+                {{ with .Params.venue }}<em>{{ . }}</em>{{ end }}
+                {{ with .Params.year }} · {{ . }}{{ end }}
+                {{ with .Params.doi }} · <a href="https://doi.org/{{ . }}" rel="noopener">doi:{{ . }}</a>{{ end }}
+              </p>
+              {{ with .Params.topics }}
+              <p class="pub-topics">{{ range . }}<span class="pill pill-topic">{{ . }}</span> {{ end }}</p>
+              {{ end }}
+              <p class="pub-links">
+                {{ with .Params.pdf }}<a class="pill" href="{{ . }}" rel="noopener">PDF</a>{{ end }}
+                {{ with .Params.code }}<a class="pill" href="{{ . }}" rel="noopener">Code</a>{{ end }}
+                {{ with .Params.preprint }}<a class="pill" href="{{ . }}" rel="noopener">Preprint</a>{{ end }}
+                {{ with .Params.slides }}<a class="pill" href="{{ . }}" rel="noopener">Slides</a>{{ end }}
+              </p>
+            </div>
+          </li>
+          {{ end }}
+        </ul>
+      </section>
       {{ end }}
-    </ul>
-    {{ end }}
+    </div>
+
+    <p class="pub-empty" id="pub-empty" hidden>No publications match the current filters.</p>
   </div>
 </section>
+
+<script>
+(function () {
+  var yearSel  = document.getElementById('filter-year');
+  var topicSel = document.getElementById('filter-topic');
+  var summary  = document.getElementById('filter-summary');
+  var empty    = document.getElementById('pub-empty');
+  var items    = document.querySelectorAll('#pub-groups .pub-item');
+  var groups   = document.querySelectorAll('#pub-groups .pub-year-group');
+
+  function applyFilter() {
+    var year  = yearSel.value;
+    var topic = topicSel.value;
+    var shown = 0;
+
+    items.forEach(function (li) {
+      var yMatch = !year  || li.dataset.year === year;
+      var tList  = (li.dataset.topics || '').split('|').filter(Boolean);
+      var tMatch = !topic || tList.indexOf(topic) !== -1;
+      var visible = yMatch && tMatch;
+      li.hidden = !visible;
+      if (visible) shown++;
+    });
+
+    // Hide year-group headers whose children are all filtered out
+    groups.forEach(function (g) {
+      var anyVisible = g.querySelectorAll('.pub-item:not([hidden])').length > 0;
+      g.hidden = !anyVisible;
+    });
+
+    summary.textContent = (year || topic) ? (shown + ' of ' + items.length + ' shown') : '';
+    empty.hidden = shown !== 0;
+  }
+
+  yearSel.addEventListener('change', applyFilter);
+  topicSel.addEventListener('change', applyFilter);
+})();
+</script>
 {{ end }}
