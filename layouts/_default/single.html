@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <p class="eyebrow">{{ humanize .Section }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ .Content }}
+  </div>
+</section>
+{{ end }}

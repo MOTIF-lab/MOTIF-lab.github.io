@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <p class="eyebrow">Project{{ with .Params.status }} · {{ humanize . }}{{ end }}</p>
+    <h1>{{ .Title }}</h1>
+    <p class="lede project-meta">
+      {{ with .Params.sponsor }}<strong>{{ . }}</strong>{{ end }}
+      {{ with .Params.role }} · {{ . }}{{ end }}
+      {{ with .Params.start }} · {{ . }}{{ end }}{{ with .Params.end }} – {{ . }}{{ end }}
+    </p>
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ .Content }}
+    {{ with .Params.team }}
+    <h2>Project team</h2>
+    <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+    {{ end }}
+    {{ with .Params.artifacts }}
+    <h2>Outputs &amp; releases</h2>
+    <ul>{{ range . }}<li>{{ . | safeHTML }}</li>{{ end }}</ul>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

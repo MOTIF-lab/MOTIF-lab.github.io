@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ .Content }}
+    <div class="course-list">
+      {{ range .Pages.ByWeight }}
+      <article class="course">
+        <p class="course-code">{{ .Params.code }}</p>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="course-meta">
+          {{ with .Params.level }}{{ . }}{{ end }}
+          {{ with .Params.semester }} · {{ . }}{{ end }}
+          {{ with .Params.credits }} · {{ . }} credits{{ end }}
+        </p>
+        <p>{{ .Description | default (.Summary | plainify | truncate 200) }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ .Content }}
+    {{ $pubs := .Pages }}
+    {{ $byYear := $pubs.GroupByParamDate "year" "2006" "desc" }}
+    {{ if not $byYear }}
+      {{ $byYear = $pubs.GroupByDate "2006" "desc" }}
+    {{ end }}
+    {{ range $byYear }}
+    <h2 class="year-heading">{{ .Key }}</h2>
+    <ul class="pub-list">
+      {{ range .Pages }}
+      <li>
+        <p class="pub-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+        <p class="pub-authors">{{ with .Params.authors }}{{ delimit . ", " }}{{ end }}</p>
+        <p class="pub-meta">
+          {{ with .Params.venue }}<em>{{ . }}</em>{{ end }}
+          {{ with .Params.year }} · {{ . }}{{ end }}
+          {{ with .Params.doi }} · <a href="https://doi.org/{{ . }}" rel="noopener">doi:{{ . }}</a>{{ end }}
+        </p>
+        <p class="pub-links">
+          {{ with .Params.pdf }}<a class="pill" href="{{ . }}" rel="noopener">PDF</a>{{ end }}
+          {{ with .Params.code }}<a class="pill" href="{{ . }}" rel="noopener">Code</a>{{ end }}
+          {{ with .Params.preprint }}<a class="pill" href="{{ . }}" rel="noopener">Preprint</a>{{ end }}
+          {{ with .Params.slides }}<a class="pill" href="{{ . }}" rel="noopener">Slides</a>{{ end }}
+        </p>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

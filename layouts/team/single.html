@@ -1,0 +1,37 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container person-header">
+    {{ if .Params.photo }}
+    <img class="person-photo large" src="{{ .Params.photo | relURL }}" alt="{{ .Title }}">
+    {{ else }}
+    <div class="person-photo large placeholder" aria-hidden="true">{{ substr .Title 0 1 }}</div>
+    {{ end }}
+    <div>
+      <p class="eyebrow">{{ .Params.role }}</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.affiliation }}<p class="lede">{{ . }}</p>{{ end }}
+      <ul class="person-links horizontal">
+        {{ with .Params.email }}<li><a href="mailto:{{ . }}">Email</a></li>{{ end }}
+        {{ with .Params.scholar }}<li><a href="{{ . }}" rel="noopener">Google Scholar</a></li>{{ end }}
+        {{ with .Params.orcid }}<li><a href="{{ . }}" rel="noopener">ORCID</a></li>{{ end }}
+        {{ with .Params.github }}<li><a href="{{ . }}" rel="noopener">GitHub</a></li>{{ end }}
+        {{ with .Params.linkedin }}<li><a href="{{ . }}" rel="noopener">LinkedIn</a></li>{{ end }}
+        {{ with .Params.website }}<li><a href="{{ . }}" rel="noopener">Website</a></li>{{ end }}
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ with .Params.interests }}
+    <h2>Research interests</h2>
+    <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+    {{ end }}
+    {{ with .Params.education }}
+    <h2>Education</h2>
+    <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+    {{ end }}
+    {{ .Content }}
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,56 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ .Content }}
+  </div>
+</section>
+
+{{ $groups := slice "PI" "Postdoc" "PhD Student" "MS Student" "Undergraduate" "Visitor" "Alumni" "Lab Cat" }}
+{{ $labels := dict
+  "PI" "Director"
+  "Postdoc" "Postdocs"
+  "PhD Student" "PhD Students"
+  "MS Student" "MS Students"
+  "Undergraduate" "Undergraduates"
+  "Visitor" "Visitors"
+  "Alumni" "Alumni"
+  "Lab Cat" "Lab Cat"
+}}
+{{ range $group := $groups }}
+  {{ $members := where $.Pages "Params.role" $group }}
+  {{ if $members }}
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">{{ index $labels $group }}</h2>
+      <div class="people-grid">
+        {{ range $members.ByWeight }}
+        <article class="person">
+          {{ if .Params.photo }}
+          <img class="person-photo" src="{{ .Params.photo | relURL }}" alt="{{ .Title }}">
+          {{ else }}
+          <div class="person-photo placeholder" aria-hidden="true">{{ substr .Title 0 1 }}</div>
+          {{ end }}
+          <h3 class="person-name"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p class="person-role">{{ .Params.role }}{{ with .Params.affiliation }} · {{ . }}{{ end }}</p>
+          {{ with .Params.interests }}<p class="person-interests">{{ delimit . " · " }}</p>{{ end }}
+          <ul class="person-links">
+            {{ with .Params.email }}<li><a href="mailto:{{ . }}">Email</a></li>{{ end }}
+            {{ with .Params.scholar }}<li><a href="{{ . }}" rel="noopener">Scholar</a></li>{{ end }}
+            {{ with .Params.github }}<li><a href="{{ . }}" rel="noopener">GitHub</a></li>{{ end }}
+            {{ with .Params.linkedin }}<li><a href="{{ . }}" rel="noopener">LinkedIn</a></li>{{ end }}
+            {{ with .Params.website }}<li><a href="{{ . }}" rel="noopener">Website</a></li>{{ end }}
+          </ul>
+        </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+{{ end }}
+{{ end }}

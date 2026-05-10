@@ -1,0 +1,85 @@
+baseURL = "https://www.motiflab.net/"
+languageCode = "en-us"
+title = "MOTIF Lab"
+# Layouts and assets live at the project root (no separate theme), so 'theme' is not set.
+
+# Live domain is motiflab.net (served via the CNAME file on the GitHub Pages repo).
+
+enableRobotsTXT = true
+enableEmoji = true
+enableGitInfo = false
+
+[params]
+  description = "Mobility Optimized by Traditional Ideas and Frontier technologies — a transportation engineering research lab at the University of South Florida."
+  acronymExpansion = "Mobility Optimized by Traditional Ideas and Frontier technologies"
+  university = "University of South Florida"
+  department = "Department of Civil and Environmental Engineering"
+  pi_name = "Hao Zhou"
+  pi_title = "Assistant Professor"
+  pi_email = "haozhou1@usf.edu"
+  address = "4202 E. Fowler Ave, Tampa, FL 33620"
+  # Hao's personal CV / academic site
+  pi_website = "https://sites.google.com/view/haozhou-cv"
+  scholar = "https://scholar.google.com/citations?user=A1EeOMQAAAAJ&hl=en"
+  orcid = ""             # TODO: confirm Hao's ORCID URL
+  github = "https://github.com/MOTIF-Lab"     # Lab GitHub organization
+  linkedin = "https://www.linkedin.com/company/motif-lab/"
+  twitter = ""           # Intentionally blank — old @ChaoweiX handle was not Hao's
+  youtube = "https://www.youtube.com/c/MOTIFLab"
+  copyrightYear = 2026
+  showRecruitingBanner = true
+  recruitingMessage = "We are recruiting motivated PhD and MS students. See <a href=\"/join/\">Join us</a>."
+
+[params.colors]
+  green = "#006747"
+  greenDark = "#003E2A"
+  greenMid = "#2E7D5C"
+  gold = "#B79F4D"
+  goldLight = "#CFC493"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Team"
+    url = "/team/"
+    weight = 2
+  [[menu.main]]
+    name = "Research"
+    url = "/research/"
+    weight = 3
+  [[menu.main]]
+    name = "Publications"
+    url = "/publications/"
+    weight = 4
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 5
+  [[menu.main]]
+    name = "Teaching"
+    url = "/teaching/"
+    weight = 6
+  [[menu.main]]
+    name = "Join"
+    url = "/join/"
+    weight = 7
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.tableOfContents]
+  endLevel = 3
+  ordered = false
+  startLevel = 2
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[taxonomies]
+  tag = "tags"
+  theme = "themes"
+  year = "years"

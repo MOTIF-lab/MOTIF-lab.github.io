@@ -1,0 +1,30 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-brand">MOTIF Lab</p>
+      <p class="footer-acronym">{{ .Site.Params.acronymExpansion }}</p>
+      <p class="footer-affil">{{ .Site.Params.department }}<br>{{ .Site.Params.university }}</p>
+    </div>
+    <div>
+      <p class="footer-heading">Contact</p>
+      <p>
+        {{ .Site.Params.pi_name }}, {{ .Site.Params.pi_title }}<br>
+        <a href="mailto:{{ .Site.Params.pi_email }}">{{ .Site.Params.pi_email }}</a><br>
+        {{ .Site.Params.address }}
+      </p>
+    </div>
+    <div>
+      <p class="footer-heading">Links</p>
+      <ul class="footer-links">
+        {{ with .Site.Params.scholar }}<li><a href="{{ . }}" rel="noopener">Google Scholar</a></li>{{ end }}
+        {{ with .Site.Params.orcid }}<li><a href="{{ . }}" rel="noopener">ORCID</a></li>{{ end }}
+        {{ with .Site.Params.github }}<li><a href="{{ . }}" rel="noopener">GitHub</a></li>{{ end }}
+        {{ with .Site.Params.linkedin }}<li><a href="{{ . }}" rel="noopener">LinkedIn</a></li>{{ end }}
+        <li><a href="https://www.usf.edu" rel="noopener">USF</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; {{ now.Year }} MOTIF Lab · {{ .Site.Params.university }}. Built with <a href="https://gohugo.io" rel="noopener">Hugo</a>.</p>
+  </div>
+</footer>

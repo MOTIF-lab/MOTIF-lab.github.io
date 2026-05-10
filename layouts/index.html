@@ -1,0 +1,71 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="eyebrow">{{ .Site.Params.university }} · {{ .Site.Params.department }}</p>
+    <h1 class="hero-title">MOTIF Lab</h1>
+    <p class="hero-acronym"><strong>M</strong>obility <strong>O</strong>ptimized by <strong>T</strong>raditional <strong>I</strong>deas and <strong>F</strong>rontier technologies</p>
+    <p class="hero-lede">{{ .Site.Params.description }}</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="{{ "research/" | relURL }}">Our research</a>
+      <a class="btn btn-ghost" href="{{ "join/" | relURL }}">Join the lab</a>
+    </div>
+  </div>
+</section>
+
+{{ if .Site.Params.showRecruitingBanner }}
+<section class="banner">
+  <div class="container">
+    <p>{{ .Site.Params.recruitingMessage | safeHTML }}</p>
+  </div>
+</section>
+{{ end }}
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Research themes</h2>
+    <div class="card-grid">
+      {{ range first 3 (where .Site.RegularPages "Section" "research") }}
+      <a class="card" href="{{ .RelPermalink }}">
+        <h3>{{ .Title }}</h3>
+        <p>{{ .Description | default (.Summary | plainify | truncate 160) }}</p>
+        <span class="card-link">Read more →</span>
+      </a>
+      {{ else }}
+      <p class="muted">Research themes will appear here once added under <code>content/research/</code>.</p>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container split">
+    <div>
+      <h2 class="section-title">Recent publications</h2>
+      <ul class="pub-list compact">
+        {{ range first 5 (where .Site.RegularPages "Section" "publications") }}
+        <li>
+          <a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>
+          <p class="pub-meta">{{ with .Params.authors }}{{ delimit . ", " }}{{ end }}{{ with .Params.venue }} · <em>{{ . }}</em>{{ end }}{{ with .Params.year }} · {{ . }}{{ end }}</p>
+        </li>
+        {{ else }}
+        <li class="muted">Publications will appear here once added under <code>content/publications/</code>.</li>
+        {{ end }}
+      </ul>
+      <p><a class="more-link" href="{{ "publications/" | relURL }}">All publications →</a></p>
+    </div>
+    <div>
+      <h2 class="section-title">News</h2>
+      <ul class="news-list">
+        {{ range first 5 (where .Site.RegularPages "Section" "news") }}
+        <li>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ else }}
+        <li class="muted">News posts will appear here once added under <code>content/news/</code>.</li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</section>
+{{ end }}

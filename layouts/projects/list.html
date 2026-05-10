@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ .Content }}
+    <div class="card-grid wide">
+      {{ range .Pages.ByWeight }}
+      <a class="card project-card" href="{{ .RelPermalink }}">
+        {{ with .Params.status }}<span class="pill {{ if eq . "active" }}pill-gold{{ end }}">{{ humanize . }}</span>{{ end }}
+        <h3>{{ .Title }}</h3>
+        <p class="project-meta">
+          {{ with .Params.sponsor }}<strong>{{ . }}</strong>{{ end }}
+          {{ with .Params.start }} · {{ . }}{{ end }}{{ with .Params.end }} – {{ . }}{{ end }}
+        </p>
+        <p>{{ .Description | default (.Summary | plainify | truncate 200) }}</p>
+        <span class="card-link">Read more →</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
