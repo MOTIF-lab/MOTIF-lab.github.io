@@ -1,10 +1,18 @@
 {{ define "main" }}
-<section class="hero">
-  <div class="container hero-inner">
-    <p class="eyebrow">{{ .Site.Params.university }} · {{ .Site.Params.department }}</p>
-    <h1 class="hero-title">MOTIF Lab</h1>
-    <p class="hero-acronym"><strong>M</strong>obility <strong>O</strong>ptimized by <strong>T</strong>raditional <strong>I</strong>deas and <strong>F</strong>rontier technologies</p>
-    <p class="hero-lede">{{ .Site.Params.description }}</p>
+<section class="hero-banner">
+  {{/* The banner image already contains the MOTIF Lab wordmark, tagline, and USF identity --
+       so we let it stand alone with no overlay text. The visually-hidden heading keeps the
+       page semantically and SEO-correct for screen readers and crawlers. */}}
+  <h1 class="visually-hidden">MOTIF Lab — Mobility Optimized by Traditional Ideas and Frontier technologies, University of South Florida</h1>
+  <img class="hero-banner-img"
+       src="{{ "img/homepage-banner.jpg" | relURL }}"
+       alt="MOTIF Lab — Mobility Optimized by Traditional Ideas and Frontier technologies. University of South Florida, Department of Civil and Environmental Engineering. Research areas: perception, vehicle signals, driver behavior, control and safety."
+       fetchpriority="high">
+</section>
+
+<section class="hero-cta-strip">
+  <div class="container hero-cta-inner">
+    <p class="hero-tagline">{{ .Site.Params.description }}</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="{{ "research/" | relURL }}">Our research</a>
       <a class="btn btn-ghost" href="{{ "join/" | relURL }}">Join the lab</a>
