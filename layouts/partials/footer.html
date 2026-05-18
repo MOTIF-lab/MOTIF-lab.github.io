@@ -4,8 +4,14 @@
       <img class="footer-logo"
            src="{{ "img/logo/USF-motif-lab-2c-white-text-rgb-v.png" | relURL }}"
            alt="USF MOTIF Lab">
-      <p class="footer-acronym">{{ .Site.Params.acronymExpansion }}</p>
-      <p class="footer-affil">{{ .Site.Params.department }}</p>
+      {{/* MOTIF Lab sits across two units within USF's College of Engineering:
+           the Dept. of Civil & Environmental Engineering and the Center for
+           Urban Transportation Research. USF itself is already in the lockup. */}}
+      <ul class="footer-affil">
+        <li>{{ .Site.Params.department }}</li>
+        <li>{{ .Site.Params.cutr }}{{ with .Site.Params.cutrAbbrev }} ({{ . }}){{ end }}</li>
+      </ul>
+      <p class="footer-affil-parent">{{ .Site.Params.college }}</p>
     </div>
     <div>
       <p class="footer-heading">Contact</p>

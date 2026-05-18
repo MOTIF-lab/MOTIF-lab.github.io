@@ -174,14 +174,20 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--usf-green-dark, #003E2A);
   line-height: 0; /* kill the inline-image baseline gap */
   border-bottom: 4px solid var(--usf-gold);
+  /* Center on ultra-wide displays; let it go edge-to-edge below the cap. */
+  text-align: center;
 }
 .hero-banner-img {
   display: block;
+  /* Always render at native aspect ratio — no object-fit crop. The previous
+     max-height: 520px + object-fit: cover was lopping the top and bottom off
+     the 2:1 banner on any viewport > ~1040px wide. */
   width: 100%;
   height: auto;
-  max-height: 520px;
-  object-fit: cover;
-  object-position: center;
+  /* Cap at the image's native pixel width so it never upscales (which would
+     also keep the banner from getting absurdly tall on 4K/ultra-wide displays). */
+  max-width: 1774px;
+  margin: 0 auto;
 }
 
 /* Compact CTA strip directly under the banner */
@@ -225,7 +231,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 @media (max-width: 760px) {
-  .hero-banner-img { max-height: 320px; }
+  /* Banner now scales naturally on mobile; no max-height needed. */
   .hero-cta-inner { justify-content: center; text-align: center; }
   .hero-tagline { font-size: 1rem; }
 }
@@ -864,8 +870,19 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 0 1rem;
 }
 @media (max-width: 760px) { .footer-logo { width: 140px; } }
-.footer-acronym { color: var(--usf-gold-light); font-size: .9rem; margin: 0 0 .75rem; max-width: 32ch; }
-.footer-affil { color: var(--usf-gold-light); margin: 0; }
+/* Two parallel home units (CEE + CUTR), shown as a tight list under the lockup. */
+ul.footer-affil { list-style: none; padding: 0; margin: 0 0 .35rem; color: var(--usf-gold-light); }
+ul.footer-affil li { margin: .1rem 0; }
+/* The shared parent unit (College of Engineering) — slightly muted to read as a header. */
+.footer-affil-parent {
+  color: var(--usf-gold-light);
+  margin: 0;
+  padding-top: .35rem;
+  border-top: 1px solid rgba(255,255,255,.12);
+  font-size: .85rem;
+  letter-spacing: .04em;
+  max-width: 22rem;
+}
 .footer-heading {
   text-transform: uppercase;
   letter-spacing: .12em;
