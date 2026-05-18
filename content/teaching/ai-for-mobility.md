@@ -1,6 +1,6 @@
 ---
 title: "AI for Mobility"
-code: "TTE 6XXX"
+code: "CGN 6933"
 weight: 10
 level: "Graduate"
 semester: "Tentative — Fall 2026 / Spring 2027"
