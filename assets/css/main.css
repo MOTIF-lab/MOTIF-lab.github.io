@@ -98,23 +98,25 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .brand {
   display: flex;
-  flex-direction: column;
-  line-height: 1.05;
+  align-items: center;
+  line-height: 1;
   color: var(--text-on-dark);
   text-decoration: none;
 }
-.brand:hover { color: var(--usf-gold-light); text-decoration: none; }
-.brand-mark {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: .03em;
+.brand:hover { opacity: .9; text-decoration: none; }
+.brand-logo {
+  display: block;
+  /* Official horizontal lockup. Min size per USF brand: ~110px wide; here we
+     size by height so it scales with the nav row, with width as a guard. */
+  height: 44px;
+  width: auto;
+  max-width: 280px;
+  /* Clearance — USF brand requires roughly one bull-body height of space.
+     The 1c-white-h PNG has its own padding, so a small visual margin is enough. */
+  margin: 4px 0;
 }
-.brand-sub {
-  font-size: .75rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--usf-gold-light);
+@media (max-width: 760px) {
+  .brand-logo { height: 36px; }
 }
 .site-nav ul {
   list-style: none;
@@ -853,8 +855,16 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 2rem;
 }
 @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
-.footer-brand { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; margin: 0; }
-.footer-acronym { color: var(--usf-gold-light); font-size: .9rem; margin: .15rem 0 .75rem; }
+.footer-brand-block { display: flex; flex-direction: column; align-items: flex-start; }
+/* Official vertical 2c-white-text lockup on dark green. Min size per USF brand: ~75px wide. */
+.footer-logo {
+  display: block;
+  width: 160px;
+  height: auto;
+  margin: 0 0 1rem;
+}
+@media (max-width: 760px) { .footer-logo { width: 140px; } }
+.footer-acronym { color: var(--usf-gold-light); font-size: .9rem; margin: 0 0 .75rem; max-width: 32ch; }
 .footer-affil { color: var(--usf-gold-light); margin: 0; }
 .footer-heading {
   text-transform: uppercase;

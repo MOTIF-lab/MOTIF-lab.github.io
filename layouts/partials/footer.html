@@ -1,9 +1,11 @@
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div>
-      <p class="footer-brand">MOTIF Lab</p>
+    <div class="footer-brand-block">
+      <img class="footer-logo"
+           src="{{ "img/logo/USF-motif-lab-2c-white-text-rgb-v.png" | relURL }}"
+           alt="USF MOTIF Lab">
       <p class="footer-acronym">{{ .Site.Params.acronymExpansion }}</p>
-      <p class="footer-affil">{{ .Site.Params.department }}<br>{{ .Site.Params.university }}</p>
+      <p class="footer-affil">{{ .Site.Params.department }}</p>
     </div>
     <div>
       <p class="footer-heading">Contact</p>
