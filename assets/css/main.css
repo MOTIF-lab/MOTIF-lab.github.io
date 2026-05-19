@@ -179,14 +179,15 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero-banner-img {
   display: block;
-  /* Always render at native aspect ratio — no object-fit crop. The previous
-     max-height: 520px + object-fit: cover was lopping the top and bottom off
-     the 2:1 banner on any viewport > ~1040px wide. */
+  /* Always render at native aspect ratio — no object-fit crop. A previous
+     max-height + object-fit: cover was lopping the top and bottom off the
+     banner on any viewport wider than the banner's natural fit. */
   width: 100%;
   height: auto;
-  /* Cap at the image's native pixel width so it never upscales (which would
-     also keep the banner from getting absurdly tall on 4K/ultra-wide displays). */
-  max-width: 1774px;
+  /* Cap at the image's native pixel width so it never upscales (which also
+     keeps the banner from ballooning vertically on 4K/ultra-wide displays).
+     Current banner: 2805 × 1109 (aspect 2.53:1). */
+  max-width: 2805px;
   margin: 0 auto;
 }
 
