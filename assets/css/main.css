@@ -182,11 +182,12 @@ img { max-width: 100%; height: auto; display: block; }
   /* Always render at native aspect ratio — no object-fit crop. */
   width: 100%;
   height: auto;
-  /* Cap the banner well below typical viewport widths so it doesn't dominate
-     the fold. The surrounding .hero-banner background (USF green-dark) shows
-     through on either side, forming a continuous green band that ties the
-     banner to the nav above. */
-  max-width: 1400px;
+  /* Cap below typical viewport widths so the banner doesn't dominate the fold.
+     The surrounding .hero-banner background (USF green-dark) fills the side
+     gutters, forming a continuous green band that ties down to the nav above.
+     Current banner is 2805 x 830 (aspect 3.38:1), so at this cap the banner
+     renders ~473px tall — substantial without pushing CTA content off-screen. */
+  max-width: 1600px;
   margin: 0 auto;
 }
 
