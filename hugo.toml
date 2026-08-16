@@ -66,9 +66,13 @@ enableGitInfo = false
     url = "/teaching/"
     weight = 6
   [[menu.main]]
+    name = "News"
+    url = "/news/"
+    weight = 7
+  [[menu.main]]
     name = "Join"
     url = "/join/"
-    weight = 7
+    weight = 8
 
 [markup.goldmark.renderer]
   unsafe = true

@@ -1,0 +1,34 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ .Content }}
+    <ul class="news-archive">
+      {{ range .Pages.ByDate.Reverse }}
+      <li class="news-entry">
+        <div class="news-entry-date">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          {{ with .Params.category }}<span class="pill pill-topic">{{ . }}</span>{{ end }}
+        </div>
+        <div class="news-entry-body">
+          <h2 class="news-entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <p>{{ .Description | default (.Summary | plainify | truncate 220) }}</p>
+          {{ with .Params.external }}
+          <p class="news-links">
+            {{ range . }}
+            <a class="pill" href="{{ .url }}" rel="noopener" target="_blank">{{ .outlet | default .label }} &#8599;</a>
+            {{ end }}
+          </p>
+          {{ end }}
+        </div>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}

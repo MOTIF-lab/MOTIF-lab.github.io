@@ -1,0 +1,28 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <p class="eyebrow">{{ .Params.category | default "News" }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ with .Params.external }}
+    <aside class="coverage-box">
+      <h2 class="coverage-title">In the news</h2>
+      <ul class="coverage-list">
+        {{ range . }}
+        <li>
+          <a href="{{ .url }}" rel="noopener" target="_blank">{{ .label }}</a>
+          {{ with .date }}<span class="coverage-date">{{ dateFormat "January 2, 2006" . }}</span>{{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </aside>
+    {{ end }}
+    {{ .Content }}
+    <p class="more-link-wrap"><a class="more-link" href="{{ "news/" | relURL }}">&larr; All news</a></p>
+  </div>
+</section>
+{{ end }}

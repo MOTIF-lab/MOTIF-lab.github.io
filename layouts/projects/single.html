@@ -3,11 +3,15 @@
   <div class="container">
     <p class="eyebrow">Project{{ with .Params.status }} · {{ humanize . }}{{ end }}</p>
     <h1>{{ .Title }}</h1>
-    <p class="lede project-meta">
-      {{ with .Params.sponsor }}<strong>{{ . }}</strong>{{ end }}
-      {{ with .Params.role }} · {{ . }}{{ end }}
-      {{ with .Params.start }} · {{ . }}{{ end }}{{ with .Params.end }} – {{ . }}{{ end }}
-    </p>
+    {{/* Build the meta line from non-empty parts so a blank sponsor/start doesn't leave a stray separator. */}}
+    {{ $parts := slice }}
+    {{ with .Params.sponsor }}{{ $parts = $parts | append (printf "<strong>%s</strong>" .) }}{{ end }}
+    {{ with .Params.role }}{{ $parts = $parts | append . }}{{ end }}
+    {{ $span := "" }}
+    {{ with .Params.start }}{{ $span = . }}{{ end }}
+    {{ with .Params.end }}{{ $span = printf "%s – %s" $span . }}{{ end }}
+    {{ with $span }}{{ $parts = $parts | append . }}{{ end }}
+    {{ with $parts }}<p class="lede project-meta">{{ delimit . " · " | safeHTML }}</p>{{ end }}
   </div>
 </section>
 <section class="section">
@@ -15,6 +19,10 @@
     {{ .Content }}
     {{ with .Params.team }}
     <h2>Project team</h2>
+    <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+    {{ end }}
+    {{ with .Params.partners }}
+    <h2>Partners</h2>
     <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
     {{ end }}
     {{ with .Params.artifacts }}
