@@ -14,6 +14,7 @@ Specific work includes: car-following calibration for production ACC and LKA sys
 
 ## Selected papers
 
+- **Zhou**, Yuan, Wang, Wen. [Scale-CDA: a scalable prototype to democratize AI-assisted cooperative driving automation (CDA) for production cars](https://arxiv.org/abs/2608.04235). *arXiv preprint*.
 - Wang, Alhuraish, Yuan, Wang, **Zhou**. [OpenLKA: an open dataset of lane keeping assist from market autonomous vehicles](https://arxiv.org/abs/2501.03287). *arXiv preprint*.
 - **Zhou**, A. Zhou, Ding, Laval, Peeta. [Empirical study on the acceleration/deceleration constraints under commercial adaptive cruise control](https://ieeexplore.ieee.org/document/9921922). *IEEE ITSC 2022*.
 - **Zhou**, A. Zhou, Laval, Liu, Peeta. [Incorporating driver relaxation into factory adaptive cruise control to reduce lane-change disruptions](https://journals.sagepub.com/doi/10.1177/03611981221085517). *Transportation Research Record*.
