@@ -6,7 +6,7 @@ authors:
   - "Abdulaziz Alhuraish"
   - "Yuhang Wang"
   - "Hao Zhou"
-venue: "arXiv preprint arXiv:2605.01485"
+venue: "2026 IEEE 29th International Conference on Intelligent Transportation Systems (ITSC)"
 pdf: "https://arxiv.org/abs/2605.01485"
 topics:
   - "Automated vehicles"

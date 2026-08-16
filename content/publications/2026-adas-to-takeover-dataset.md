@@ -7,7 +7,7 @@ authors:
   - "Yiyao Xu"
   - "Jingran Sun"
   - "Hao Zhou"
-venue: "arXiv preprint arXiv:2603.06986"
+venue: "2026 IEEE 29th International Conference on Intelligent Transportation Systems (ITSC)"
 pdf: "https://arxiv.org/abs/2603.06986"
 topics:
   - "Automated vehicles"
