@@ -45,6 +45,8 @@ Field testing is under way through **fall 2026**, deliberately timed to peak hur
 
 ## Connections
 
+The damage inspection and reporting pipeline runs on [**DoTPilot**](/projects/dotpilot/), the lab's open-source in-vehicle platform for transportation agency fleets — so the same installation that produces storm damage reports also serves the agency's daily operations, including work zone safety warnings and traffic incident management.
+
 This project sits in the lab's [AI for mobility](/research/ai-for-mobility/) thread and builds on the affordable-dashcam, open-source-software approach developed in the lab's [AI-CDA4All](/publications/2025-ai-cda4all/) work.
 
 <!-- TODO Hao: add a cover figure — e.g. a dashcam detection frame (pothole/flooding/downed tree bounding boxes) or the in-vehicle rig. Drop into /static/img/projects/ai-dashcam-hurricane/ and reference here. -->
