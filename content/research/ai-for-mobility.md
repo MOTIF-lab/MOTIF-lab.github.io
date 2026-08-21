@@ -12,6 +12,10 @@ Our emphasis is not on novelty in the model architecture alone but on closing th
 
 [**Scale-CDA**](/projects/scale-cda/) is an open-hardware / open-software toolchain that retrofits production cars for generative-AI-assisted cooperative driving automation using under US $1,000 of off-the-shelf parts. An edge-deployed multimodal LLM reads synchronized vision, CAN, and V2X streams and issues structured advisories to verified Openpilot planner hooks — end-to-end decision latency stayed below 60 ms in multi-vehicle road tests, with all inference kept on-board.
 
+## Open-source: DoTPilot
+
+[**DoTPilot**](/projects/dotpilot/) is the lab's open-source driving-assistance codebase — a fork of sunnypilot/openpilot with an LLM-based AI agent integrated directly into the driving pipeline, giving generative AI a defined, auditable interface into a safety-certified ADAS stack across the 300+ vehicle models the base project already supports.
+
 ## Selected papers
 
 - **Zhou**, Yuan, Wang, Wen. [Scale-CDA: a scalable prototype to democratize AI-assisted cooperative driving automation (CDA) for production cars](https://arxiv.org/abs/2608.04235). *arXiv preprint*.
