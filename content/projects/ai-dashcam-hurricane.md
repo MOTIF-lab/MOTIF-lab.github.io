@@ -16,6 +16,7 @@ partners:
 artifacts:
   - 'Media: <a href="https://www.usf.edu/news/2026/new-hurricane-recovery-technology-being-tested-on-florida-roads-during-peak-season.aspx" rel="noopener">USF News — How AI could speed hurricane recovery</a> (Aug 11, 2026)'
   - 'Media: <a href="https://www.fox13news.com/news/usf-researchers-test-ai-dashcam-track-hurricane-road-damage" rel="noopener">FOX 13 Tampa Bay — USF researchers test AI dashcam to track hurricane road damage</a> (Aug 14, 2026)'
+  - 'Media: <a href="https://www.mysuncoast.com/2026/08/21/usf-researchers-test-ai-powered-dashcam-sarasota-county/" rel="noopener">ABC7 Suncoast (WWSB) — USF researchers to test AI-powered dashcam in Sarasota County</a> (Aug 21, 2026)'
   - 'Code: open-source release planned — TODO Hao: link the repo under <a href="https://github.com/MOTIF-Lab" rel="noopener">github.com/MOTIF-Lab</a> when public'
 ---
 

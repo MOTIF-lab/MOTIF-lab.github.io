@@ -1,9 +1,9 @@
 ---
-title: "USF News and FOX 13 Tampa Bay cover the lab's AI dashcam for post-hurricane road assessment"
-date: 2026-08-14
+title: "USF News, FOX 13, and ABC7 Suncoast cover the lab's AI dashcam for post-hurricane road assessment"
+date: 2026-08-21
 draft: false
 category: "Media coverage"
-description: "USF News and FOX 13 Tampa Bay both reported on the lab's AI dashcam prototype, which automatically flags potholes, flooding, downed trees, and damaged signs so agencies can assess storm-damaged roads in hours instead of days."
+description: "Three Florida outlets reported on the lab's AI dashcam prototype, which automatically flags potholes, flooding, downed trees, and damaged signs so agencies can assess storm-damaged roads in hours instead of days — most recently ABC7 Suncoast, on the Sarasota County deployment."
 external:
   - label: "USF News — How AI could speed hurricane recovery"
     outlet: "USF News"
@@ -13,9 +13,13 @@ external:
     outlet: "FOX 13 Tampa Bay"
     date: 2026-08-14
     url: "https://www.fox13news.com/news/usf-researchers-test-ai-dashcam-track-hurricane-road-damage"
+  - label: "ABC7 Suncoast (WWSB) — USF researchers to test AI-powered dashcam in Sarasota County"
+    outlet: "ABC7 Suncoast"
+    date: 2026-08-21
+    url: "https://www.mysuncoast.com/2026/08/21/usf-researchers-test-ai-powered-dashcam-sarasota-county/"
 ---
 
-The lab's AI dashcam prototype for post-hurricane roadway damage assessment was covered twice in August 2026 — first by **USF News**, then by **FOX 13 Tampa Bay**, which visited the lab for an on-camera interview.
+The lab's AI dashcam prototype for post-hurricane roadway damage assessment was covered three times in August 2026 — first by **USF News**, then by **FOX 13 Tampa Bay**, which visited the lab for an on-camera interview, and then by **ABC7 Suncoast (WWSB)**, reporting from Sarasota County, where the system is being put to work with the county's transportation department.
 
 ## What the work is
 
@@ -26,6 +30,8 @@ The dashcam is one of three AI tools the lab is developing with Florida transpor
 ## Why we built it
 
 The work grew directly out of Hurricanes Helene and Milton. Talking with the Florida Department of Transportation and Sarasota County afterward made one constraint plain: the bottleneck in recovery is rarely knowing *what* to fix, it is having enough people to go look. Every hour spent driving roads to find damage is an hour before crews can be dispatched to repair it, and the assessment work itself puts staff on roads that are still hazardous.
+
+That is the case Hao Zhou made to ABC7: "Ideally we want to map the road damage maybe within hours … quickly send limited resources." Paula Wiggins, Sarasota County's interim transportation manager, told the station she sees the approach travelling beyond one county — "This will be groundbreaking technology … maybe this will be something we could see in other communities."
 
 Field testing continues through the fall — including, deliberately, during heavy rainfall — before we bring the system to state and county transportation agencies. The software will be released **open source** so other Florida counties can run it on their own municipal fleets.
 
