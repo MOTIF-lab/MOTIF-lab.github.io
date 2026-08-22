@@ -974,3 +974,143 @@ ul.footer-affil li { margin: .1rem 0; }
   font-size: .85rem;
 }
 .more-link-wrap { margin-top: 2.5rem; }
+
+/* ----- video card (news segments) -----------------------------------------
+   Used by the `videocard` shortcode. Works in two modes: a link-out card that
+   opens the outlet's own player in a new tab, and a click-to-load YouTube
+   facade. Both share the poster/play-badge presentation so a page mixing them
+   still reads as one set.
+   -------------------------------------------------------------------------- */
+.videocard {
+  margin: 2rem 0;
+}
+.videocard-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--usf-green-dark);
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+.videocard-frame:hover,
+.videocard-frame:focus-visible {
+  box-shadow: var(--shadow-md);
+  border-color: var(--usf-green-mid);
+}
+.videocard-frame:focus-visible {
+  outline: 3px solid var(--usf-gold);
+  outline-offset: 2px;
+}
+
+/* Beat `.prose figure img` (width:100%; height:auto; border) — the poster has
+   to fill the 16:9 frame, and the frame already carries the border. */
+.prose .videocard .videocard-poster,
+.videocard-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  object-fit: cover;
+  transition: transform .3s ease, opacity .18s ease;
+}
+.videocard-poster-fallback {
+  background:
+    radial-gradient(120% 120% at 78% 12%, rgba(207,196,147,.32), transparent 58%),
+    linear-gradient(135deg, var(--usf-green-dark) 0%, var(--usf-green) 55%, var(--usf-green-mid) 100%);
+}
+.videocard-frame:hover .videocard-poster {
+  transform: scale(1.03);
+  opacity: .88;
+}
+
+.videocard-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 78px;
+  height: 78px;
+  transform: translate(-50%, -50%);
+  transition: transform .18s ease;
+  pointer-events: none;
+}
+.videocard-play svg { width: 100%; height: 100%; display: block; }
+.vc-ring {
+  fill: rgba(0, 62, 42, .62);
+  stroke: #ffffff;
+  stroke-width: 3;
+  transition: fill .18s ease;
+}
+.vc-tri { fill: #ffffff; }
+.videocard-frame:hover .videocard-play,
+.videocard-frame:focus-visible .videocard-play {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.videocard-frame:hover .vc-ring,
+.videocard-frame:focus-visible .vc-ring {
+  fill: var(--usf-green);
+}
+
+.videocard-tag {
+  position: absolute;
+  top: .75rem;
+  left: .75rem;
+  padding: .3rem .6rem;
+  border-radius: 4px;
+  background: rgba(0, 62, 42, .86);
+  color: var(--text-on-dark);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.videocard-ext { font-weight: 400; }
+
+.videocard-caption {
+  margin-top: .7rem;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.videocard-title {
+  display: block;
+  font-weight: 600;
+  color: var(--text);
+}
+.videocard-meta {
+  display: block;
+  margin-top: .15rem;
+  font-size: .82rem;
+  color: var(--text-muted);
+}
+
+.videocard-iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 640px) {
+  .videocard-play { width: 60px; height: 60px; }
+  .videocard-tag { font-size: .66rem; top: .5rem; left: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .videocard-frame,
+  .videocard-poster,
+  .videocard-play,
+  .vc-ring { transition: none; }
+  .videocard-frame:hover .videocard-poster { transform: none; }
+  .videocard-frame:hover .videocard-play { transform: translate(-50%, -50%); }
+}

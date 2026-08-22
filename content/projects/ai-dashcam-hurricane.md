@@ -44,6 +44,12 @@ The dashcam is one of three AI tools the lab is building with Florida transporta
 
 Field testing is under way through **fall 2026**, deliberately timed to peak hurricane season and to heavy rainfall events that stress the detection models under the conditions that matter. After testing concludes, the lab will bring the system to state and county transportation agencies.
 
+## In the news
+
+{{< videocard url="https://www.mysuncoast.com/2026/08/21/usf-researchers-test-ai-powered-dashcam-sarasota-county/" outlet="ABC7 Suncoast" title="USF researchers to test AI-powered dashcam in Sarasota County" poster="/img/news/abc7-dashcam-segment.jpg" date="2026-08-21" credit="ABC7 Suncoast (WWSB)" caption="ABC7 Suncoast rides along with the dashcam rig in Sarasota County" >}}
+
+The project has also been covered by [USF News](https://www.usf.edu/news/2026/new-hurricane-recovery-technology-being-tested-on-florida-roads-during-peak-season.aspx) and [FOX 13 Tampa Bay](https://www.fox13news.com/news/usf-researchers-test-ai-dashcam-track-hurricane-road-damage) — see the [news post](/news/2026-08-14-ai-dashcam-media-coverage/) for the full roundup.
+
 ## Connections
 
 The damage inspection and reporting pipeline runs on [**DoTPilot**](/projects/dotpilot/), the lab's open-source in-vehicle platform for transportation agency fleets — so the same installation that produces storm damage reports also serves the agency's daily operations, including work zone safety warnings and traffic incident management.

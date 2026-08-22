@@ -1,0 +1,98 @@
+{{- /*
+  videocard — a poster-and-play-badge card for news video segments.
+
+  Two modes:
+    1. Link-out (default). Opens the outlet's own video page in a new tab.
+       Use when the outlet publishes no embeddable player (Gray Media /
+       ABC7 Suncoast, for example).
+         {{< videocard url="https://…" outlet="ABC7 Suncoast" title="…" poster="/img/…" credit="ABC7 Suncoast (WWSB)" >}}
+
+    2. Inline YouTube. Add youtube="VIDEO_ID" and the card becomes a
+       click-to-load facade: nothing is requested from YouTube until the
+       viewer clicks, then the player replaces the poster in place.
+         {{< videocard youtube="abc123" outlet="…" title="…" poster="/img/…" >}}
+
+  Upgrading mode 1 to mode 2 later is a one-attribute change — no other
+  edits needed.
+
+  poster is optional. If the file is missing from /static, the card falls
+  back to a green gradient panel so the page never renders a broken image.
+*/ -}}
+
+{{- $url     := .Get "url" -}}
+{{- $yt      := .Get "youtube" -}}
+{{- $outlet  := .Get "outlet" -}}
+{{- $title   := .Get "title" -}}
+{{- $poster  := .Get "poster" -}}
+{{- $date    := .Get "date" -}}
+{{- $credit  := .Get "credit" | default $outlet -}}
+{{- $caption := .Get "caption" -}}
+
+{{- $hasPoster := false -}}
+{{- with $poster -}}
+  {{- if fileExists (printf "static%s" .) -}}{{- $hasPoster = true -}}{{- end -}}
+{{- end -}}
+
+{{- $label := printf "Watch: %s" $title -}}
+
+<figure class="videocard{{ if $yt }} videocard-embed{{ end }}"{{ if $yt }} data-yt="{{ $yt }}"{{ end }}>
+  {{- if $yt -}}
+  <button type="button" class="videocard-frame videocard-trigger" aria-label="{{ $label }} — play video">
+  {{- else -}}
+  <a class="videocard-frame" href="{{ $url }}" rel="noopener" target="_blank" aria-label="{{ $label }} — opens on {{ $outlet }}">
+  {{- end -}}
+
+    {{- if $hasPoster -}}
+    <img class="videocard-poster" src="{{ $poster | relURL }}" alt="{{ $title }}" loading="lazy">
+    {{- else -}}
+    <span class="videocard-poster videocard-poster-fallback" aria-hidden="true"></span>
+    {{- end -}}
+
+    <span class="videocard-play" aria-hidden="true">
+      <svg viewBox="0 0 72 72" focusable="false" role="presentation">
+        <circle cx="36" cy="36" r="34" class="vc-ring"/>
+        <path d="M29 24.5 48 36 29 47.5z" class="vc-tri"/>
+      </svg>
+    </span>
+
+    <span class="videocard-tag">{{ $outlet }}{{ if not $yt }} <span class="videocard-ext" aria-hidden="true">&#8599;</span>{{ end }}</span>
+
+  {{- if $yt -}}
+  </button>
+  {{- else -}}
+  </a>
+  {{- end -}}
+
+  <figcaption class="videocard-caption">
+    <span class="videocard-title">{{ with $caption }}{{ . }}{{ else }}{{ $title }}{{ end }}</span>
+    <span class="videocard-meta">
+      {{- with $date }}<time datetime="{{ . }}">{{ dateFormat "January 2, 2006" . }}</time> · {{ end -}}
+      {{ if $yt }}Plays here{{ else }}Segment plays on {{ $outlet }}{{ end }}{{ with $credit }} · Video courtesy {{ . }}{{ end }}
+    </span>
+  </figcaption>
+</figure>
+
+{{- if $yt }}
+<script>
+/* Click-to-load YouTube facade. No third-party request until the viewer asks
+   for one. Registered once per page regardless of how many cards it holds. */
+(function () {
+  if (window.__motifVideoCardInit) return;
+  window.__motifVideoCardInit = true;
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.videocard-trigger');
+    if (!btn) return;
+    var fig = btn.closest('.videocard-embed');
+    var id = fig && fig.dataset.yt;
+    if (!id) return;
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    f.title = btn.getAttribute('aria-label') || 'Video';
+    f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+    f.allowFullscreen = true;
+    f.className = 'videocard-iframe';
+    btn.replaceWith(f);
+  });
+})();
+</script>
+{{- end -}}

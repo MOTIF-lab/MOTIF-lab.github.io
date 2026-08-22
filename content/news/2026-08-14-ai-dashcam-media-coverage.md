@@ -21,6 +21,8 @@ external:
 
 The lab's AI dashcam prototype for post-hurricane roadway damage assessment was covered three times in August 2026 — first by **USF News**, then by **FOX 13 Tampa Bay**, which visited the lab for an on-camera interview, and then by **ABC7 Suncoast (WWSB)**, reporting from Sarasota County, where the system is being put to work with the county's transportation department.
 
+{{< videocard url="https://www.mysuncoast.com/2026/08/21/usf-researchers-test-ai-powered-dashcam-sarasota-county/" outlet="ABC7 Suncoast" title="USF researchers to test AI-powered dashcam in Sarasota County" poster="/img/news/abc7-dashcam-segment.jpg" date="2026-08-21" credit="ABC7 Suncoast (WWSB)" caption="ABC7 Suncoast rides along with the dashcam rig in Sarasota County" >}}
+
 ## What the work is
 
 The prototype rides along in an ordinary vehicle and automatically identifies **potholes, flooding, fallen trees, and damaged signage** as the vehicle drives, turning a windshield camera into a continuously working inspection tool that writes its own reports and builds a searchable visual record — no manual data entry. In testing it has cut a roadway damage sweep that would take an inspection crew roughly **three days down to six to eight hours**, and it runs on any vehicle from model year 2015 or newer, so an agency can deploy it across an existing fleet rather than buying specialized equipment.
