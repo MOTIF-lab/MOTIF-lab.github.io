@@ -15,7 +15,8 @@ team:
   - "Shuyi Wang"
 artifacts:
   - 'Paper: Wang, Alhuraish, Yuan, Wang, Zhou. <em>OpenLKA: an open dataset of lane keeping assist from market autonomous vehicles</em>. <a href="https://arxiv.org/abs/2501.03287" rel="noopener">arXiv:2501.03287</a>'
-  - 'Lab GitHub: <a href="https://github.com/MOTIF-Lab" rel="noopener">github.com/MOTIF-Lab</a> (TODO: link directly to OpenLKA repo when ready)'
+  - 'Project page: <a href="https://wangyuhang-cmd.github.io/openlka/" rel="noopener">wangyuhang-cmd.github.io/openlka</a>'
+  - 'Code: <a href="https://github.com/OpenLKA/OpenLKA" rel="noopener">github.com/OpenLKA/OpenLKA</a>'
 ---
 
 ## What it is

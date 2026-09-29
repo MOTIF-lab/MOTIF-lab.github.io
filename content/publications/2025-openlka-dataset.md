@@ -14,3 +14,5 @@ thumb: "/img/publications/OpenLKA.png"
 topics:
   - "Automated vehicles"
 ---
+
+Project page: [wangyuhang-cmd.github.io/openlka](https://wangyuhang-cmd.github.io/openlka/) · [Project entry](/projects/openlka/)
