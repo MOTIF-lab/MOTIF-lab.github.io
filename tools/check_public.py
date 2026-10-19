@@ -13,7 +13,7 @@ def sha(p):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("public"); ap.add_argument("--base", required=True); ap.add_argument("--allow-missing", nargs="*", default=[])
-    ap.add_argument("--personal-ok", nargs="*", default=["team/yuhang-wang/index.html"]); ap.add_argument("--strict-personal", action="store_true")
+    ap.add_argument("--personal-ok", nargs="*", default=["team/yuhang-wang/index.html", "team/index.html"]); ap.add_argument("--strict-personal", action="store_true")
     a = ap.parse_args(); pub = os.path.abspath(a.public); base = a.base.rstrip("/") + "/"; host = urllib.parse.urlparse(base).netloc
     errs, warns, pages, showcase = [], [], 0, 0
     for root, _, files in os.walk(pub):
