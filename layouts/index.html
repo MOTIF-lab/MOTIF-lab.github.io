@@ -1,39 +1,24 @@
 {{ define "main" }}
 {{- $N := site.Data.numbers.numbers }}{{ $ds := site.Data.datasets -}}
 {{- $news := first 3 (where site.RegularPages "Section" "news") -}}
-{{- $sig := resources.Get "data/hero-signals.json" -}}
-<section class="hero" id="hero">
-  {{- with $sig }}<canvas class="hero-canvas" data-hero-canvas data-src="{{ (. | fingerprint).RelPermalink }}" aria-hidden="true"></canvas>
-  {{- $d := . | transform.Unmarshal }}{{ $c := index $d.clips 0 }}{{ $sp := $c.series.speed }}{{ $st := $c.series.steer }}{{ $n := len $sp }}
-  <svg class="hero-static" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
-    <polyline fill="none" stroke="rgba(207,196,147,.55)" stroke-width="2" points="{{ range $i, $v := $sp }}{{ if $v }}{{ printf "%.0f,%.0f " (mul (div (float $i) (float $n)) 1200.0) (sub 270.0 (mul (float $v) 6.0)) }}{{ end }}{{ end }}"/>
-    <polyline fill="none" stroke="rgba(159,212,184,.45)" stroke-width="1.5" points="{{ range $i, $v := $st }}{{ if $v }}{{ printf "%.0f,%.0f " (mul (div (float $i) (float $n)) 1200.0) (sub 120.0 (mul (float $v) 2.0)) }}{{ end }}{{ end }}"/>
-  </svg>{{ end }}
-  <div class="container hero-grid">
-    <div class="hero-text">
-      <p class="eyebrow eyebrow--light">{{ .Site.Params.university }} · Civil &amp; Environmental Engineering · {{ .Site.Params.cutrAbbrev }}</p>
-      <h1 class="hero-title">MOTIF Lab</h1>
-      <p class="hero-expansion">{{ .Site.Params.acronymExpansion }}</p>
-      <p class="hero-tagline">Production vehicles, real drivers, open data: we measure how driver assistance, electric vehicles and AI actually behave in traffic — and build what transportation agencies can deploy.</p>
-      <div class="hero-cta">
-        <a class="btn btn-gold" href="{{ "datasets/" | relURL }}">Explore the datasets</a>
-        <a class="btn btn-outline-light" href="{{ "join/" | relURL }}">Join the lab</a>
-      </div>
+<section class="hero-banner">
+  {{/* The banner image already contains the MOTIF Lab wordmark, tagline, and USF identity --
+       so we let it stand alone with no overlay text. The visually-hidden heading keeps the
+       page semantically and SEO-correct for screen readers and crawlers. */}}
+  <h1 class="visually-hidden">MOTIF Lab — Mobility Optimized by Traditional Ideas and Frontier technologies, University of South Florida</h1>
+  <img class="hero-banner-img"
+       src="{{ "img/homepage-banner.jpg" | relURL }}"
+       alt="MOTIF Lab — Mobility Optimized by Traditional Ideas and Frontier technologies. University of South Florida, Department of Civil and Environmental Engineering. Research areas: perception, vehicle signals, driver behavior, control and safety."
+       fetchpriority="high">
+</section>
+
+<section class="hero-cta-strip">
+  <div class="container hero-cta-inner">
+    <p class="hero-tagline">{{ .Site.Params.description }}</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="{{ "research/" | relURL }}">Our research</a>
+      <a class="btn btn-ghost" href="{{ "join/" | relURL }}">Join the lab</a>
     </div>
-    <aside class="hero-latest" aria-roledescription="carousel" aria-label="Latest from the lab">
-      <p class="hero-latest__head"><span>Latest</span><a href="{{ "news/" | relURL }}">All news →</a></p>
-      <ul class="latest-list" data-rotate="6000">
-        {{- range $news }}
-        <li class="latest-item">{{ partial "news-pill.html" . }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "news-date.html" . }}</time><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-        {{- end }}
-      </ul>
-      <div class="latest-ctl" hidden>
-        <button type="button" class="latest-btn" data-prev aria-label="Previous">‹</button>
-        <ol class="latest-dots">{{ range $i, $p := $news }}<li><button type="button" data-go="{{ $i }}" aria-label="Show item {{ add $i 1 }}"{{ if not $i }} aria-current="true"{{ end }}></button></li>{{ end }}</ol>
-        <button type="button" class="latest-btn" data-next aria-label="Next">›</button>
-        <span class="latest-bar" aria-hidden="true"></span>
-      </div>
-    </aside>
   </div>
 </section>
 
