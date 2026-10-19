@@ -1383,3 +1383,9 @@ html.reduced .reveal { opacity: 1; transform: none; transition: none; }
 .project-card--thumb:hover .project-thumb { transform: scale(1.03); }
 .pub-badges { margin: -.25rem 0 .75rem; }
 .pub-badges .venue-badge { margin-left: 0; }
+
+/* ----- compact earlier-news list under the news cards (home) ----- */
+.news-list--home { margin-top: 1.25rem; border-top: 1px solid var(--border); padding-top: .25rem; }
+.news-list--home li { grid-template-columns: 6.5rem 1fr; }
+.news-list--home .pill { margin-left: .35rem; font-size: .72rem; padding: .05rem .45rem; vertical-align: middle; }
+.news-list--home a { color: var(--usf-green-dark); font-weight: 500; }

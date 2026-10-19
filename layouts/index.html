@@ -92,6 +92,14 @@
       </article>
       {{- end }}
     </div>
+    {{- $more := after 3 (first 10 (where site.RegularPages "Section" "news")) }}
+    {{- with $more }}
+    <ul class="news-list news-list--home" aria-label="Earlier news">
+      {{- range . }}
+      <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "news-date.html" . }}</time><span><a href="{{ .RelPermalink }}">{{ .Title }}</a> {{ partial "news-pill.html" . }}</span></li>
+      {{- end }}
+    </ul>
+    {{- end }}
   </div>
 </section>
 
