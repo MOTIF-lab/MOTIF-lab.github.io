@@ -4,7 +4,7 @@ role: "PI"
 weight: 1
 affiliation: "Assistant Professor, USF Civil and Environmental Engineering"
 email: "haozhou1@usf.edu"
-photo: "/img/team/hao-zhou.jpg"
+photo: "img/team/hao-zhou.jpg"
 website: "https://sites.google.com/view/haozhou-cv"
 scholar: "https://scholar.google.com/citations?user=A1EeOMQAAAAJ&hl=en"
 alphaxiv: "https://www.alphaxiv.org/@hao-zhou-5"

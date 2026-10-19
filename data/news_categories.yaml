@@ -1,6 +1,6 @@
 # News categories → pill styles (all pairs ≥ 4.5:1; gold rule: never white on gold)
 - {label: "Accepted paper", slug: accepted-paper, class: pill-cat-accepted}
-- {label: "Preprint", slug: preprint, class: pill-cat-preprint}
+- {label: "Preprint", slug: preprint, class: pill-cat-preprint, aliases: [publication]}
 - {label: "Award", slug: award, class: pill-cat-award}
-- {label: "Media", slug: media, class: pill-cat-media}
+- {label: "Media", slug: media, class: pill-cat-media, aliases: [media-coverage]}
 - {label: "Milestone", slug: milestone, class: pill-cat-milestone}

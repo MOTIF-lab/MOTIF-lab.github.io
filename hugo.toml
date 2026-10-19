@@ -30,6 +30,7 @@ enableGitInfo = false
   linkedin = "https://www.linkedin.com/company/motif-lab/"
   twitter = ""           # Intentionally blank — old @ChaoweiX handle was not Hao's
   youtube = "https://www.youtube.com/c/MOTIFLab"
+  huggingface = "https://huggingface.co/HenryYHW"   # datasets & models are published under this account
   copyrightYear = 2026
   showRecruitingBanner = true
   recruitingMessage = "We are recruiting motivated PhD and MS students. See <a href=\"/join/\">Join us</a>."

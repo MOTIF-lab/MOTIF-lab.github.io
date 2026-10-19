@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="page-header"><div class="container"><p class="eyebrow">404</p><h1>Page not found</h1><p class="lede">The page you asked for is not here. It may have moved when the site was reorganised.</p></div></section>
+<section class="section"><div class="container prose">
+  <p>Try one of these:</p>
+  <ul>
+    <li><a href="{{ "/" | relURL }}">Home</a></li>
+    <li><a href="{{ "datasets/" | relURL }}">Datasets &amp; Benchmarks</a></li>
+    <li><a href="{{ "projects/" | relURL }}">Projects</a></li>
+    <li><a href="{{ "publications/" | relURL }}">Publications</a></li>
+    <li><a href="{{ "news/" | relURL }}">News</a></li>
+  </ul>
+</div></section>
+{{ end }}

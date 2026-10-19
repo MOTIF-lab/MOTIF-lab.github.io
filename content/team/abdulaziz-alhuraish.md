@@ -4,7 +4,7 @@ role: "PhD Student"
 weight: 12
 affiliation: "USF Civil and Environmental Engineering"
 email: ""           # TODO add USF email
-photo: "/img/team/abdulaziz-alhuraish.jpg"
+photo: "img/team/abdulaziz-alhuraish.jpg"
 website: "https://aziztam.github.io/"
 scholar: ""
 github: ""

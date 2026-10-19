@@ -1,22 +1,39 @@
 {{ define "main" }}
-<section class="hero-banner">
-  {{/* The banner image already contains the MOTIF Lab wordmark, tagline, and USF identity --
-       so we let it stand alone with no overlay text. The visually-hidden heading keeps the
-       page semantically and SEO-correct for screen readers and crawlers. */}}
-  <h1 class="visually-hidden">MOTIF Lab — Mobility Optimized by Traditional Ideas and Frontier technologies, University of South Florida</h1>
-  <img class="hero-banner-img"
-       src="{{ "img/homepage-banner.png" | relURL }}"
-       alt="MOTIF Lab — Mobility Optimized by Traditional Ideas and Frontier technologies. University of South Florida, Department of Civil and Environmental Engineering. Research areas: perception, vehicle signals, driver behavior, control and safety."
-       fetchpriority="high">
-</section>
-
-<section class="hero-cta-strip">
-  <div class="container hero-cta-inner">
-    <p class="hero-tagline">{{ .Site.Params.description }}</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="{{ "research/" | relURL }}">Our research</a>
-      <a class="btn btn-ghost" href="{{ "join/" | relURL }}">Join the lab</a>
+{{- $N := site.Data.numbers.numbers }}{{ $ds := site.Data.datasets -}}
+{{- $news := first 3 (where site.RegularPages "Section" "news") -}}
+{{- $sig := resources.Get "data/hero-signals.json" -}}
+<section class="hero" id="hero">
+  {{- with $sig }}<canvas class="hero-canvas" data-hero-canvas data-src="{{ (. | fingerprint).RelPermalink }}" aria-hidden="true"></canvas>
+  {{- $d := . | transform.Unmarshal }}{{ $c := index $d.clips 0 }}{{ $sp := $c.series.speed }}{{ $st := $c.series.steer }}{{ $n := len $sp }}
+  <svg class="hero-static" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+    <polyline fill="none" stroke="rgba(207,196,147,.55)" stroke-width="2" points="{{ range $i, $v := $sp }}{{ if $v }}{{ printf "%.0f,%.0f " (mul (div (float $i) (float $n)) 1200.0) (sub 270.0 (mul (float $v) 6.0)) }}{{ end }}{{ end }}"/>
+    <polyline fill="none" stroke="rgba(159,212,184,.45)" stroke-width="1.5" points="{{ range $i, $v := $st }}{{ if $v }}{{ printf "%.0f,%.0f " (mul (div (float $i) (float $n)) 1200.0) (sub 120.0 (mul (float $v) 2.0)) }}{{ end }}{{ end }}"/>
+  </svg>{{ end }}
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow eyebrow--light">{{ .Site.Params.university }} · Civil &amp; Environmental Engineering · {{ .Site.Params.cutrAbbrev }}</p>
+      <h1 class="hero-title">MOTIF Lab</h1>
+      <p class="hero-expansion">{{ .Site.Params.acronymExpansion }}</p>
+      <p class="hero-tagline">Production vehicles, real drivers, open data: we measure how driver assistance, electric vehicles and AI actually behave in traffic — and build what transportation agencies can deploy.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="{{ "datasets/" | relURL }}">Explore the datasets</a>
+        <a class="btn btn-outline-light" href="{{ "join/" | relURL }}">Join the lab</a>
+      </div>
     </div>
+    <aside class="hero-latest" aria-roledescription="carousel" aria-label="Latest from the lab">
+      <p class="hero-latest__head"><span>Latest</span><a href="{{ "news/" | relURL }}">All news →</a></p>
+      <ul class="latest-list" data-rotate="6000">
+        {{- range $news }}
+        <li class="latest-item">{{ partial "news-pill.html" . }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "news-date.html" . }}</time><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{- end }}
+      </ul>
+      <div class="latest-ctl" hidden>
+        <button type="button" class="latest-btn" data-prev aria-label="Previous">‹</button>
+        <ol class="latest-dots">{{ range $i, $p := $news }}<li><button type="button" data-go="{{ $i }}" aria-label="Show item {{ add $i 1 }}"{{ if not $i }} aria-current="true"{{ end }}></button></li>{{ end }}</ol>
+        <button type="button" class="latest-btn" data-next aria-label="Next">›</button>
+        <span class="latest-bar" aria-hidden="true"></span>
+      </div>
+    </aside>
   </div>
 </section>
 
@@ -28,18 +45,76 @@
 </section>
 {{ end }}
 
+<section class="section strengths" data-countup>
+  <div class="container">
+    <h2 class="section-title">What sets MOTIF apart</h2>
+    <ul class="str-grid">
+      <li class="str-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/><path d="M5 13h14"/></svg>
+        <p class="str-num">{{ partial "num.html" (dict "k" "adasto.v2_models" "N" $N) }}<small>vehicle models · {{ partial "num.html" (dict "k" "adasto.brands" "N" $N) }} automakers in one release</small></p>
+        <h3>Production vehicles, not a test rig</h3>
+        <p>We record what cars people actually drive — stock lane keeping, cruise control and the moments drivers take back control — across the market, not on a single instrumented platform.</p>
+      </li>
+      <li class="str-card reveal" style="--i:1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+        <p class="str-num">{{ partial "num.html" (dict "k" "family.datasets" "N" $N) }}<small>open datasets &amp; benchmarks · {{ partial "num.html" (dict "k" "family.hf_repos" "N" $N) }} Hugging Face repos</small></p>
+        <h3>Open data at scale</h3>
+        <p>{{ partial "num.html" (dict "k" "openlka.hours_release" "N" $N "unit" true) }} of production lane-keeping driving in OpenLKA alone; every release ships with its license, access tier and a verbatim source for every number.</p>
+      </li>
+      <li class="str-card reveal" style="--i:2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.6.3 4.5 2.3 4.5 5.8"/></svg>
+        <p class="str-num">{{ partial "num.html" (dict "k" "drivedna.drivers" "N" $N) }}<small>pseudonymous drivers · {{ partial "num.html" (dict "k" "drivedna.drives" "N" $N) }} drives in DriveDNA</small></p>
+        <h3>Real drivers on their own roads</h3>
+        <p>Naturalistic recordings from drivers' own cars — takeovers, driving style, whole-body motion — released with pseudonyms, blurring and skeleton-only cabin data.</p>
+      </li>
+      <li class="str-card reveal" style="--i:3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+        <p class="str-num">{{ partial "num.html" (dict "k" "tridrive.latency_p95" "N" $N "unit" true) }}<small>p95 latency on a comma four · warnings at {{ partial "num.html" (dict "k" "tridrive.probe_hz" "N" $N "unit" true) }}</small></p>
+        <h3>From CAN bus to cockpit, in real time</h3>
+        <p>Decoded, not guessed: verified CAN decoders, and models that run in the car — the same stack behind our open-source agency platform work with Florida DOT and Sarasota County.</p>
+      </li>
+    </ul>
+    <ul class="venue-wall" aria-label="Recent venues">
+      {{- range site.Data.venues }}<li class="venue{{ if eq .kind "award" }} venue--award{{ end }}" title="{{ .note }}">{{ .label }}</li>{{ end }}
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt news-strip">
+  <div class="container">
+    <div class="row-head"><h2 class="section-title">Latest news</h2><a class="more-link" href="{{ "news/" | relURL }}">All news →</a></div>
+    <div class="news-cards">
+      {{- range $i, $p := $news }}
+      <article class="news-card reveal" style="--i:{{ $i }}">
+        <p class="news-card__meta">{{ partial "news-pill.html" $p }}<time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ partial "news-date.html" $p }}</time></p>
+        <h3><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+        <p>{{ with $p.Description }}{{ . }}{{ else }}{{ $p.Summary | plainify | truncate 160 }}{{ end }}</p>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<section class="section ds-band home-ds">
+  <div class="container">
+    <div class="row-head"><h2 class="section-title section-title--light">Datasets &amp; benchmarks</h2><a class="more-link more-link--light" href="{{ "datasets/" | relURL }}">Open the hub →</a></div>
+    <p class="ds-intro">Six releases from one recording method — production cars, real drivers, decoded signals — each with an interactive page, access tier and citation.</p>
+    <div class="ds-grid">
+      {{- range where $ds "kind" "ne" "model" }}{{ partial "dataset-card.html" (dict "ds" . "N" $N "compact" true) }}{{ end }}
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <h2 class="section-title">Research themes</h2>
     <div class="card-grid">
       {{ range first 3 (where .Site.RegularPages "Section" "research") }}
-      <a class="card" href="{{ .RelPermalink }}">
+      <a class="card reveal" href="{{ .RelPermalink }}">
         <h3>{{ .Title }}</h3>
-        <p>{{ .Description | default (.Summary | plainify | truncate 160) }}</p>
+        <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}</p>
         <span class="card-link">Read more →</span>
       </a>
-      {{ else }}
-      <p class="muted">Research themes will appear here once added under <code>content/research/</code>.</p>
       {{ end }}
     </div>
   </div>
@@ -50,38 +125,21 @@
     <h2 class="section-title">Life at MOTIF</h2>
     <p class="gallery-intro">USF Tampa, the city we drive every day, and the experiments that put new vehicle technology through its paces. If this looks like a place you'd like to be, <a href="{{ "join/" | relURL }}">come join us</a>.</p>
     <div class="gallery-mosaic">
-      <figure class="g-hero">
-        <img src="{{ "img/gallery/usf-stadium.jpg" | relURL }}" alt="Aerial rendering of the new on-campus football stadium at USF Tampa" loading="lazy">
-        <figcaption><span class="g-tag">USF Tampa</span><span class="g-cap">Our home campus</span></figcaption>
+      {{- $tiles := slice
+        (dict "src" "img/gallery/usf-stadium.jpg" "alt" "Aerial rendering of the new on-campus football stadium at USF Tampa" "tag" "USF Tampa" "cap" "Our home campus" "cls" "g-hero" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 100vw, 740px")
+        (dict "src" "img/gallery/usf-gate-morning.jpg" "alt" "USF Tampa campus entrance in morning light" "tag" "USF Tampa" "cap" "Morning at the gate" "cls" "g-tall" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/students.jpg" "alt" "MOTIF lab student researchers" "tag" "The lab" "cap" "MOTIF student researchers" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/motif-rav4-solar.jpg" "alt" "MOTIF lab Toyota RAV4 parked under a USF solar canopy with students" "tag" "The lab" "cap" "Lab vehicle, USF solar canopy" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/usf-bulls.jpg" "alt" "USF Bulls statue" "tag" "USF Tampa" "cap" "Go Bulls" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/ev-fleet-airport.jpg" "alt" "Ford Mustang Mach-E and Kia EV6 electric vehicles at Tampa International Airport" "tag" "Experiments" "cap" "EV fleet for instrumented studies" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/tampa-road-test.jpg" "alt" "On-road testing in the Tampa Bay area" "tag" "Experiments" "cap" "On-road testing in Tampa" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/vehicle-instrumentation.jpg" "alt" "In-vehicle data collection rig with NVIDIA Jetson, portable monitor, keyboard and mouse set up in a MOTIF lab vehicle" "tag" "Experiments" "cap" "Vehicle instrumentation" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px") -}}
+      {{- range $tiles }}
+      <figure{{ with .cls }} class="{{ . }}"{{ end }}>
+        {{ partial "img.html" (dict "src" .src "alt" .alt "sizes" .sizes "widths" (slice 480 960 1440) "q" 78) }}
+        <figcaption><span class="g-tag">{{ .tag }}</span><span class="g-cap">{{ .cap }}</span></figcaption>
       </figure>
-      <figure class="g-tall">
-        <img src="{{ "img/gallery/usf-gate-morning.jpg" | relURL }}" alt="USF Tampa campus entrance in morning light" loading="lazy">
-        <figcaption><span class="g-tag">USF Tampa</span><span class="g-cap">Morning at the gate</span></figcaption>
-      </figure>
-      <figure>
-        <img src="{{ "img/gallery/students.jpg" | relURL }}" alt="MOTIF lab student researchers" loading="lazy">
-        <figcaption><span class="g-tag">The lab</span><span class="g-cap">MOTIF student researchers</span></figcaption>
-      </figure>
-      <figure>
-        <img src="{{ "img/gallery/motif-rav4-solar.jpg" | relURL }}" alt="MOTIF lab Toyota RAV4 parked under a USF solar canopy with students" loading="lazy">
-        <figcaption><span class="g-tag">The lab</span><span class="g-cap">Lab vehicle, USF solar canopy</span></figcaption>
-      </figure>
-      <figure>
-        <img src="{{ "img/gallery/usf-bulls.jpg" | relURL }}" alt="USF Bulls" loading="lazy">
-        <figcaption><span class="g-tag">USF Tampa</span><span class="g-cap">Go Bulls</span></figcaption>
-      </figure>
-      <figure>
-        <img src="{{ "img/gallery/ev-fleet-airport.jpg" | relURL }}" alt="Ford Mustang Mach-E and Kia EV6 electric vehicles at Tampa International Airport" loading="lazy">
-        <figcaption><span class="g-tag">Experiments</span><span class="g-cap">EV fleet for instrumented studies</span></figcaption>
-      </figure>
-      <figure>
-        <img src="{{ "img/gallery/tampa-road-test.jpg" | relURL }}" alt="On-road testing in the Tampa Bay area" loading="lazy">
-        <figcaption><span class="g-tag">Experiments</span><span class="g-cap">On-road testing in Tampa</span></figcaption>
-      </figure>
-      <figure>
-        <img src="{{ "img/gallery/vehicle-instrumentation.jpg" | relURL }}" alt="In-vehicle data collection rig with NVIDIA Jetson, portable monitor, keyboard and mouse set up in a MOTIF lab vehicle" loading="lazy">
-        <figcaption><span class="g-tag">Experiments</span><span class="g-cap">Vehicle instrumentation</span></figcaption>
-      </figure>
+      {{- end }}
     </div>
   </div>
 </section>
@@ -93,26 +151,20 @@
       <ul class="pub-list compact">
         {{ range first 5 (where .Site.RegularPages "Section" "publications") }}
         <li>
-          <a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>
+          <a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>{{ with .Params.venue_short }} <span class="venue-badge">{{ . }}</span>{{ end }}{{ with .Params.award }} <span class="pill pill-cat-award">{{ . }}</span>{{ end }}
           <p class="pub-meta">{{ with .Params.authors }}{{ delimit . ", " }}{{ end }}{{ with .Params.venue }} · <em>{{ . }}</em>{{ end }}{{ with .Params.year }} · {{ . }}{{ end }}</p>
         </li>
-        {{ else }}
-        <li class="muted">Publications will appear here once added under <code>content/publications/</code>.</li>
         {{ end }}
       </ul>
       <p><a class="more-link" href="{{ "publications/" | relURL }}">All publications →</a></p>
     </div>
     <div>
-      <h2 class="section-title">News</h2>
-      <ul class="news-list">
-        {{ range first 5 (where .Site.RegularPages "Section" "news") }}
-        <li>
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </li>
-        {{ else }}
-        <li class="muted">News posts will appear here once added under <code>content/news/</code>.</li>
-        {{ end }}
+      <h2 class="section-title">Agencies &amp; press</h2>
+      <ul class="press-list">
+        <li><b>Florida Department of Transportation</b> and <b>Sarasota County Transportation</b> — field partners for the <a href="{{ "projects/ai-dashcam-hurricane/" | relURL }}">AI dashcam for post-hurricane road assessment</a>.</li>
+        <li><b>USF News</b>, <b>FOX 13 Tampa Bay</b> and <b>ABC7 Suncoast</b> covered the dashcam work in August 2026 — <a href="{{ "news/" | relURL }}">read the coverage</a>.</li>
+        <li><b>Open-source for agency fleets:</b> <a href="{{ "projects/dotpilot/" | relURL }}">DoTPilot</a> and <a href="{{ "projects/scale-cda/" | relURL }}">Scale-CDA</a> turn production cars into connected, AI-assisted platforms for under US $1,000 in parts.</li>
+        <li><b>Talk to us:</b> collaborations, data requests and student positions — <a href="mailto:{{ .Site.Params.pi_email }}">{{ .Site.Params.pi_email }}</a>.</li>
       </ul>
     </div>
   </div>

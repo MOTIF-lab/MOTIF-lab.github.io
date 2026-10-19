@@ -1,0 +1,4 @@
+{{- /* news-pill.html — category pill for a news page (data/news_categories.yaml; aliases map legacy names) */ -}}
+{{- $cat := .Params.category | default "" }}{{ $slug := $cat | urlize }}{{ $cls := "" }}{{ $label := $cat -}}
+{{- range site.Data.news_categories }}{{ if or (eq .slug $slug) (in (.aliases | default slice) $slug) }}{{ $cls = .class }}{{ $label = .label }}{{ end }}{{ end -}}
+{{- if $cat }}<span class="pill pill-topic {{ $cls }}">{{ $label }}</span>{{ end -}}

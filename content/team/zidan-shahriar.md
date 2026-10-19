@@ -4,7 +4,7 @@ role: "MS Student"
 weight: 20
 affiliation: "USF Civil and Environmental Engineering"
 email: ""           # TODO add USF email
-photo: "/img/team/zidan-shahriar.png"
+photo: "img/team/zidan-shahriar.jpg"
 website: ""         # TODO: original site linked to MOTIF-Lab.github.io as a placeholder; replace with Zidan's actual page if he has one
 scholar: ""
 github: ""
