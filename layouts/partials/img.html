@@ -1,0 +1,18 @@
+{{- /* img.html — responsive <picture> from an image under assets/ (Hugo image processing).
+       args: src (assets path, e.g. "img/gallery/usf-stadium.jpg"), alt, class, sizes (default "100vw"),
+             widths (slice, default 480 960 1440), fill ("WxH" → .Fill with smart crop), loading ("lazy" default | "eager"),
+             fetchpriority ("high" for the LCP image), q (quality, default 80) */ -}}
+{{- $src := .src }}{{ $alt := .alt | default "" }}{{ $class := .class | default "" }}{{ $sizes := .sizes | default "100vw" -}}
+{{- $widths := .widths | default (slice 480 960 1440) }}{{ $q := .q | default 80 }}{{ $loading := .loading | default "lazy" -}}
+{{- with resources.Get $src -}}
+  {{- $img := . -}}
+  {{- if $.fill -}}
+    {{- $w := int (index (split $.fill "x") 0) }}{{ $h := int (index (split $.fill "x") 1) -}}
+    {{- $webp := $img.Fill (printf "%dx%d Smart webp q%d" $w $h $q) }}{{ $webp2 := $img.Fill (printf "%dx%d Smart webp q%d" (mul $w 2) (mul $h 2) $q) }}{{ $jpg := $img.Fill (printf "%dx%d Smart jpeg q%d" $w $h $q) -}}
+    <picture><source type="image/webp" srcset="{{ $webp.RelPermalink }} 1x, {{ $webp2.RelPermalink }} 2x"><img src="{{ $jpg.RelPermalink }}" width="{{ $w }}" height="{{ $h }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async"{{ with $.fetchpriority }} fetchpriority="{{ . }}"{{ end }}></picture>
+  {{- else -}}
+    {{- $ws := slice }}{{ range $widths }}{{ if le . $img.Width }}{{ $ws = $ws | append . }}{{ end }}{{ end }}{{ if not $ws }}{{ $ws = slice $img.Width }}{{ end -}}
+    {{- $base := $img.Resize (printf "%dx jpeg q%d" (index $ws (sub (len $ws) 1)) $q) -}}
+    <picture><source type="image/webp" srcset="{{ range $i, $w := $ws }}{{ if $i }}, {{ end }}{{ ($img.Resize (printf "%dx webp q%d" $w $q)).RelPermalink }} {{ $w }}w{{ end }}" sizes="{{ $sizes }}"><img src="{{ $base.RelPermalink }}" srcset="{{ range $i, $w := $ws }}{{ if $i }}, {{ end }}{{ ($img.Resize (printf "%dx jpeg q%d" $w $q)).RelPermalink }} {{ $w }}w{{ end }}" sizes="{{ $sizes }}" width="{{ $base.Width }}" height="{{ $base.Height }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async"{{ with $.fetchpriority }} fetchpriority="{{ . }}"{{ end }}></picture>
+  {{- end -}}
+{{- else -}}<!-- img.html: {{ $src }} not found under assets/ -->{{- end -}}
