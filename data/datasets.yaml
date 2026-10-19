@@ -1,0 +1,162 @@
+# Datasets & Benchmarks hub — hand-written descriptive fields. Every number comes from data/numbers.json (keys below), which is
+# generated from the personal repo's tools/projpipe/registry.yaml by tools/build_numbers.py; do not type numbers here.
+# access: open | gated-auto | gated-manual | request | agreement
+- slug: openlka
+  name: OpenLKA
+  kind: dataset
+  tagline: How production lane keeping assist really performs on public roads
+  why: "the largest open record of how production LKA systems behave in real traffic"
+  modalities: [forward video, decoded CAN @100 Hz, lane geometry, scene labels]
+  access: request
+  access_note: "Code and DBC files MIT on GitHub; pre-release subsets open; decoded routes with video on request; raw logs under a research agreement."
+  license: "MIT (code, DBC) · OpenLKA terms (data)"
+  venue: IEEE ITSC 2025
+  year: 2025
+  accent: "#2e7d5c"
+  thumb: /img/projects/th_openlka.jpg
+  links: {showcase: /projects/openlka/, portal: "https://openlka.github.io/", github: "https://github.com/OpenLKA/OpenLKA", arxiv: "https://arxiv.org/abs/2505.09092", xplore: "https://ieeexplore.ieee.org/document/11423194/"}
+  numbers:
+    - {k: openlka.hours_release, label: "of LKA driving"}
+    - {k: openlka.models, label: "vehicle models"}
+    - {k: openlka.automakers, label: "automakers"}
+    - {k: openlka.drivers, label: "drivers"}
+  numbers_note: "release figures from the data portal; the ITSC paper reports 400 h"
+  table: {scale: openlka.hours_release, drivers: openlka.drivers, models: openlka.models}
+- slug: adas-to
+  name: ADAS-TO
+  kind: dataset
+  tagline: The moment control comes back to the driver, at scale
+  why: "The first large-scale naturalistic dataset dedicated to ADAS-to-manual transitions"
+  modalities: [front video 526×330, openpilot logs @10/100 Hz, vision-language annotations]
+  access: gated-manual
+  access_note: "Full set, Sample and Critical subsets gated with manual approval; longitudinal tables MIT."
+  license: "CC BY-NC 4.0"
+  venue: IEEE ITSC 2026
+  year: 2026
+  accent: "#ff6b6b"
+  thumb: /img/projects/th_adas-to.jpg
+  links: {showcase: /projects/adas-to/, hf: "https://huggingface.co/datasets/HenryYHW/ADAS-TO", github: "https://github.com/OpenLKA/ADAS-TO", arxiv: "https://arxiv.org/abs/2603.06986"}
+  hf_repos: [HenryYHW/ADAS-TO, HenryYHW/ADAS-TO-Sample, HenryYHW/ADAS-TO-Critical, HenryYHW/ADAS-TO_longitudinal]
+  numbers:
+    - {k: adasto.clips, label: "takeover clips"}
+    - {k: adasto.hours, label: "of driving"}
+    - {k: adasto.drivers, label: "drivers"}
+    - {k: adasto.brands, label: "vehicle brands"}
+  numbers_release:
+    - {k: adasto.v2_clips, label: "clips (v2 release)"}
+    - {k: adasto.v2_drivers, label: "drivers (v2)"}
+    - {k: adasto.v2_models, label: "vehicle models (v2)"}
+  numbers_note: "paper figures; the v2 release on Hugging Face is larger"
+  table: {scale: adasto.clips, drivers: adasto.drivers, models: adasto.models}
+- slug: baton
+  name: BATON
+  kind: benchmark
+  tagline: Handovers and takeovers, observed in both directions
+  why: "Control transitions observed in both directions on the same synchronized streams"
+  modalities: [road + cabin video @20 fps, CAN/IMU @100 Hz, radar, driver monitor, planner, GPS]
+  access: gated-manual
+  access_note: "Benchmark gated with manual approval; BATON-Sample (two drivers, 45 routes) auto-approved."
+  license: "CC BY-NC 4.0"
+  venue: arXiv 2026 (v2)
+  year: 2026
+  accent: "#f0c34e"
+  thumb: /img/projects/th_baton.jpg
+  links: {showcase: /projects/baton/, hf: "https://huggingface.co/datasets/HenryYHW/BATON", github: "https://github.com/OpenLKA/BATON", arxiv: "https://arxiv.org/abs/2604.07263"}
+  hf_repos: [HenryYHW/BATON, HenryYHW/BATON-Sample]
+  numbers:
+    - {k: baton.hours, label: "of driving-automation routes"}
+    - {k: baton.drivers, label: "drivers"}
+    - {k: baton.routes, label: "routes"}
+    - {k: baton.models, label: "vehicle models"}
+  numbers_release:
+    - {k: baton.bench_routes, label: "benchmark routes"}
+    - {k: baton.bench_hours, label: "benchmark hours"}
+    - {k: baton.bench_drivers, label: "benchmark drivers"}
+    - {k: baton.bench_events, label: "transition events"}
+  numbers_note: "corpus figures from the arXiv v2 body; the frozen benchmark on Hugging Face is the subset"
+  table: {scale: baton.hours, drivers: baton.drivers, models: baton.models}
+- slug: drivedna
+  name: DriveDNA
+  kind: benchmark
+  tagline: Driving style identification without the shortcuts
+  why: "The first benchmark designed to distinguish driver behavior from vehicle, drive and driving-condition shortcuts"
+  modalities: [CAN kinematics @10 Hz, forward video 526×330, 12 descriptors, 6 scenarios]
+  access: gated-manual
+  access_note: "DriveDNA research license with manual approval; DriveDNA-Sample auto-approved. Prohibits re-identification and individual scoring."
+  license: "DriveDNA research license"
+  venue: arXiv 2026
+  year: 2026
+  accent: "#b07cff"
+  thumb: /img/projects/th_drivedna.jpg
+  links: {showcase: /projects/drivedna/, hf: "https://huggingface.co/datasets/HenryYHW/DriveDNA", github: "https://github.com/WangYuHang-cmd/DriveDNA", arxiv: "https://arxiv.org/abs/2607.23822"}
+  hf_repos: [HenryYHW/DriveDNA, HenryYHW/DriveDNA-Sample]
+  numbers:
+    - {k: drivedna.drives, label: "drives"}
+    - {k: drivedna.drivers, label: "pseudonymous drivers"}
+    - {k: drivedna.models, label: "vehicle models"}
+    - {k: drivedna.hours, label: "of driving"}
+  table: {scale: drivedna.hours, drivers: drivedna.drivers, models: drivedna.models}
+- slug: drivemotion
+  name: DriveMotion
+  kind: benchmark
+  tagline: Whole-body driver motion, forecast seconds ahead
+  why: "A multi-source, skeleton-only benchmark that forecasts the driver's whole body — 133 keypoints at 10 Hz — seconds ahead"
+  modalities: [COCO-WholeBody 133 keypoints @10 Hz, head pose, CAN where available]
+  access: gated-manual
+  access_note: "Skeleton-derived artifacts only (no cabin pixels); gated with manual approval."
+  license: "CC BY 4.0"
+  venue: IEEE/CVF WACV 2027
+  year: 2027
+  accent: "#3ddc97"
+  thumb: /img/projects/th_drivemotion.jpg
+  links: {showcase: /projects/drivemotion/, hf: "https://huggingface.co/datasets/HenryYHW/DriveMotion", arxiv: "https://arxiv.org/abs/2609.08117"}
+  hf_repos: [HenryYHW/DriveMotion]
+  numbers:
+    - {k: drivemotion.hours_release, label: "of skeleton motion"}
+    - {k: drivemotion.drivers, label: "drivers"}
+    - {k: drivemotion.sequences_release, label: "sequences"}
+    - {k: drivemotion.keypoints, label: "keypoints at 10 Hz"}
+  numbers_note: "release figures; the paper reports 393 h and 4,367 sequences"
+  table: {scale: drivemotion.hours_release, drivers: drivemotion.drivers, models: null}
+- slug: vlalert
+  name: VLAlert-Bench
+  kind: benchmark
+  tagline: When should a driving system stay silent, observe, or alert?
+  why: "A unified per-tick benchmark for deciding when a driving system should stay SILENT, OBSERVE, or ALERT"
+  modalities: [dashcam video, 1 Hz ticks of 8 frames, per-tick action labels, split manifests]
+  access: gated-manual
+  access_note: "Gated with manual approval; benchmark annotations CC BY 4.0, source videos keep their datasets' terms."
+  license: "CC BY 4.0"
+  venue: CoRL 2026
+  year: 2026
+  accent: "#ffb648"
+  thumb: /img/projects/th_vlalert.jpg
+  links: {showcase: /projects/vlalert/, hf: "https://huggingface.co/datasets/HenryYHW/VLAlert", arxiv: "https://arxiv.org/abs/2609.08130"}
+  hf_repos: [HenryYHW/VLAlert]
+  numbers:
+    - {k: vlalert.videos, label: "videos"}
+    - {k: vlalert.ticks, label: "labelled 1-s ticks"}
+    - {k: vlalert.actions, label: "alert actions"}
+    - {k: vlalert.sources, label: "source datasets"}
+  table: {scale: vlalert.ticks, drivers: null, models: null}
+- slug: tridrive
+  name: TriDrive
+  kind: model
+  tagline: Driver, vehicle and road forecast together — in the car at 5 Hz
+  why: "the first unified framework that jointly forecasts driver kinematics, vehicle dynamics and road demands through one automation-conditioned transition model"
+  modalities: [driver keypoints, CAN dynamics, road latents, 5 Hz warning probe]
+  access: gated-manual
+  access_note: "Code and checkpoints on Hugging Face, gated with manual approval; cabin recordings and study videos are not released."
+  license: "CC BY-SA 4.0"
+  venue: arXiv 2026 · under review
+  year: 2026
+  accent: "#33e0ff"
+  thumb: /img/projects/th_tridrive.jpg
+  links: {showcase: /projects/tridrive/, hf: "https://huggingface.co/HenryYHW/TriDrive", arxiv: "https://arxiv.org/abs/2609.33000"}
+  hf_repos: [HenryYHW/TriDrive]
+  numbers:
+    - {k: tridrive.aide_mpjpe, label: "All-MPJPE on AIDE (lower is better)"}
+    - {k: tridrive.latency_p95, label: "p95 latency on comma four"}
+    - {k: tridrive.study_n, label: "drivers in the on-road study"}
+    - {k: tridrive.baton_hours, label: "of BATON used for training"}
+  table: {scale: tridrive.baton_hours, drivers: tridrive.study_n, models: null}

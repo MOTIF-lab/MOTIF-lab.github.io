@@ -1,0 +1,15 @@
+{{- /* num.html — render a number from data/numbers.json with a provenance chip.
+       args: k (key "<page>.<key>"), N (site.Data.numbers.numbers), unit (bool: append the unit) */ -}}
+{{- $e := index .N .k -}}
+{{- if not $e -}}<span class="num num-missing" title="{{ .k }}">—</span>
+{{- else -}}
+{{- $v := $e.value }}{{ $fmt := $e.fmt | default "0" }}{{ $s := "" -}}
+{{- if eq $fmt "0,0" }}{{ $s = lang.FormatNumberCustom 0 $v }}
+{{- else if eq $fmt "0.0" }}{{ $s = lang.FormatNumberCustom 1 $v }}
+{{- else if eq $fmt "0.00" }}{{ $s = lang.FormatNumberCustom 2 $v }}
+{{- else if hasPrefix $fmt "." }}{{ $s = strings.TrimPrefix "0" (lang.FormatNumberCustom (len (strings.TrimPrefix "." $fmt)) $v) }}
+{{- else }}{{ $s = lang.FormatNumberCustom 0 $v }}{{ end -}}
+{{- $src := $e.source -}}
+<data class="num" value="{{ $v }}" data-key="{{ .k }}">{{ $s }}{{ if and .unit $e.unit (le (len $e.unit) 3) }}{{ if eq $e.unit "%" }} %{{ else if eq $e.unit "+" }}+{{ else }}&nbsp;{{ $e.unit }}{{ end }}{{ end }}</data>
+{{- with $src }}<a class="src src-{{ .kind }}" href="{{ .url | default "#sources" }}" title="{{ $e.tag }} · {{ .kind }}{{ with .ref }} {{ . }}{{ end }}{{ with $e.locator }} · {{ . }}{{ end }}{{ with $e.note }} · {{ . }}{{ end }}"{{ if .url }} target="_blank" rel="noopener"{{ end }} aria-label="Source: {{ .kind }} {{ .ref }}">{{ if eq .kind "arxiv" }}P{{ else if eq .kind "log" }}L{{ else }}R{{ end }}</a>{{ end -}}
+{{- end -}}

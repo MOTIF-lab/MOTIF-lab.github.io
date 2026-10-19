@@ -1,0 +1,24 @@
+{{- /* dataset-card.html — one release from data/datasets.yaml. args: ds, N (numbers), compact (bool) */ -}}
+{{- $ds := .ds }}{{ $N := .N }}{{ $compact := .compact -}}
+{{- $tiers := dict "open" "Open" "gated-auto" "Gated · auto-approved" "gated-manual" "Gated · manual approval" "request" "On request" "agreement" "Research agreement" -}}
+<article class="ds-card{{ if $compact }} ds-card--compact{{ end }}" style="--accent:{{ $ds.accent }}">
+  <a class="ds-card__thumb" href="{{ $ds.links.showcase }}" tabindex="-1" aria-hidden="true"><img src="{{ $ds.thumb }}" alt="" width="620" height="388" loading="lazy" decoding="async"></a>
+  <div class="ds-card__body">
+    <p class="ds-card__meta"><span class="ds-kind">{{ $ds.kind }}</span><span class="ds-venue">{{ $ds.venue }}</span></p>
+    <h3 class="ds-card__title"><a class="ds-card__link" href="{{ $ds.links.showcase }}">{{ $ds.name }}</a></h3>
+    <p class="ds-tagline">{{ $ds.tagline }}</p>
+    <ul class="ds-nums">
+      {{- range first (cond $compact 2 3) $ds.numbers }}
+      <li>{{ partial "num.html" (dict "k" .k "N" $N "unit" true) }}<small>{{ .label }}</small></li>{{ end }}
+    </ul>
+    {{- if not $compact }}
+    <p class="ds-access"><span class="ds-tier ds-tier-{{ $ds.access }}">{{ index $tiers $ds.access }}</span><span class="ds-license">{{ $ds.license }}</span></p>
+    {{- end }}
+    <p class="ds-card__links">
+      {{- with $ds.links.hf }}<a href="{{ . }}" target="_blank" rel="noopener">Hugging Face</a>{{ end }}
+      {{- with $ds.links.portal }}<a href="{{ . }}" target="_blank" rel="noopener">Data portal</a>{{ end }}
+      {{- with $ds.links.github }}<a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
+      {{- with $ds.links.arxiv }}<a href="{{ . }}" target="_blank" rel="noopener">arXiv</a>{{ end }}
+    </p>
+  </div>
+</article>

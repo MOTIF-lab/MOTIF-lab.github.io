@@ -1,0 +1,9 @@
+# Venue wall on the home page (public acceptances and awards only; no submission venues).
+- {label: "WACV 2027", kind: accepted, note: "DriveMotion"}
+- {label: "CoRL 2026", kind: accepted, note: "Observe Before You Alert (VLAlert)"}
+- {label: "CoRL 2026 Travel Award", kind: award, note: "Yuhang Wang"}
+- {label: "ITSC 2026", kind: accepted, note: "ADAS-TO · cut-in gap acceptance · passenger load estimation"}
+- {label: "TRB 2027", kind: accepted, note: "seven presentations"}
+- {label: "TRB 2026", kind: accepted, note: "three presentations"}
+- {label: "ITSC 2025", kind: accepted, note: "OpenLKA"}
+- {label: "INFORMS 2025", kind: accepted, note: "From OpenLKA to LKAlert"}
