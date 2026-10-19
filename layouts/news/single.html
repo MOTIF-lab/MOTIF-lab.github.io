@@ -1,16 +1,17 @@
 {{ define "main" }}
 <section class="page-header">
   <div class="container">
-    <p class="eyebrow">{{ .Params.category | default "News" }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
+    <p class="eyebrow">{{ .Params.category | default "News" }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ if eq .Params.date_precision "month" }}{{ .Date.Format "January 2006" }}{{ else }}{{ .Date.Format "January 2, 2006" }}{{ end }}</time></p>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
   </div>
 </section>
 <section class="section">
   <div class="container prose">
+    {{ with .Params.image }}<figure>{{ partial "img.html" (dict "src" . "alt" ($.Params.image_alt | default $.Title) "sizes" "(max-width: 800px) 100vw, 760px" "loading" "eager") }}{{ with $.Params.image_caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>{{ end }}
     {{ with .Params.external }}
     <aside class="coverage-box">
-      <h2 class="coverage-title">In the news</h2>
+      <h2 class="coverage-title">Links</h2>
       <ul class="coverage-list">
         {{ range . }}
         <li>
@@ -22,6 +23,7 @@
     </aside>
     {{ end }}
     {{ .Content }}
+    {{ with .Params.links }}<p class="news-links">{{ range . }}<a class="pill pill-gold" href="{{ .url }}">{{ .label }} →</a>{{ end }}</p>{{ end }}
     <p class="more-link-wrap"><a class="more-link" href="{{ "news/" | relURL }}">&larr; All news</a></p>
   </div>
 </section>

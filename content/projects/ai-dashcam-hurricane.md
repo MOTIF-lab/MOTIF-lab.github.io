@@ -2,6 +2,8 @@
 title: "AI dashcam for post-hurricane roadway damage assessment"
 description: "An AI dashcam that turns any ordinary vehicle into a roadway inspection platform — automatically detecting potholes, flooding, downed trees, and damaged signs so agencies can assess storm damage in hours instead of days."
 weight: 2
+thumb: "/img/projects/th_ai-dashcam-hurricane.jpg"
+accent: "#b79f4d"
 status: "active"
 sponsor: ""           # TODO Hao: confirm sponsor / funding source(s)
 role: "PI"

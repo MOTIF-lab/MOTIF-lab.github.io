@@ -2,7 +2,7 @@
 title: "USF News, FOX 13, and ABC7 Suncoast cover the lab's AI dashcam for post-hurricane road assessment"
 date: 2026-08-21
 draft: false
-category: "Media coverage"
+category: "Media"
 description: "Three Florida outlets reported on the lab's AI dashcam prototype, which automatically flags potholes, flooding, downed trees, and damaged signs so agencies can assess storm-damaged roads in hours instead of days — most recently ABC7 Suncoast, on the Sarasota County deployment."
 external:
   - label: "USF News — How AI could speed hurricane recovery"

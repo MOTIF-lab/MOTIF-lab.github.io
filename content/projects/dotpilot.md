@@ -2,6 +2,8 @@
 title: "DoTPilot: an in-vehicle AI platform for transportation agency fleets"
 description: "An open-source in-vehicle system that turns an agency's existing fleet into a two-way link with the traffic management center — collecting roadway condition data on the uplink and delivering agency advisories to drivers on the downlink, for both daily operations and disaster response."
 weight: 4
+thumb: "/img/projects/th_dotpilot.jpg"
+accent: "#2e7d5c"
 status: "active"
 sponsor: ""           # TODO Hao: confirm sponsor / funding source(s)
 role: "PI"

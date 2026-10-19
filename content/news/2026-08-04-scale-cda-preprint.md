@@ -2,7 +2,7 @@
 title: "New preprint: Scale-CDA brings AI-assisted cooperative driving to production cars for under $1,000"
 date: 2026-08-04
 draft: false
-category: "Publication"
+category: "Preprint"
 description: "A new lab preprint introduces Scale-CDA, an open-hardware/open-software toolchain that retrofits ordinary production cars for generative-AI-assisted cooperative driving automation using off-the-shelf parts costing under US $1,000."
 external:
   - label: "arXiv:2608.04235 — Scale-CDA: a scalable prototype to democratize AI-assisted cooperative driving automation (CDA) for production cars"

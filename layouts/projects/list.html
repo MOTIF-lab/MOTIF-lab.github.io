@@ -6,19 +6,23 @@
   </div>
 </section>
 <section class="section">
-  <div class="container prose">
-    {{ .Content }}
+  <div class="container">
+    <div class="prose">{{ .Content }}</div>
     <div class="card-grid wide">
       {{ range .Pages.ByWeight }}
-      <a class="card project-card" href="{{ .RelPermalink }}">
-        {{ with .Params.status }}<span class="pill {{ if eq . "active" }}pill-gold{{ end }}">{{ humanize . }}</span>{{ end }}
-        <h3>{{ .Title }}</h3>
-        <p class="project-meta">
-          {{ with .Params.sponsor }}<strong>{{ . }}</strong>{{ end }}
-          {{ with .Params.start }} · {{ . }}{{ end }}{{ with .Params.end }} – {{ . }}{{ end }}
-        </p>
-        <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}</p>
-        <span class="card-link">Read more →</span>
+      <a class="card project-card{{ if .Params.thumb }} project-card--thumb{{ end }}" href="{{ .RelPermalink }}"{{ with .Params.accent }} style="--accent:{{ . }}"{{ end }}>
+        {{ with .Params.thumb }}<img class="project-thumb" src="{{ . }}" alt="" width="620" height="388" loading="lazy" decoding="async">{{ end }}
+        <div class="project-card__body">
+          {{ with .Params.status }}<span class="pill {{ if eq . "active" }}pill-gold{{ end }}">{{ humanize . }}</span>{{ end }}
+          {{ if .Params.kit }}<span class="pill pill-topic">Interactive page</span>{{ end }}
+          <h3>{{ .Title }}</h3>
+          <p class="project-meta">
+            {{ with .Params.sponsor }}<strong>{{ . }}</strong>{{ end }}
+            {{ with .Params.start }}{{ with $.Params.sponsor }} · {{ end }}{{ . }}{{ end }}{{ with .Params.end }} – {{ . }}{{ end }}
+          </p>
+          <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}</p>
+          <span class="card-link">Open the page →</span>
+        </div>
       </a>
       {{ end }}
     </div>

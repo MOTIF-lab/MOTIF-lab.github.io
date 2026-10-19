@@ -12,4 +12,4 @@ topics:
   - "Traffic Safety"
 ---
 
-Project page: [wangyuhang-cmd.github.io/vlalert](https://wangyuhang-cmd.github.io/vlalert/) · [Project entry](/projects/vlalert/)
+Project page: [/projects/vlalert/](/projects/vlalert/) · [Project entry](/projects/vlalert/)

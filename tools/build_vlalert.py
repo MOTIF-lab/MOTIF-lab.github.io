@@ -284,7 +284,7 @@ def main():
           "authors": ["Yuhang Wang", "Lingyao Li", "Hao Zhou"], "theme_color": "#03150f",
           "og": {"title": "VLAlert: Observe Before You Alert", "description": "A per-tick benchmark for deciding when a driving system should stay SILENT, OBSERVE or ALERT — 13,534 videos, 192,892 ticks, six sources. CoRL 2026."},
           "twitter": {"title": "VLAlert · Observe Before You Alert", "description": "Adaptive driver alerting with vision–language models: a tri-action policy and a unified per-tick benchmark. CoRL 2026."},
-          "image": "static/media/fig_pipeline.jpg", "preload": ["static/media/vlalert_demo9.jpg"],
+          "image": "static/media/fig_pipeline.jpg", "preload": ["static/media/vlalert_demo9.jpg"], "thumb": "/img/projects/th_vlalert.jpg", "accent": "#ffb648",
           "citation": {"title": "Observe Before You Alert: Adaptive Driver Alerting with Vision-Language Models", "authors": ["Wang, Yuhang", "Li, Lingyao", "Zhou, Hao"], "date": "2026", "arxiv": "2609.08130", "conference": "Conference on Robot Learning (CoRL)"},
           "schema": {"type": "ScholarlyArticle", "name": "Observe Before You Alert: Adaptive Driver Alerting with Vision-Language Models",
                      "description": "A vision-language alerting framework that casts warning generation as a tri-action policy over SILENT, OBSERVE, and ALERT, evaluated on VLAlert-Bench, a unified per-tick benchmark.",

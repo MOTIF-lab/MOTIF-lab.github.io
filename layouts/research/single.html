@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <p class="eyebrow">{{ humanize .Section }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ .Content }}
+  </div>
+</section>
+{{ with .Params.datasets }}
+<section class="section ds-band">
+  <div class="container">
+    <div class="row-head"><h2 class="section-title section-title--light">Datasets &amp; benchmarks in this thread</h2><a class="more-link more-link--light" href="{{ "datasets/" | relURL }}">All datasets →</a></div>
+    <div class="ds-grid">
+      {{- $N := site.Data.numbers.numbers }}{{ range . }}{{ $slug := . }}{{ range where site.Data.datasets "slug" $slug }}{{ partial "dataset-card.html" (dict "ds" . "N" $N "compact" true) }}{{ end }}{{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

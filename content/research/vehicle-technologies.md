@@ -2,6 +2,7 @@
 title: "Vehicle technologies and traffic impact"
 description: "How ADAS, lane-keeping assist, and electric powertrains change traffic efficiency and safety at the system level."
 weight: 2
+datasets: [openlka, adas-to, baton, drivedna]
 ---
 
 A vehicle is no longer a fixed object in a flow model — it is a moving system whose perception, control, and powertrain shape its behavior. We characterize ADAS-equipped and electric vehicles empirically and analytically, then quantify what their adoption implies for capacity, stability, and safety on existing roadways.

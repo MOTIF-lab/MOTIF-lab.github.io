@@ -2,6 +2,7 @@
 title: "AI for mobility"
 description: "Computer vision and machine learning for traffic monitoring, road hazard detection, and operations support."
 weight: 3
+datasets: [drivemotion, vlalert, tridrive]
 ---
 
 Modern vision and learning systems extend the reach of traditional traffic monitoring. We develop and evaluate AI tools that turn dash-cam video, roadside cameras, and probe data into operational signals — vehicle counts, incident alerts, pavement and roadside hazard detections — at a fraction of the cost of fixed instrumentation.

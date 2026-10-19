@@ -1372,3 +1372,14 @@ html.reduced .reveal { opacity: 1; transform: none; transition: none; }
 .press-list li:last-child { border-bottom: none; }
 .press-list b { color: var(--usf-green-dark); }
 .gallery-mosaic picture { display: block; height: 100%; }
+
+/* ----- project cards with thumbnails ----- */
+.project-card--thumb { padding: 0; overflow: hidden; display: flex; flex-direction: column; border-top: 3px solid var(--accent, var(--usf-gold)); }
+.project-card--thumb .pill { position: static; }
+.project-card--thumb .project-card__body { padding: 1.1rem 1.25rem 1.25rem; display: flex; flex-direction: column; gap: .35rem; flex: 1; }
+.project-card--thumb .project-card__body .pill { margin-right: .35rem; }
+.project-card--thumb h3 { margin-top: .35rem; }
+.project-thumb { width: 100%; aspect-ratio: 620 / 388; object-fit: cover; display: block; filter: saturate(.95); transition: transform .3s ease; }
+.project-card--thumb:hover .project-thumb { transform: scale(1.03); }
+.pub-badges { margin: -.25rem 0 .75rem; }
+.pub-badges .venue-badge { margin-left: 0; }

@@ -15,4 +15,4 @@ topics:
   - "Automated vehicles"
 ---
 
-Project page: [wangyuhang-cmd.github.io/openlka](https://wangyuhang-cmd.github.io/openlka/) · [Project entry](/projects/openlka/)
+Project page: [OpenLKA](/projects/openlka/) · [Project entry](/projects/openlka/)

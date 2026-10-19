@@ -2,6 +2,7 @@
 title: "Traffic flow theory"
 description: "Macroscopic and microscopic models of how vehicles aggregate into flow, congestion, and breakdown."
 weight: 1
+datasets: [openlka, adas-to]
 ---
 
 Traffic flow theory remains the structural language of transportation engineering. Our work in this thread strengthens that language for an era in which vehicles are no longer interchangeable units. We study car-following and lane-changing behavior, the conditions under which fundamental diagrams hold or break, and the propagation of disturbances in heterogeneous traffic streams.

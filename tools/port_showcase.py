@@ -22,6 +22,7 @@ EXTRA_NEW = ('<li class="pj-site-extra"><a href="/">Home</a></li><li class="pj-s
 FOOT_NEW = ('<footer class="pj-foot"><div class="pj-wrap"><b>MOTIF Lab</b> · University of South Florida · Civil &amp; Environmental Engineering · CUTR'
             '<div class="pj-foot__links"><a href="/">Home</a><a href="/datasets/">Datasets &amp; Benchmarks</a><a href="/projects/">Projects</a>'
             '<a href="/publications/">Publications</a><a href="/news/">News</a></div></div></footer>')
+ACCENT = {'tridrive': '#33e0ff', 'adasto': '#ff6b6b', 'drivedna': '#b07cff', 'drivemotion': '#3ddc97', 'baton': '#f0c34e', 'openlka': '#2e7d5c', 'vlalert': '#ffb648'}
 ALLOWED_LOCAL = re.compile(r"^/$|^/(projects/([\w-]+/)?(#[\w-]+)?|datasets/|publications/|news/|team/[\w-]+/|img/[\w./-]+|assets/proj/[\w./-]+)$")
 REF_RX = re.compile(r'(?:src|href|poster|data-src|data-video|data-poster|data-zoom)="(static/[^"#?]+)')
 
@@ -73,7 +74,7 @@ def port_kit(src, pslug, more, dry):
     ogimg = meta(head, "property", "og:image") or ""
     m = re.match(rf"https://wangyuhang-cmd\.github\.io/{pslug}/(static/.+)$", ogimg)
     if not m: raise Fail(f"og:image not under the page: {ogimg}")
-    fm["image"] = m.group(1)
+    fm["image"] = m.group(1); fm["thumb"] = f"/img/projects/th_{lab}.jpg"; fm["accent"] = ACCENT[pslug]
     fm["preload"] = re.findall(r'<link rel="preload" href="(static/[^"]+)" as="image"', head)
     cit = {"title": meta(head, "name", "citation_title"), "authors": re.findall(r'<meta name="citation_author" content="([^"]*)"', head),
            "date": meta(head, "name", "citation_publication_date"), "arxiv": meta(head, "name", "citation_arxiv_id"),
@@ -179,7 +180,7 @@ def port_openlka(src, more, dry):
           "authors": [a.strip() for a in (meta(head, "name", "author") or "").split(",") if a.strip()], "theme_color": "#ffffff",
           "og": {"title": meta(head, "property", "og:title"), "description": meta(head, "property", "og:description")},
           "twitter": {"title": meta(head, "name", "twitter:title"), "description": meta(head, "name", "twitter:description")},
-          "image": "static/images/olka_og.jpg", "preload": []}
+          "image": "static/images/olka_og.jpg", "preload": [], "thumb": "/img/projects/th_openlka.jpg", "accent": ACCENT["openlka"]}
     cit = {"title": meta(head, "name", "citation_title"), "authors": re.findall(r'<meta name="citation_author" content="([^"]*)"', head),
            "date": meta(head, "name", "citation_publication_date"), "arxiv": meta(head, "name", "citation_arxiv_id"),
            "conference": meta(head, "name", "citation_conference_title")}
