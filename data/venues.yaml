@@ -1,5 +1,5 @@
 # Venue wall on the home page (public acceptances and awards only; no submission venues).
-- {label: "WACV 2027", kind: accepted, note: "DriveMotion"}
+- {label: "WACV 2027", kind: accepted, note: "DriveMotion · wheelchair accessibility from street view (Alina Hagen)"}
 - {label: "CoRL 2026", kind: accepted, note: "Observe Before You Alert (VLAlert)"}
 - {label: "CoRL 2026 Travel Award", kind: award, note: "Yuhang Wang"}
 - {label: "ITSC 2026", kind: accepted, note: "ADAS-TO · cut-in gap acceptance · passenger load estimation"}
