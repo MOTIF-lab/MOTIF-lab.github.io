@@ -24,7 +24,7 @@ def main():
             for m in REF.finditer(s):
                 for u in (m.group(1).split(",") if m.group(0).startswith("srcset") else [m.group(1)]):
                     u = u.strip().split(" ")[0]
-                    if not u or u.startswith(("#", "mailto:", "data:", "key:", "javascript:", "tel:")): continue
+                    if not u or u.startswith(("#", "mailto:", "data:", "key:", "javascript:", "tel:", "about:")): continue
                     if re.fullmatch(r"[\w-]+", u): continue   # source ids on <data data-src="arxiv-abs">, not paths
                     pr = urllib.parse.urlparse(u)
                     if pr.scheme in ("http", "https"):

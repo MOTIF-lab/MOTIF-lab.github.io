@@ -197,7 +197,7 @@ def port_openlka(src, more, dry):
     if bad: raise Fail(f"unexpected root-relative refs left: {sorted(set(bad))[:10]}")
     if re.search(r"\{\{[<%]|[%>]\}\}", body): raise Fail("shortcode delimiters in body")
     # ---- copy set: direct refs ∪ all clips ∪ before/after scene images ∪ CAN index + everything it references ∪ og image
-    want = set(REF_RX.findall(body)) | {fm["image"], "static/can/index.json"}
+    want = set(REF_RX.findall(body)) | {fm["image"], "static/can/index.json"} | set(fm["css"])   # the stylesheets were in the source <head>
     want |= {"static/clips/" + f for f in os.listdir(os.path.join(sdir, "static", "clips"))}
     want |= {"static/images/" + f for f in os.listdir(os.path.join(sdir, "static", "images")) if f.startswith("olka_ba_")}
     idx = json.load(open(os.path.join(sdir, "static", "can", "index.json"), encoding="utf8"))
