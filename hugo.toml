@@ -91,3 +91,11 @@ enableGitInfo = false
   tag = "tags"
   theme = "themes"
   year = "years"
+
+# Minify: keep attribute quotes so the ported showcase pages (and the checkers' regexes) read exactly as in source.
+[minify.tdewolff.html]
+  keepQuotes = true
+[minify.tdewolff.json]
+  keepNumbers = true
+# NOTE: the showcase project pages are HTML content files (content/projects/<slug>/index.html). Hugo >= 0.162 denies
+# text/html content by default (security.allowContent); test before bumping HUGO_VERSION in .github/workflows/hugo.yml.

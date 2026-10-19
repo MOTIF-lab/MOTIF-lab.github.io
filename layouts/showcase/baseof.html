@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" class="no-js">
+<head>
+{{ partial "showcase/head.html" . }}
+</head>
+<body{{ if .Params.kit }} data-proj="{{ .Params.proj }}" data-manifest="static/data/manifest.json" data-sources="key:sources"{{ end }}>
+{{ block "main" . }}{{ end }}
+</body>
+</html>

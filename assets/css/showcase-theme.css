@@ -1,0 +1,15 @@
+/* MOTIF Lab theme for the ported showcase pages (kit v1.1 tokens): deep USF greens instead of navy.
+   Loaded after /assets/proj/proj.css so these :root values win. Gold rule: never white text on gold. */
+:root{
+  --cl-bg:#03150f;--cl-bg-1:#06231a;--cl-bg-2:#082c20;--cl-bg-rgb:3,21,15;
+  --cl-panel:#0a2d21;--cl-panel-2:#0f3a2c;--cl-ink-deep:#020e0a;--cl-ink:#03150f;
+  --cl-border:rgba(207,196,147,.20);--cl-border-hi:rgba(207,196,147,.55);
+  --cl-text:#edf6f0;--cl-text-dim:#c6dccd;--cl-text-mute:#9dbcab;
+  --cl-glass:rgba(4,24,17,.72);--cl-shadow:0 12px 40px rgba(0,0,0,.45);
+  --cl-grad:linear-gradient(100deg,#cfc493,#b79f4d 45%,#2e7d5c);
+  --cl-glow-1:rgba(46,125,92,.42);--cl-glow-2:rgba(183,159,77,.10);--cl-glow-plot:rgba(46,125,92,.16);
+  --cl-star-1-rgb:143,212,180;--cl-star-2-rgb:230,224,200;--cl-star-3-rgb:207,196,147;
+}
+.pj-brand{display:inline-flex;align-items:center;gap:10px}
+.pj-brand img{height:30px;width:auto;display:block}
+.pj-brand:hover img{opacity:.92}

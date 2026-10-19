@@ -17,7 +17,7 @@
           {{ with .Params.sponsor }}<strong>{{ . }}</strong>{{ end }}
           {{ with .Params.start }} · {{ . }}{{ end }}{{ with .Params.end }} – {{ . }}{{ end }}
         </p>
-        <p>{{ .Description | default (.Summary | plainify | truncate 200) }}</p>
+        <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}</p>
         <span class="card-link">Read more →</span>
       </a>
       {{ end }}
