@@ -1,0 +1,1322 @@
+{
+ "schema": "numbers/1-lab",
+ "generated": "2026-10-19",
+ "registry": "WangYuHang-cmd.github.io/tools/projpipe/registry.yaml",
+ "hf_meta_fetched": "2026-10-02",
+ "numbers": {
+  "tridrive.aide_mpjpe": {
+   "value": 48.05,
+   "fmt": "0.00",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "unit": "All-MPJPE",
+   "locator": "Abstract"
+  },
+  "tridrive.aide_mpjpe_prev": {
+   "value": 71.47,
+   "fmt": "0.00",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "unit": "All-MPJPE",
+   "locator": "Abstract",
+   "note": "Driver-WM published"
+  },
+  "tridrive.aide_zero_vel": {
+   "value": 52.89,
+   "fmt": "0.00",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "unit": "All-MPJPE",
+   "locator": "AIDE table"
+  },
+  "tridrive.aide_pck": {
+   "value": 87.13,
+   "fmt": "0.00",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "unit": "PCK@0.05"
+  },
+  "tridrive.baton_hours": {
+   "value": 197.2,
+   "fmt": "0.0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "unit": "h",
+   "locator": "Abstract"
+  },
+  "tridrive.prauc_steer_eng": {
+   "value": 0.463,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "note": "+0.084"
+  },
+  "tridrive.prauc_steer_man": {
+   "value": 0.774,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "note": "+0.030"
+  },
+  "tridrive.prauc_steer_gain_eng": {
+   "value": 0.084,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "locator": "Abstract"
+  },
+  "tridrive.prauc_steer_gain_man": {
+   "value": 0.03,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   }
+  },
+  "tridrive.prauc_ttc_gain_eng": {
+   "value": 0.286,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "locator": "Abstract"
+  },
+  "tridrive.prauc_ttc_gain_man": {
+   "value": 0.206,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   }
+  },
+  "tridrive.latency_p95": {
+   "value": 177,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "unit": "ms",
+   "locator": "Abstract"
+  },
+  "tridrive.latency_p50": {
+   "value": 135,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "unit": "ms"
+  },
+  "tridrive.probe_hz": {
+   "value": 5,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "unit": "Hz"
+  },
+  "tridrive.auroc_manual": {
+   "value": 0.725,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "note": "baseline 0.563"
+  },
+  "tridrive.auroc_pooled": {
+   "value": 0.716,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "note": "baseline 0.637"
+  },
+  "tridrive.auroc_engaged": {
+   "value": 0.664,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "note": "baseline 0.746 (baseline better)"
+  },
+  "tridrive.calib_err": {
+   "value": 0.028,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "note": "baseline 0.408"
+  },
+  "tridrive.study_n": {
+   "value": 14,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "unit": "drivers",
+   "locator": "Abstract"
+  },
+  "tridrive.study_appropriate": {
+   "value": 1.79,
+   "fmt": "+0.00",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "note": "CI [0.86, 2.75] p=.008 n=14"
+  },
+  "tridrive.study_timely": {
+   "value": 2.67,
+   "fmt": "+0.00",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "note": "CI [1.33, 4.08] p=.008 n=12"
+  },
+  "tridrive.study_annoy": {
+   "value": 1.17,
+   "fmt": "+0.00",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "note": "CI [.33, 2.08] p=.031 n=12 (cost)"
+  },
+  "tridrive.params_m": {
+   "value": 3.5,
+   "fmt": "0.00",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.33000v1",
+    "url": "https://arxiv.org/abs/2609.33000v1"
+   },
+   "unit": "M params"
+  },
+  "adasto.clips": {
+   "value": 15659,
+   "fmt": "0,0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2603.06986v1",
+    "url": "https://arxiv.org/abs/2603.06986v1"
+   },
+   "locator": "Abstract"
+  },
+  "adasto.hours": {
+   "value": 87.0,
+   "fmt": "0.0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2603.06986v1",
+    "url": "https://arxiv.org/abs/2603.06986v1"
+   },
+   "unit": "h",
+   "locator": "Table II"
+  },
+  "adasto.drivers": {
+   "value": 327,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2603.06986v1",
+    "url": "https://arxiv.org/abs/2603.06986v1"
+   }
+  },
+  "adasto.models": {
+   "value": 163,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2603.06986v1",
+    "url": "https://arxiv.org/abs/2603.06986v1"
+   }
+  },
+  "adasto.brands": {
+   "value": 22,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2603.06986v1",
+    "url": "https://arxiv.org/abs/2603.06986v1"
+   }
+  },
+  "adasto.critical": {
+   "value": 285,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2603.06986v1",
+    "url": "https://arxiv.org/abs/2603.06986v1"
+   },
+   "note": "173 low-TTC + 127 low-THW − 15 both"
+  },
+  "adasto.early_cue_pct": {
+   "value": 59.3,
+   "fmt": "0.0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2603.06986v1",
+    "url": "https://arxiv.org/abs/2603.06986v1"
+   },
+   "unit": "%"
+  },
+  "adasto.v2_clips": {
+   "value": 16446,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/ADAS-TO",
+    "url": "https://huggingface.co/datasets/HenryYHW/ADAS-TO"
+   }
+  },
+  "adasto.v2_drivers": {
+   "value": 364,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/ADAS-TO",
+    "url": "https://huggingface.co/datasets/HenryYHW/ADAS-TO"
+   }
+  },
+  "adasto.v2_models": {
+   "value": 179,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/ADAS-TO",
+    "url": "https://huggingface.co/datasets/HenryYHW/ADAS-TO"
+   }
+  },
+  "adasto.v2_routes": {
+   "value": 2585,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/ADAS-TO",
+    "url": "https://huggingface.co/datasets/HenryYHW/ADAS-TO"
+   }
+  },
+  "adasto.reviewed_critical": {
+   "value": 749,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/ADAS-TO",
+    "url": "https://huggingface.co/datasets/HenryYHW/ADAS-TO"
+   }
+  },
+  "drivedna.drives": {
+   "value": 4121,
+   "fmt": "0,0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2607.23822v1",
+    "url": "https://arxiv.org/abs/2607.23822v1"
+   },
+   "locator": "Abstract"
+  },
+  "drivedna.drivers": {
+   "value": 465,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2607.23822v1",
+    "url": "https://arxiv.org/abs/2607.23822v1"
+   }
+  },
+  "drivedna.models": {
+   "value": 115,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2607.23822v1",
+    "url": "https://arxiv.org/abs/2607.23822v1"
+   }
+  },
+  "drivedna.hours": {
+   "value": 975,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2607.23822v1",
+    "url": "https://arxiv.org/abs/2607.23822v1"
+   },
+   "unit": "h"
+  },
+  "drivedna.windows": {
+   "value": 62674,
+   "fmt": "0,0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2607.23822v1",
+    "url": "https://arxiv.org/abs/2607.23822v1"
+   }
+  },
+  "drivedna.events": {
+   "value": 276248,
+   "fmt": "0,0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2607.23822v1",
+    "url": "https://arxiv.org/abs/2607.23822v1"
+   }
+  },
+  "drivedna.lane_changes": {
+   "value": 22322,
+   "fmt": "0,0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2607.23822v1",
+    "url": "https://arxiv.org/abs/2607.23822v1"
+   }
+  },
+  "drivedna.auroc_best": {
+   "value": 0.935,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2607.23822v1",
+    "url": "https://arxiv.org/abs/2607.23822v1"
+   },
+   "note": "PatchTST+SupCon"
+  },
+  "drivedna.auroc_desc": {
+   "value": 0.707,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2607.23822v1",
+    "url": "https://arxiv.org/abs/2607.23822v1"
+   },
+   "note": "descriptors"
+  },
+  "drivedna.route_x_chance": {
+   "value": 347,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2607.23822v1",
+    "url": "https://arxiv.org/abs/2607.23822v1"
+   },
+   "unit": "×",
+   "note": "CAN 197×"
+  },
+  "drivedna.sample_drives": {
+   "value": 63,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/DriveDNA-Sample",
+    "url": "https://huggingface.co/datasets/HenryYHW/DriveDNA-Sample"
+   },
+   "note": "56.2 h · 14 models"
+  },
+  "drivemotion.hours_release": {
+   "value": 400,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/DriveMotion",
+    "url": "https://huggingface.co/datasets/HenryYHW/DriveMotion"
+   },
+   "unit": "h"
+  },
+  "drivemotion.hours_paper": {
+   "value": 393,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   },
+   "unit": "h",
+   "locator": "Abstract"
+  },
+  "drivemotion.keypoints": {
+   "value": 133,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   }
+  },
+  "drivemotion.sequences_release": {
+   "value": 9010,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/DriveMotion",
+    "url": "https://huggingface.co/datasets/HenryYHW/DriveMotion"
+   }
+  },
+  "drivemotion.sequences_paper": {
+   "value": 4367,
+   "fmt": "0,0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   },
+   "note": "excludes 2"
+  },
+  "drivemotion.drivers": {
+   "value": 360,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   }
+  },
+  "drivemotion.windows": {
+   "value": 680082,
+   "fmt": "0,0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   }
+  },
+  "drivemotion.maneuvers": {
+   "value": 76026,
+   "fmt": "0,0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   }
+  },
+  "drivemotion.arm_ratio": {
+   "value": 3.4,
+   "fmt": "0.0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   },
+   "unit": "×"
+  },
+  "drivemotion.f1_gain_pct": {
+   "value": 44,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   },
+   "unit": "%",
+   "locator": "Abstract"
+  },
+  "drivemotion.web_err_reduction_pct": {
+   "value": 38,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   },
+   "unit": "%",
+   "locator": "Abstract"
+  },
+  "drivemotion.persistence_gain_pct": {
+   "value": 15,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   },
+   "unit": "%",
+   "locator": "Abstract"
+  },
+  "drivemotion.zero_motion_mpjpe": {
+   "value": 7.75,
+   "fmt": "0.00",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   }
+  },
+  "drivemotion.transformer_l_mpjpe": {
+   "value": 6.63,
+   "fmt": "0.00",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08117v1",
+    "url": "https://arxiv.org/abs/2609.08117v1"
+   }
+  },
+  "baton.hours": {
+   "value": 204.9,
+   "fmt": "0.0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   },
+   "unit": "h",
+   "locator": "v2 body"
+  },
+  "baton.drivers": {
+   "value": 173,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   }
+  },
+  "baton.routes": {
+   "value": 781,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   }
+  },
+  "baton.models": {
+   "value": 108,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   },
+   "note": "22 manufacturers"
+  },
+  "baton.bench_routes": {
+   "value": 565,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/BATON",
+    "url": "https://huggingface.co/datasets/HenryYHW/BATON"
+   }
+  },
+  "baton.bench_hours": {
+   "value": 162.1,
+   "fmt": "0.0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/BATON",
+    "url": "https://huggingface.co/datasets/HenryYHW/BATON"
+   },
+   "unit": "h"
+  },
+  "baton.bench_drivers": {
+   "value": 150,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/BATON",
+    "url": "https://huggingface.co/datasets/HenryYHW/BATON"
+   }
+  },
+  "baton.bench_events": {
+   "value": 3593,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/BATON",
+    "url": "https://huggingface.co/datasets/HenryYHW/BATON"
+   },
+   "note": 1
+  },
+  "baton.t2_auprc": {
+   "value": 0.335,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   },
+   "note": "BATON-WM sample AUPRC; event .171"
+  },
+  "baton.t3d_auprc": {
+   "value": 0.514,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   },
+   "note": "event .413"
+  },
+  "baton.t3a_auprc": {
+   "value": 0.07,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   },
+   "note": "event .040; base rate .035"
+  },
+  "baton.fa_recall_t3d_pct": {
+   "value": 28,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   },
+   "unit": "%",
+   "locator": "Sec. 5.3",
+   "note": "event recall at 1 FA/h"
+  },
+  "baton.fa_recall_t2_pct": {
+   "value": 7,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   },
+   "unit": "%",
+   "locator": "Sec. 5.3"
+  },
+  "baton.op_predictor_auprc": {
+   "value": 0.293,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   },
+   "locator": "Sec. 5.4",
+   "note": "openpilot deployed predictor"
+  },
+  "baton.tabular_same_rows_auprc": {
+   "value": 0.771,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   },
+   "locator": "Sec. 5.4"
+  },
+  "baton.wm_gain_pct": {
+   "value": 42,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v2",
+    "url": "https://arxiv.org/abs/2604.07263v2"
+   },
+   "unit": "%",
+   "locator": "Sec. 5.2"
+  },
+  "baton.stale_v1_hours": {
+   "value": 136.6,
+   "fmt": "0.0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2604.07263v1",
+    "url": "https://arxiv.org/abs/2604.07263v1"
+   },
+   "unit": "h",
+   "note": "arXiv listing abstract (stale); 127 drivers · 380 routes"
+  },
+  "openlka.hours_release": {
+   "value": 389.1,
+   "fmt": "0.0",
+   "tag": "latest release",
+   "source": {
+    "kind": "portal",
+    "ref": "https://openlka.github.io/",
+    "url": "https://openlka.github.io/"
+   },
+   "unit": "h",
+   "note": "decoded and time-aligned LKA driving on the portal hero"
+  },
+  "openlka.hours_paper": {
+   "value": 400,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2505.09092v1",
+    "url": "https://arxiv.org/abs/2505.09092v1"
+   },
+   "unit": "h",
+   "locator": "Abstract",
+   "note": "400 hours of driving data from 62 production vehicle models"
+  },
+  "openlka.models": {
+   "value": 62,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2505.09092v1",
+    "url": "https://arxiv.org/abs/2505.09092v1"
+   },
+   "locator": "Abstract"
+  },
+  "openlka.automakers": {
+   "value": 12,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "portal",
+    "ref": "https://openlka.github.io/",
+    "url": "https://openlka.github.io/"
+   }
+  },
+  "openlka.drivers": {
+   "value": 53,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "portal",
+    "ref": "https://openlka.github.io/",
+    "url": "https://openlka.github.io/"
+   }
+  },
+  "openlka.cities": {
+   "value": 80,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "portal",
+    "ref": "https://openlka.github.io/",
+    "url": "https://openlka.github.io/"
+   },
+   "unit": "+"
+  },
+  "openlka.can_hz": {
+   "value": 100,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "portal",
+    "ref": "https://openlka.github.io/",
+    "url": "https://openlka.github.io/"
+   },
+   "unit": "Hz"
+  },
+  "openlka.decoders": {
+   "value": 9,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "portal",
+    "ref": "https://openlka.github.io/",
+    "url": "https://openlka.github.io/"
+   },
+   "note": "vehicle decoders; 7 verified DBC files"
+  },
+  "vlalert.videos": {
+   "value": 13534,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table",
+   "note": "Total Videos"
+  },
+  "vlalert.ticks": {
+   "value": 192892,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table",
+   "note": "Ticks (1 Hz)"
+  },
+  "vlalert.actions": {
+   "value": 3,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract",
+   "note": "SILENT / OBSERVE / ALERT"
+  },
+  "vlalert.sources": {
+   "value": 6,
+   "fmt": "0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "note": "integrates six driving-event datasets"
+  },
+  "vlalert.daus": {
+   "value": 0.4878,
+   "fmt": ".0000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract",
+   "note": "DAUS 0.4878 compared with 0.4752 for Open-BADAS"
+  },
+  "vlalert.daus_badas": {
+   "value": 0.4752,
+   "fmt": ".0000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract"
+  },
+  "vlalert.auroc": {
+   "value": 0.689,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract",
+   "note": "from 0.610"
+  },
+  "vlalert.auroc_base": {
+   "value": 0.61,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract"
+  },
+  "vlalert.ap_tick": {
+   "value": 0.195,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract",
+   "note": "from 0.176"
+  },
+  "vlalert.ap_tick_base": {
+   "value": 0.176,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract"
+  },
+  "vlalert.f1_t": {
+   "value": 0.297,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract",
+   "note": "from 0.276"
+  },
+  "vlalert.f1_t_base": {
+   "value": 0.276,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract"
+  },
+  "vlalert.bal_acc": {
+   "value": 0.648,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract",
+   "note": "from 0.581"
+  },
+  "vlalert.bal_acc_base": {
+   "value": 0.581,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract"
+  },
+  "vlalert.critic_clips": {
+   "value": 221,
+   "fmt": "0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract",
+   "note": "held-out ADAS-TO-Critic clips"
+  },
+  "vlalert.r5s": {
+   "value": 88.7,
+   "fmt": "0.0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "unit": "%",
+   "locator": "Abstract",
+   "note": "from 74.2%"
+  },
+  "vlalert.r5s_base": {
+   "value": 74.2,
+   "fmt": "0.0",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "unit": "%",
+   "locator": "Abstract"
+  },
+  "vlalert.f1_critic": {
+   "value": 0.686,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract",
+   "note": "from 0.585"
+  },
+  "vlalert.f1_critic_base": {
+   "value": 0.585,
+   "fmt": ".000",
+   "tag": "in the paper",
+   "source": {
+    "kind": "arxiv",
+    "ref": "2609.08130v1",
+    "url": "https://arxiv.org/abs/2609.08130v1"
+   },
+   "locator": "Abstract"
+  },
+  "vlalert.split_train_ticks": {
+   "value": 97649,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table"
+  },
+  "vlalert.split_val_ticks": {
+   "value": 11220,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table"
+  },
+  "vlalert.split_test_ticks": {
+   "value": 23661,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table"
+  },
+  "vlalert.split_adasto_ticks": {
+   "value": 21020,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table"
+  },
+  "vlalert.split_accident_ticks": {
+   "value": 39342,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table"
+  },
+  "vlalert.split_train_videos": {
+   "value": 6406,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table"
+  },
+  "vlalert.split_val_videos": {
+   "value": 1219,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table"
+  },
+  "vlalert.split_test_videos": {
+   "value": 2647,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table"
+  },
+  "vlalert.split_adasto_videos": {
+   "value": 1051,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table"
+  },
+  "vlalert.split_accident_videos": {
+   "value": 2211,
+   "fmt": "0,0",
+   "tag": "latest release",
+   "source": {
+    "kind": "hf-card",
+    "ref": "HenryYHW/VLAlert",
+    "url": "https://huggingface.co/datasets/HenryYHW/VLAlert"
+   },
+   "locator": "split table"
+  },
+  "family.datasets": {
+   "value": 6,
+   "fmt": "0",
+   "tag": "derived",
+   "derived_from": [
+    "openlka",
+    "adasto",
+    "baton",
+    "drivedna",
+    "drivemotion",
+    "vlalert"
+   ],
+   "op": "count",
+   "note": "open datasets & benchmarks released by the lab: OpenLKA, ADAS-TO, BATON, DriveDNA, DriveMotion, VLAlert-Bench"
+  },
+  "family.hf_repos": {
+   "value": 11,
+   "fmt": "0",
+   "tag": "derived",
+   "derived_from": [
+    "HenryYHW/ADAS-TO",
+    "HenryYHW/ADAS-TO-Critical",
+    "HenryYHW/ADAS-TO-Sample",
+    "HenryYHW/ADAS-TO_longitudinal",
+    "HenryYHW/BATON",
+    "HenryYHW/BATON-Sample",
+    "HenryYHW/DriveDNA",
+    "HenryYHW/DriveDNA-Sample",
+    "HenryYHW/DriveMotion",
+    "HenryYHW/TriDrive",
+    "HenryYHW/VLAlert"
+   ],
+   "op": "count",
+   "source": {
+    "kind": "hf-api",
+    "ref": "hf_meta.json",
+    "url": "https://huggingface.co/HenryYHW",
+    "date": "2026-10-02"
+   }
+  },
+  "family.hf_downloads": {
+   "value": 732,
+   "fmt": "0,0",
+   "tag": "derived",
+   "op": "sum",
+   "source": {
+    "kind": "hf-api",
+    "ref": "hf_meta.json",
+    "url": "https://huggingface.co/HenryYHW",
+    "date": "2026-10-02"
+   }
+  }
+ }
+}

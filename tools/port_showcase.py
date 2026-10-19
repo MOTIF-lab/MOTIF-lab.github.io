@@ -156,6 +156,17 @@ LK_BRAND_NEW = ('<a class="lk-brand" href="/" aria-label="MOTIF Lab home"><img s
                 'alt="MOTIF Lab · University of South Florida" width="640" height="160"></a>')
 LK_ALLOW_RX = [r"https://www\.dropbox\.com/scl/fo/[A-Za-z0-9]+/?", r"Dropbox(?![/\\])"]   # public release host, prose mentions
 
+def tune_openlka_css(text):
+    """Lab copy only: the dark CAN band of OpenLKA's own stylesheet moves from navy to the lab's deep greens (same tokens as showcase-theme.css)."""
+    reps = [("--cl-bg:#070d1d;--cl-bg-1:#0a1428;--cl-bg-2:#0f2044;", "--cl-bg:#03150f;--cl-bg-1:#06231a;--cl-bg-2:#082c20;"),
+            ("rgba(7,13,29,", "rgba(3,21,15,"), ("rgba(61,123,255,", "rgba(46,125,92,"), ("#0b1730", "#0a2d21"), ("#0e1c3c", "#0f3a2c"), ("#0a1428", "#06231a")]
+    for a, b in reps:
+        if a not in text: raise Fail(f"can.css tune: {a!r} not found (source changed?)")
+        text = text.replace(a, b)
+    text = re.sub(r"--cl-border:rgba\([^)]*\)", "--cl-border:rgba(207,196,147,.2)", text, count=1)
+    text = re.sub(r"--cl-border-hi:rgba\([^)]*\)", "--cl-border-hi:rgba(207,196,147,.55)", text, count=1)
+    return text
+
 def port_openlka(src, more, dry):
     """OpenLKA keeps its own light USF-coloured CSS/JS; only the chrome and the links move to the lab."""
     pslug, lab = "openlka", "openlka"; sdir = os.path.join(src, pslug); s = open(os.path.join(sdir, "index.html"), encoding="utf8").read()
@@ -224,6 +235,9 @@ def port_openlka(src, more, dry):
     os.makedirs(out_dir, exist_ok=True)
     for w in sorted(want):
         dst = os.path.join(out_dir, w); os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy2(os.path.join(sdir, w), dst)
+        if w == "static/can.css":
+            tuned = tune_openlka_css(open(dst, encoding="utf8").read())   # read first: open(dst, "w") truncates
+            open(dst, "w", encoding="utf8").write(tuned); rep["rewrites"]["can_css_tuned"] = True
         if is_text(dst):
             txt = open(dst, encoding="utf8", errors="replace").read()
             rules = SECRETS_ONLY if (w.startswith("static/can/") or w == "static/can.js") else None   # recorder/route ids are public by decision
