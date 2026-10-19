@@ -25,6 +25,7 @@
       <p class="footer-heading">Links</p>
       <ul class="footer-links">
         {{ with .Site.Params.scholar }}<li><a href="{{ . }}" rel="noopener">Google Scholar</a></li>{{ end }}
+        {{ with .Site.Params.alphaxiv }}<li><a href="{{ . }}" rel="noopener">alphaXiv</a></li>{{ end }}
         {{ with .Site.Params.orcid }}<li><a href="{{ . }}" rel="noopener">ORCID</a></li>{{ end }}
         {{ with .Site.Params.github }}<li><a href="{{ . }}" rel="noopener">GitHub</a></li>{{ end }}
         {{ with .Site.Params.linkedin }}<li><a href="{{ . }}" rel="noopener">LinkedIn</a></li>{{ end }}

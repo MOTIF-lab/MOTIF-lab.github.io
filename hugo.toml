@@ -24,6 +24,7 @@ enableGitInfo = false
   # Hao's personal CV / academic site
   pi_website = "https://sites.google.com/view/haozhou-cv"
   scholar = "https://scholar.google.com/citations?user=A1EeOMQAAAAJ&hl=en"
+  alphaxiv = "https://www.alphaxiv.org/@hao-zhou-5"   # Hao's alphaXiv profile
   orcid = ""             # TODO: confirm Hao's ORCID URL
   github = "https://github.com/MOTIF-Lab"     # Lab GitHub organization
   linkedin = "https://www.linkedin.com/company/motif-lab/"

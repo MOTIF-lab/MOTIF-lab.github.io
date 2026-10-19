@@ -42,6 +42,7 @@
           <ul class="person-links">
             {{ with .Params.email }}<li><a href="mailto:{{ . }}">Email</a></li>{{ end }}
             {{ with .Params.scholar }}<li><a href="{{ . }}" rel="noopener">Scholar</a></li>{{ end }}
+            {{ with .Params.alphaxiv }}<li><a href="{{ . }}" rel="noopener">alphaXiv</a></li>{{ end }}
             {{ with .Params.github }}<li><a href="{{ . }}" rel="noopener">GitHub</a></li>{{ end }}
             {{ with .Params.linkedin }}<li><a href="{{ . }}" rel="noopener">LinkedIn</a></li>{{ end }}
             {{ with .Params.website }}<li><a href="{{ . }}" rel="noopener">Website</a></li>{{ end }}

@@ -7,6 +7,7 @@ email: "haozhou1@usf.edu"
 photo: "/img/team/hao-zhou.jpg"
 website: "https://sites.google.com/view/haozhou-cv"
 scholar: "https://scholar.google.com/citations?user=A1EeOMQAAAAJ&hl=en"
+alphaxiv: "https://www.alphaxiv.org/@hao-zhou-5"
 orcid: ""           # TODO: confirm Hao's ORCID URL
 github: "https://github.com/MOTIF-Lab"
 linkedin: "https://www.linkedin.com/company/motif-lab/"
