@@ -3,7 +3,7 @@ title: "AI for Mobility"
 code: "CGN 6933"
 weight: 10
 level: "Graduate"
-semester: "Tentative — Fall 2026 / Spring 2027"
+semester: "Fall 2026"
 credits: 3
 format: "Lectures + hands-on labs"
 instructor: "Hao Zhou"
