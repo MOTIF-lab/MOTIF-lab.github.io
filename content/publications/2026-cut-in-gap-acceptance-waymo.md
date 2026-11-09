@@ -7,6 +7,8 @@ authors:
   - "Yuhang Wang"
   - "Hao Zhou"
 venue: "2026 IEEE 29th International Conference on Intelligent Transportation Systems (ITSC)"
+venue_short: "ITSC 2026"
+status: "accepted"
 pdf: "https://arxiv.org/abs/2605.01485"
 topics:
   - "Automated vehicles"

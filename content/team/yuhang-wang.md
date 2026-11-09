@@ -4,7 +4,7 @@ role: "PhD Student"
 weight: 10
 affiliation: "USF Civil and Environmental Engineering"
 email: ""           # TODO add USF email
-photo: "/img/team/yuhang-wang.jpg"
+photo: "img/team/yuhang-wang.jpg"
 website: "https://wangyuhang-cmd.github.io/"
 scholar: "https://scholar.google.com/citations?user=2bYt9ZAAAAAJ&hl=zh-CN"
 twitter: "https://x.com/Henry_YhWang"

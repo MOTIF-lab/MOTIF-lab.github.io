@@ -12,17 +12,16 @@
       {{ range .Pages.ByDate.Reverse }}
       <li class="news-entry">
         <div class="news-entry-date">
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-          {{ with .Params.category }}<span class="pill pill-topic">{{ . }}</span>{{ end }}
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "news-date.html" . }}</time>
+          {{ partial "news-pill.html" . }}
         </div>
         <div class="news-entry-body">
           <h2 class="news-entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          <p>{{ .Description | default (.Summary | plainify | truncate 220) }}</p>
-          {{ with .Params.external }}
+          <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 220 }}{{ end }}</p>
+          {{ if or .Params.external .Params.links }}
           <p class="news-links">
-            {{ range . }}
-            <a class="pill" href="{{ .url }}" rel="noopener" target="_blank">{{ .outlet | default .label }} &#8599;</a>
-            {{ end }}
+            {{ range .Params.links }}<a class="pill pill-gold" href="{{ .url }}">{{ .label }}</a>{{ end }}
+            {{ range .Params.external }}<a class="pill" href="{{ .url }}" rel="noopener" target="_blank">{{ .outlet | default .label }} &#8599;</a>{{ end }}
           </p>
           {{ end }}
         </div>

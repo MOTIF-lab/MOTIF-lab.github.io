@@ -4,7 +4,7 @@ role: "PhD Student"
 weight: 13
 affiliation: "USF Civil and Environmental Engineering"
 email: ""           # TODO add USF email
-photo: "/img/team/alina-hagen.jpg"
+photo: "img/team/alina-hagen.jpg"
 website: "https://hagenanalytics.com/"
 scholar: ""
 github: "https://github.com/alivardic"

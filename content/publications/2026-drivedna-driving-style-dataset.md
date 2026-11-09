@@ -7,10 +7,13 @@ authors:
   - "Lingyao Li"
   - "Hao Zhou"
 venue: "arXiv preprint arXiv:2607.23822"
+status: "preprint"
+also:
+  - "TRB 2027 (presentation)"
 pdf: "https://arxiv.org/abs/2607.23822"
 topics:
   - "Traffic Safety"
   - "Other"
 ---
 
-Project page: [wangyuhang-cmd.github.io/drivedna](https://wangyuhang-cmd.github.io/drivedna/) · [Project entry](/projects/drivedna/)
+Project page: [DriveDNA](/projects/drivedna/) · [Dataset on Hugging Face](https://huggingface.co/datasets/HenryYHW/DriveDNA)

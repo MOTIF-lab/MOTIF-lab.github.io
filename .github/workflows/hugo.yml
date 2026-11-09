@@ -29,6 +29,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      # Pinned on purpose: the showcase project pages are HTML content files, which Hugo >= 0.162 denies by default
+      # (security.allowContent). Build locally with the new version before bumping.
       HUGO_VERSION: 0.135.0
     steps:
       - name: Install Hugo (extended)

@@ -32,7 +32,7 @@
         {{ range $members.ByWeight }}
         <article class="person">
           {{ if .Params.photo }}
-          <img class="person-photo" src="{{ .Params.photo | relURL }}" alt="{{ .Title }}">
+          {{ partial "img.html" (dict "src" .Params.photo "alt" .Title "class" "person-photo" "fill" "360x360" "q" 82) }}
           {{ else }}
           <div class="person-photo placeholder" aria-hidden="true">{{ substr .Title 0 1 }}</div>
           {{ end }}

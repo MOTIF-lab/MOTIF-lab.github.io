@@ -8,10 +8,14 @@ authors:
   - "Shengming Yuan"
   - "Hao Zhou"
 venue: "2025 IEEE 28th International Conference on Intelligent Transportation Systems (ITSC)"
+venue_short: "ITSC 2025"
+status: "published"
+links:
+  - {label: "IEEE Xplore", url: "https://ieeexplore.ieee.org/document/11423194/"}
 pdf: "https://arxiv.org/abs/2505.09092"
 topics:
   - "Automated vehicles"
   - "Traffic Safety"
 ---
 
-Project page: [wangyuhang-cmd.github.io/openlka](https://wangyuhang-cmd.github.io/openlka/) · [Project entry](/projects/openlka/)
+Project page: [OpenLKA](/projects/openlka/) · [Data portal](https://openlka.github.io/)

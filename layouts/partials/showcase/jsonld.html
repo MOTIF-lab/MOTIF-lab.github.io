@@ -1,0 +1,17 @@
+{{- /* JSON-LD for a showcase page, built from front matter `schema:` (type Dataset | ScholarlyArticle) + `authors`. */ -}}
+{{- $p := .p }}{{ $s := .s -}}
+{{- $article := eq $s.type "ScholarlyArticle" -}}
+{{- $d := dict "@context" "https://schema.org" "@type" $s.type "url" $p.Permalink -}}
+{{- with $s.name }}{{ $d = merge $d (dict (cond $article "headline" "name") .) }}{{ end -}}
+{{- with $s.description }}{{ $d = merge $d (dict "description" .) }}{{ end -}}
+{{- with $p.Params.authors }}{{ $a := slice }}{{ range . }}{{ $a = $a | append (dict "@type" "Person" "name" .) }}{{ end }}{{ $d = merge $d (dict (cond $article "author" "creator") $a) }}{{ end -}}
+{{- with $s.datePublished }}{{ $d = merge $d (dict "datePublished" .) }}{{ end -}}
+{{- with $s.sameAs }}{{ $d = merge $d (dict "sameAs" .) }}{{ end -}}
+{{- with $s.license }}{{ $l := . }}{{ if hasPrefix $l "#" }}{{ $l = printf "%s%s" $p.Permalink $l }}{{ end }}{{ $d = merge $d (dict "license" $l) }}{{ end -}}
+{{- with $s.image }}{{ $d = merge $d (dict "image" (printf "%s%s" $p.Permalink .)) }}{{ end -}}
+{{- if isset $s "isaccessibleforfree" }}{{ $d = merge $d (dict "isAccessibleForFree" $s.isaccessibleforfree) }}{{ end -}}
+{{- with $s.distribution }}{{ $ds := slice }}{{ range . }}{{ $ds = $ds | append (merge (dict "@type" "DataDownload") .) }}{{ end }}{{ $d = merge $d (dict "distribution" $ds) }}{{ end -}}
+{{- with $s.keywords }}{{ $d = merge $d (dict "keywords" .) }}{{ end -}}
+{{- with $s.citation }}{{ $d = merge $d (dict "citation" .) }}{{ end -}}
+{{- $d = merge $d (dict "publisher" (dict "@type" "Organization" "name" "MOTIF Lab, University of South Florida" "url" $p.Site.BaseURL)) -}}
+{{- $d | jsonify -}}

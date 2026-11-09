@@ -2,6 +2,8 @@
 title: "Scale-CDA: democratizing AI-assisted cooperative driving automation for production cars"
 description: "An open-hardware, open-software toolchain that retrofits ordinary production cars for generative-AI-assisted cooperative driving automation with under US $1,000 of off-the-shelf parts."
 weight: 3
+thumb: "/img/projects/th_scale-cda.jpg"
+accent: "#5c8bff"
 status: "active"
 sponsor: ""           # TODO Hao: confirm sponsor / funding source(s)
 role: "PI"

@@ -10,10 +10,13 @@ authors:
   - "Jingran Sun"
   - "Hao Zhou"
 venue: "arXiv preprint arXiv:2604.07263"
+status: "preprint"
+also:
+  - "TRB 2027 (presentation)"
 pdf: "https://arxiv.org/abs/2604.07263"
 topics:
   - "Automated vehicles"
   - "Traffic Safety"
 ---
 
-Project page: [wangyuhang-cmd.github.io/baton](https://wangyuhang-cmd.github.io/baton/) · [Project entry](/projects/baton/)
+Project page: [BATON](/projects/baton/) · [Benchmark on Hugging Face](https://huggingface.co/datasets/HenryYHW/BATON)

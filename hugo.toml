@@ -30,6 +30,7 @@ enableGitInfo = false
   linkedin = "https://www.linkedin.com/company/motif-lab/"
   twitter = ""           # Intentionally blank — old @ChaoweiX handle was not Hao's
   youtube = "https://www.youtube.com/c/MOTIFLab"
+  huggingface = "https://huggingface.co/HenryYHW"   # datasets & models are published under this account
   copyrightYear = 2026
   showRecruitingBanner = true
   recruitingMessage = "We are recruiting motivated PhD and MS students. See <a href=\"/join/\">Join us</a>."
@@ -42,38 +43,43 @@ enableGitInfo = false
   goldLight = "#CFC493"
 
 [menu]
+  # pageRef (not url) so IsMenuCurrent/HasMenuCurrent can mark the active item
   [[menu.main]]
     name = "Home"
-    url = "/"
+    pageRef = "/"
     weight = 1
   [[menu.main]]
     name = "Team"
-    url = "/team/"
+    pageRef = "/team"
     weight = 2
   [[menu.main]]
     name = "Research"
-    url = "/research/"
+    pageRef = "/research"
     weight = 3
   [[menu.main]]
-    name = "Publications"
-    url = "/publications/"
+    name = "Datasets"
+    pageRef = "/datasets"
     weight = 4
   [[menu.main]]
-    name = "Projects"
-    url = "/projects/"
+    name = "Publications"
+    pageRef = "/publications"
     weight = 5
   [[menu.main]]
-    name = "Teaching"
-    url = "/teaching/"
+    name = "Projects"
+    pageRef = "/projects"
     weight = 6
   [[menu.main]]
-    name = "News"
-    url = "/news/"
+    name = "Teaching"
+    pageRef = "/teaching"
     weight = 7
   [[menu.main]]
-    name = "Join"
-    url = "/join/"
+    name = "News"
+    pageRef = "/news"
     weight = 8
+  [[menu.main]]
+    name = "Join"
+    pageRef = "/join"
+    weight = 9
 
 [markup.goldmark.renderer]
   unsafe = true
@@ -91,3 +97,11 @@ enableGitInfo = false
   tag = "tags"
   theme = "themes"
   year = "years"
+
+# Minify: keep attribute quotes so the ported showcase pages (and the checkers' regexes) read exactly as in source.
+[minify.tdewolff.html]
+  keepQuotes = true
+[minify.tdewolff.json]
+  keepNumbers = true
+# NOTE: the showcase project pages are HTML content files (content/projects/<slug>/index.html). Hugo >= 0.162 denies
+# text/html content by default (security.allowContent); test before bumping HUGO_VERSION in .github/workflows/hugo.yml.

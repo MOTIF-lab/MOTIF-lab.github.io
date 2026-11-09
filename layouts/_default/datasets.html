@@ -1,0 +1,92 @@
+{{ define "main" }}
+{{- $N := site.Data.numbers.numbers }}{{ $ds := site.Data.datasets -}}
+{{- $tiers := dict "open" "Open" "gated-auto" "Gated · auto-approved" "gated-manual" "Gated · manual approval" "request" "On request" "agreement" "Research agreement" -}}
+<section class="ds-hero">
+  <div class="container">
+    <p class="eyebrow eyebrow--light">MOTIF Lab releases</p>
+    <h1>{{ .Title }}</h1>
+    <p class="ds-lede">{{ .Description }}</p>
+    <ul class="ds-family" aria-label="Family at a glance">
+      <li>{{ partial "num.html" (dict "k" "family.datasets" "N" $N) }}<span>open datasets &amp; benchmarks</span></li>
+      <li>{{ partial "num.html" (dict "k" "family.hf_repos" "N" $N) }}<span>Hugging Face repositories</span></li>
+      <li>{{ partial "num.html" (dict "k" "adasto.brands" "N" $N) }}<span>automakers in one release (ADAS-TO)</span></li>
+      <li>{{ partial "num.html" (dict "k" "adasto.v2_models" "N" $N) }}<span>vehicle models in one release (ADAS-TO v2)</span></li>
+      <li>{{ partial "num.html" (dict "k" "drivedna.drivers" "N" $N) }}<span>pseudonymous drivers (DriveDNA)</span></li>
+      <li>{{ partial "num.html" (dict "k" "openlka.hours_release" "N" $N "unit" true) }}<span>of production lane-keeping driving (OpenLKA)</span></li>
+    </ul>
+    <p class="ds-note">Per-release figures with a source chip on every number (P paper · R release card · L lab log). The releases share recordings — ADAS-TO is cut from the OpenLKA corpus and DriveMotion includes BATON — so hours are never summed across them.</p>
+  </div>
+</section>
+
+<section class="section ds-band">
+  <div class="container">
+    <div class="prose ds-intro">{{ .Content }}</div>
+    <h2 class="section-title section-title--light">Datasets &amp; benchmarks</h2>
+    <div class="ds-grid">
+      {{- range where $ds "kind" "ne" "model" }}{{ partial "dataset-card.html" (dict "ds" . "N" $N "compact" false) }}{{ end }}
+    </div>
+    <h2 class="section-title section-title--light">Models trained on them</h2>
+    <div class="ds-grid ds-grid--models">
+      {{- range where $ds "kind" "model" }}{{ partial "dataset-card.html" (dict "ds" . "N" $N "compact" false) }}{{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">At a glance</h2>
+    <p class="ds-swipe muted">Scroll sideways on small screens.</p>
+    <div class="ds-table-wrap">
+      <table class="ds-table">
+        <thead><tr><th scope="col">Release</th><th scope="col">Kind</th><th scope="col">Scale</th><th scope="col">Drivers</th><th scope="col">Vehicle models</th><th scope="col">Modalities</th><th scope="col">Access</th><th scope="col">License</th><th scope="col">Venue</th></tr></thead>
+        <tbody>
+        {{- range $ds }}
+          <tr>
+            <th scope="row"><a href="{{ .links.showcase }}">{{ .name }}</a></th>
+            <td>{{ .kind }}</td>
+            <td>{{ $row := . }}{{ with .table.scale }}{{ $k := . }}{{ partial "num.html" (dict "k" $k "N" $N "unit" true) }}{{ if not (index $N $k).unit }}{{ range $row.numbers }}{{ if eq .k $k }} <small class="muted">{{ .label }}</small>{{ end }}{{ end }}{{ end }}{{ end }}</td>
+            <td>{{ with .table.drivers }}{{ partial "num.html" (dict "k" . "N" $N) }}{{ else }}—{{ end }}</td>
+            <td>{{ with .table.models }}{{ partial "num.html" (dict "k" . "N" $N) }}{{ else }}—{{ end }}</td>
+            <td class="ds-mod">{{ delimit .modalities " · " }}</td>
+            <td><span class="ds-tier ds-tier-{{ .access }}">{{ index $tiers .access }}</span></td>
+            <td>{{ .license }}</td>
+            <td>{{ .venue }}</td>
+          </tr>
+        {{- end }}
+        </tbody>
+      </table>
+    </div>
+    <ul class="ds-legend">
+      <li><span class="ds-tier ds-tier-open">Open</span> download directly (code, DBC files, pre-release subsets).</li>
+      <li><span class="ds-tier ds-tier-gated-auto">Gated · auto-approved</span> accept the terms on Hugging Face and the files unlock immediately (samples).</li>
+      <li><span class="ds-tier ds-tier-gated-manual">Gated · manual approval</span> request with an institutional email and your intended use; the lab reviews requests.</li>
+      <li><span class="ds-tier ds-tier-request">On request</span> write to the lab; decoded routes with video are shared by link after review.</li>
+      <li><span class="ds-tier ds-tier-agreement">Research agreement</span> raw logs and HD video require a signed agreement between institutions.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container ds-request">
+    <h2 class="section-title">Request access and cite</h2>
+    <div class="ds-steps">
+      <ol>
+        <li><b>Read the card.</b> Each project page states the license, what is and is not released, and the privacy measures taken (pseudonymous drivers, blurred faces and plates, skeleton-only cabin data).</li>
+        <li><b>Request on Hugging Face</b> with an institutional email and a sentence on the intended use. Gated releases are reviewed by the lab; samples unlock automatically.</li>
+        <li><b>Cite the paper</b> that introduced the release — BibTeX is on every project page — and link back to the dataset page in your work.</li>
+      </ol>
+      <p class="muted">Questions about collaborations, agency deployments or research agreements: <a href="mailto:{{ .Site.Params.pi_email }}">{{ .Site.Params.pi_email }}</a>.</p>
+    </div>
+    <div class="ds-citelist">
+      {{- range $ds }}<a class="pill" href="{{ .links.showcase }}#cite">{{ .name }} · BibTeX</a>{{ end }}
+    </div>
+    <details class="sources" id="sources"><summary>Sources &amp; notes</summary>
+      <ol>
+        {{- $seen := dict }}
+        {{- range $k, $e := $N }}{{ with $e.source }}{{ if and .url (not (index $seen .url)) }}{{ $seen = merge $seen (dict .url true) }}<li><b>{{ .kind }}</b> · <a href="{{ .url }}" target="_blank" rel="noopener">{{ .ref }}</a>{{ with .date }} · fetched {{ . }}{{ end }}</li>{{ end }}{{ end }}{{ end }}
+      </ol>
+      <p class="muted">Numbers are generated from the lab's number registry (<code>data/numbers.json</code>, last built {{ site.Data.numbers.generated }}); "P" chips quote the paper, "R" chips the release card or API, "L" chips a lab log.</p>
+    </details>
+  </div>
+</section>
+{{ end }}

@@ -2,7 +2,7 @@
 <section class="page-header">
   <div class="container person-header">
     {{ if .Params.photo }}
-    <img class="person-photo large" src="{{ .Params.photo | relURL }}" alt="{{ .Title }}">
+    {{ partial "img.html" (dict "src" .Params.photo "alt" .Title "class" "person-photo large" "fill" "480x480" "q" 84 "loading" "eager") }}
     {{ else }}
     <div class="person-photo large placeholder" aria-hidden="true">{{ substr .Title 0 1 }}</div>
     {{ end }}

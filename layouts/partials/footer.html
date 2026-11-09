@@ -22,13 +22,25 @@
       </p>
     </div>
     <div>
+      <p class="footer-heading">Explore</p>
+      <ul class="footer-links">
+        <li><a href="{{ "datasets/" | relURL }}">Datasets &amp; Benchmarks</a></li>
+        <li><a href="{{ "projects/" | relURL }}">Projects</a></li>
+        <li><a href="{{ "publications/" | relURL }}">Publications</a></li>
+        <li><a href="{{ "news/" | relURL }}">News</a></li>
+        <li><a href="{{ "join/" | relURL }}">Join the lab</a></li>
+      </ul>
+    </div>
+    <div>
       <p class="footer-heading">Links</p>
       <ul class="footer-links">
         {{ with .Site.Params.scholar }}<li><a href="{{ . }}" rel="noopener">Google Scholar</a></li>{{ end }}
         {{ with .Site.Params.alphaxiv }}<li><a href="{{ . }}" rel="noopener">alphaXiv</a></li>{{ end }}
         {{ with .Site.Params.orcid }}<li><a href="{{ . }}" rel="noopener">ORCID</a></li>{{ end }}
         {{ with .Site.Params.github }}<li><a href="{{ . }}" rel="noopener">GitHub</a></li>{{ end }}
+        {{ with .Site.Params.huggingface }}<li><a href="{{ . }}" rel="noopener">Hugging Face</a></li>{{ end }}
         {{ with .Site.Params.linkedin }}<li><a href="{{ . }}" rel="noopener">LinkedIn</a></li>{{ end }}
+        {{ with .Site.Params.youtube }}<li><a href="{{ . }}" rel="noopener">YouTube</a></li>{{ end }}
         <li><a href="https://www.usf.edu" rel="noopener">USF</a></li>
       </ul>
     </div>

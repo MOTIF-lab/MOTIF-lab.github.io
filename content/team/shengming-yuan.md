@@ -4,7 +4,7 @@ role: "PhD Student"
 weight: 11
 affiliation: "USF Civil and Environmental Engineering"
 email: ""           # TODO add USF email
-photo: "/img/team/shengming-yuan.png"
+photo: "img/team/shengming-yuan.jpg"
 website: "http://myweb.usf.edu/~shengming/"
 # Original Jekyll site had Shengming's NAME linking to https://sheltonliu-n.github.io/ —
 # that's a different person (Shelton Liu N). Removed; the USF page above is the correct one.

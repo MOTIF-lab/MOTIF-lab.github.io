@@ -57,7 +57,7 @@
             </a>
             {{ end }}
             <div class="pub-body">
-              <p class="pub-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+              <p class="pub-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.venue_short }} <span class="venue-badge">{{ . }}</span>{{ end }}{{ with .Params.award }} <span class="pill pill-cat-award">{{ . }}</span>{{ end }}{{ range .Params.also }} <span class="pill pill-topic">also: {{ . }}</span>{{ end }}</p>
               <p class="pub-authors">{{ with .Params.authors }}{{ delimit . ", " }}{{ end }}</p>
               <p class="pub-meta">
                 {{ with .Params.venue }}<em>{{ . }}</em>{{ end }}
@@ -72,6 +72,7 @@
                 {{ with .Params.code }}<a class="pill" href="{{ . }}" rel="noopener">Code</a>{{ end }}
                 {{ with .Params.preprint }}<a class="pill" href="{{ . }}" rel="noopener">Preprint</a>{{ end }}
                 {{ with .Params.slides }}<a class="pill" href="{{ . }}" rel="noopener">Slides</a>{{ end }}
+                {{ range .Params.links }}<a class="pill" href="{{ .url }}" rel="noopener">{{ .label }}</a>{{ end }}
               </p>
             </div>
           </li>

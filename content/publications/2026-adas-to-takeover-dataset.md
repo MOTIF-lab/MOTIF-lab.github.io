@@ -8,10 +8,14 @@ authors:
   - "Jingran Sun"
   - "Hao Zhou"
 venue: "2026 IEEE 29th International Conference on Intelligent Transportation Systems (ITSC)"
+venue_short: "ITSC 2026"
+status: "accepted"
+also:
+  - "TRB 2027 (presentation)"
 pdf: "https://arxiv.org/abs/2603.06986"
 topics:
   - "Automated vehicles"
   - "Traffic Safety"
 ---
 
-Project page: [wangyuhang-cmd.github.io/adasto](https://wangyuhang-cmd.github.io/adasto/) · [Project entry](/projects/adas-to/)
+Project page: [ADAS-TO](/projects/adas-to/) · [Dataset on Hugging Face](https://huggingface.co/datasets/HenryYHW/ADAS-TO)

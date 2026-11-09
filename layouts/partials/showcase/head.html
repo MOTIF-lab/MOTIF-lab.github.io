@@ -1,0 +1,43 @@
+{{- /* Head for the ported showcase pages (type: showcase). The body (nav, main, footer) is the page's own HTML; this
+       partial regenerates everything that used to live in the source page's <head> from front matter. */ -}}
+{{- $t := .Params.showcase_title | default .Title -}}
+{{- $img := "" }}{{ with .Params.image }}{{ $img = printf "%s%s" $.Permalink . }}{{ end -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $t }}</title>
+<meta name="description" content="{{ .Description }}">
+{{ with .Params.keywords }}<meta name="keywords" content="{{ . }}">{{ end }}
+{{ with .Params.authors }}<meta name="author" content="{{ delimit . ", " }}">{{ end }}
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="{{ .Params.theme_color | default "#03150f" }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MOTIF Lab · University of South Florida">
+<meta property="og:title" content="{{ with .Params.og }}{{ .title | default $t }}{{ else }}{{ $t }}{{ end }}">
+<meta property="og:description" content="{{ with .Params.og }}{{ .description | default $.Description }}{{ else }}{{ .Description }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with $img }}<meta property="og:image" content="{{ . }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ . }}">{{ end }}
+<meta name="twitter:title" content="{{ with .Params.twitter }}{{ .title | default $t }}{{ else }}{{ $t }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Params.twitter }}{{ .description | default $.Description }}{{ else }}{{ .Description }}{{ end }}">
+{{ with .Params.citation }}<meta name="citation_title" content="{{ .title | default $t }}">
+{{ range .authors }}<meta name="citation_author" content="{{ . }}">{{ end }}
+{{ with .date }}<meta name="citation_publication_date" content="{{ . }}">{{ end }}
+{{ with .conference }}<meta name="citation_conference_title" content="{{ . }}">{{ end }}
+{{ with .arxiv }}<meta name="citation_arxiv_id" content="{{ . }}">{{ end }}{{ end }}
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="preload" href="/assets/proj/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+{{ range .Params.preload }}<link rel="preload" href="{{ . }}" as="image" fetchpriority="high">
+{{ end -}}
+{{ if .Params.kit -}}
+{{- $vc := substr (sha256 (os.ReadFile "static/assets/proj/proj.css")) 0 8 }}{{ $vj := substr (sha256 (os.ReadFile "static/assets/proj/proj.js")) 0 8 -}}
+<link rel="stylesheet" href="/assets/proj/proj.css?v={{ $vc }}">
+{{ with resources.Get "css/showcase-theme.css" }}{{ with . | minify }}<style>{{ .Content | safeCSS }}</style>{{ end }}{{ end }}
+<script defer src="/assets/proj/proj.js?v={{ $vj }}"></script>
+{{- else -}}
+{{ range .Params.css }}<link rel="stylesheet" href="{{ . }}">
+{{ end }}{{ with resources.Get "css/showcase-openlka.css" }}{{ with . | minify }}<style>{{ .Content | safeCSS }}</style>{{ end }}{{ end }}
+<script>document.documentElement.classList.remove('no-js');</script>
+{{- end }}
+{{ with .Params.schema }}<script type="application/ld+json">{{ partial "showcase/jsonld.html" (dict "p" $ "s" .) | safeJS }}</script>{{ end }}
