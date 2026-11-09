@@ -1154,7 +1154,7 @@ ul.footer-affil li { margin: .1rem 0; }
 
 /* ----- Datasets & Benchmarks hub ----- */
 .ds-hero {
-  background: linear-gradient(160deg, #06231a, #082c20 55%, var(--ink));
+  background: var(--usf-green-dark);   /* same as the other page headers (was a near-black gradient) */
   color: var(--ink-text);
   padding: 3.5rem 0 2.75rem;
   border-bottom: 4px solid var(--usf-gold);
@@ -1170,8 +1170,24 @@ ul.footer-affil li { margin: .1rem 0; }
 .ds-family span { display: block; margin-top: .2rem; color: var(--ink-muted); font-size: .9rem; line-height: 1.35; }
 .ds-note { color: var(--ink-muted); font-size: .9rem; max-width: 80ch; margin: 0; }
 
-.ds-band { background: var(--ink); color: var(--ink-text); border-bottom: 1px solid var(--ink-border); }
+/* The datasets band sits on USF Green (#006747) instead of the near-black ink.
+   Re-scoping the --ink-* variables here re-tints every card inside the band;
+   the hero and the showcase project pages keep the original ink palette.
+   Contrast (WCAG): white on card 8.8:1, muted text on card 6.6:1 and on band 5.2:1,
+   sand-gold labels on card 5.0:1. */
+.ds-band {
+  --ink-2: #00563b;                      /* card: one step deeper than USF Green */
+  --ink-3: #004a33;                      /* thumbnail placeholder */
+  --ink-border: rgba(207,196,147,.32);
+  --ink-muted: #d0e4d9;
+  background: var(--usf-green); color: var(--ink-text);
+  border-bottom: 1px solid var(--ink-border);
+}
 .ds-band .section-title::after { background: var(--usf-gold); }
+.ds-band .ds-kind { color: var(--usf-gold-light); }   /* per-release accent colours are too dim on green; the accent stays on the card's top edge */
+.ds-band .more-link--light { color: #fff; }
+.ds-band .src { background: rgba(0,0,0,.28); }
+.ds-band .ds-card:hover { box-shadow: 0 12px 30px rgba(0,0,0,.25); }
 .ds-intro { max-width: 75ch; margin: 0 0 1.5rem; }
 .ds-intro p { color: var(--ink-muted); }
 
@@ -1372,6 +1388,7 @@ html.reduced .reveal { opacity: 1; transform: none; transition: none; }
 .press-list li:last-child { border-bottom: none; }
 .press-list b { color: var(--usf-green-dark); }
 .gallery-mosaic picture { display: block; height: 100%; }
+.gallery-cta { text-align: center; margin: 2rem 0 0; }
 
 /* ----- project cards with thumbnails ----- */
 .project-card--thumb { padding: 0; overflow: hidden; display: flex; flex-direction: column; border-top: 3px solid var(--accent, var(--usf-gold)); }

@@ -1,5 +1,5 @@
 ---
-title: "Vehicle technologies and traffic impact"
+title: "Emerging vehicle technologies"
 description: "How ADAS, lane-keeping assist, and electric powertrains change traffic efficiency and safety at the system level."
 weight: 2
 datasets: [openlka, adas-to, baton, drivedna]

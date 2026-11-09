@@ -1,6 +1,6 @@
 ---
-title: "Traffic flow theory"
-description: "Macroscopic and microscopic models of how vehicles aggregate into flow, congestion, and breakdown."
+title: "Traffic flow theory and operation"
+description: "Macroscopic and microscopic models of how vehicles aggregate into flow, congestion, and breakdown, and how those models guide traffic operations."
 weight: 1
 datasets: [openlka, adas-to]
 ---

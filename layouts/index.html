@@ -30,7 +30,22 @@
 </section>
 {{ end }}
 
-<section class="section strengths" data-countup>
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Research themes</h2>
+    <div class="card-grid">
+      {{ range first 3 (where .Site.RegularPages "Section" "research") }}
+      <a class="card reveal" href="{{ .RelPermalink }}">
+        <h3>{{ .Title }}</h3>
+        <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}</p>
+        <span class="card-link">Read more →</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt strengths" data-countup>
   <div class="container">
     <h2 class="section-title">What sets MOTIF apart</h2>
     <ul class="str-grid">
@@ -65,29 +80,6 @@
   </div>
 </section>
 
-<section class="section section-alt news-strip">
-  <div class="container">
-    <div class="row-head"><h2 class="section-title">Latest news</h2><a class="more-link" href="{{ "news/" | relURL }}">All news →</a></div>
-    <div class="news-cards">
-      {{- range $i, $p := $news }}
-      <article class="news-card reveal" style="--i:{{ $i }}">
-        <p class="news-card__meta">{{ partial "news-pill.html" $p }}<time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ partial "news-date.html" $p }}</time></p>
-        <h3><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
-        <p>{{ with $p.Description }}{{ . }}{{ else }}{{ $p.Summary | plainify | truncate 160 }}{{ end }}</p>
-      </article>
-      {{- end }}
-    </div>
-    {{- $more := after 3 (first 10 (where site.RegularPages "Section" "news")) }}
-    {{- with $more }}
-    <ul class="news-list news-list--home" aria-label="Earlier news">
-      {{- range . }}
-      <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "news-date.html" . }}</time><span><a href="{{ .RelPermalink }}">{{ .Title }}</a> {{ partial "news-pill.html" . }}</span></li>
-      {{- end }}
-    </ul>
-    {{- end }}
-  </div>
-</section>
-
 <section class="section ds-band home-ds">
   <div class="container">
     <div class="row-head"><h2 class="section-title section-title--light">Datasets &amp; benchmarks</h2><a class="more-link more-link--light" href="{{ "datasets/" | relURL }}">Open the hub →</a></div>
@@ -98,40 +90,16 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section news-strip">
   <div class="container">
-    <h2 class="section-title">Research themes</h2>
-    <div class="card-grid">
-      {{ range first 3 (where .Site.RegularPages "Section" "research") }}
-      <a class="card reveal" href="{{ .RelPermalink }}">
-        <h3>{{ .Title }}</h3>
-        <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}</p>
-        <span class="card-link">Read more →</span>
-      </a>
-      {{ end }}
-    </div>
-  </div>
-</section>
-
-<section class="section gallery-section">
-  <div class="container">
-    <h2 class="section-title">Life at MOTIF</h2>
-    <p class="gallery-intro">USF Tampa, the city we drive every day, and the experiments that put new vehicle technology through its paces. If this looks like a place you'd like to be, <a href="{{ "join/" | relURL }}">come join us</a>.</p>
-    <div class="gallery-mosaic">
-      {{- $tiles := slice
-        (dict "src" "img/gallery/usf-stadium.jpg" "alt" "Aerial rendering of the new on-campus football stadium at USF Tampa" "tag" "USF Tampa" "cap" "Our home campus" "cls" "g-hero" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 100vw, 740px")
-        (dict "src" "img/gallery/usf-gate-morning.jpg" "alt" "USF Tampa campus entrance in morning light" "tag" "USF Tampa" "cap" "Morning at the gate" "cls" "g-tall" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
-        (dict "src" "img/gallery/students.jpg" "alt" "MOTIF lab student researchers" "tag" "The lab" "cap" "MOTIF student researchers" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
-        (dict "src" "img/gallery/motif-rav4-solar.jpg" "alt" "MOTIF lab Toyota RAV4 parked under a USF solar canopy with students" "tag" "The lab" "cap" "Lab vehicle, USF solar canopy" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
-        (dict "src" "img/gallery/usf-bulls.jpg" "alt" "USF Bulls statue" "tag" "USF Tampa" "cap" "Go Bulls" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
-        (dict "src" "img/gallery/ev-fleet-airport.jpg" "alt" "Ford Mustang Mach-E and Kia EV6 electric vehicles at Tampa International Airport" "tag" "Experiments" "cap" "EV fleet for instrumented studies" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
-        (dict "src" "img/gallery/tampa-road-test.jpg" "alt" "On-road testing in the Tampa Bay area" "tag" "Experiments" "cap" "On-road testing in Tampa" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
-        (dict "src" "img/gallery/vehicle-instrumentation.jpg" "alt" "In-vehicle data collection rig with NVIDIA Jetson, portable monitor, keyboard and mouse set up in a MOTIF lab vehicle" "tag" "Experiments" "cap" "Vehicle instrumentation" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px") -}}
-      {{- range $tiles }}
-      <figure{{ with .cls }} class="{{ . }}"{{ end }}>
-        {{ partial "img.html" (dict "src" .src "alt" .alt "sizes" .sizes "widths" (slice 480 960 1440) "q" 78) }}
-        <figcaption><span class="g-tag">{{ .tag }}</span><span class="g-cap">{{ .cap }}</span></figcaption>
-      </figure>
+    <div class="row-head"><h2 class="section-title">Latest news</h2><a class="more-link" href="{{ "news/" | relURL }}">All news →</a></div>
+    <div class="news-cards">
+      {{- range $i, $p := $news }}
+      <article class="news-card reveal" style="--i:{{ $i }}">
+        <p class="news-card__meta">{{ partial "news-pill.html" $p }}<time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ partial "news-date.html" $p }}</time></p>
+        <h3><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+        <p>{{ with $p.Description }}{{ . }}{{ else }}{{ $p.Summary | plainify | truncate 160 }}{{ end }}</p>
+      </article>
       {{- end }}
     </div>
   </div>
@@ -160,6 +128,31 @@
         <li><b>Talk to us:</b> collaborations, data requests and student positions — <a href="mailto:{{ .Site.Params.pi_email }}">{{ .Site.Params.pi_email }}</a>.</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section class="section gallery-section">
+  <div class="container">
+    <h2 class="section-title">Life at MOTIF</h2>
+    <p class="gallery-intro">USF Tampa, the city we drive every day, and the experiments that put new vehicle technology through its paces. If this looks like a place you'd like to be, <a href="{{ "join/" | relURL }}">come join us</a>.</p>
+    <div class="gallery-mosaic">
+      {{- $tiles := slice
+        (dict "src" "img/gallery/usf-stadium.jpg" "alt" "Aerial rendering of the new on-campus football stadium at USF Tampa" "tag" "USF Tampa" "cap" "Our home campus" "cls" "g-hero" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 100vw, 740px")
+        (dict "src" "img/gallery/usf-gate-morning.jpg" "alt" "USF Tampa campus entrance in morning light" "tag" "USF Tampa" "cap" "Morning at the gate" "cls" "g-tall" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/students.jpg" "alt" "MOTIF lab student researchers" "tag" "The lab" "cap" "MOTIF student researchers" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/motif-rav4-solar.jpg" "alt" "MOTIF lab Toyota RAV4 parked under a USF solar canopy with students" "tag" "The lab" "cap" "Lab vehicle, USF solar canopy" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/usf-bulls.jpg" "alt" "USF Bulls statue" "tag" "USF Tampa" "cap" "Go Bulls" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/ev-fleet-airport.jpg" "alt" "Ford Mustang Mach-E and Kia EV6 electric vehicles at Tampa International Airport" "tag" "Experiments" "cap" "EV fleet for instrumented studies" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/tampa-road-test.jpg" "alt" "On-road testing in the Tampa Bay area" "tag" "Experiments" "cap" "On-road testing in Tampa" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px")
+        (dict "src" "img/gallery/vehicle-instrumentation.jpg" "alt" "In-vehicle data collection rig with NVIDIA Jetson, portable monitor, keyboard and mouse set up in a MOTIF lab vehicle" "tag" "Experiments" "cap" "Vehicle instrumentation" "cls" "" "sizes" "(max-width: 600px) 100vw, (max-width: 960px) 50vw, 370px") -}}
+      {{- range $tiles }}
+      <figure{{ with .cls }} class="{{ . }}"{{ end }}>
+        {{ partial "img.html" (dict "src" .src "alt" .alt "sizes" .sizes "widths" (slice 480 960 1440) "q" 78) }}
+        <figcaption><span class="g-tag">{{ .tag }}</span><span class="g-cap">{{ .cap }}</span></figcaption>
+      </figure>
+      {{- end }}
+    </div>
+    <p class="gallery-cta"><a class="btn btn-primary" href="{{ "join/" | relURL }}">Join the lab</a></p>
   </div>
 </section>
 {{ end }}
