@@ -10,6 +10,7 @@ pdf: "https://arxiv.org/abs/2505.11535"
 topics:
   - "Automated vehicles"
   - "Traffic Safety"
+themes: [ai-for-mobility, vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---
 
 Project page: [/projects/vlalert/](/projects/vlalert/) · [Project entry](/projects/vlalert/)

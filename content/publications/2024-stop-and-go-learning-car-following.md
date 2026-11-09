@@ -15,4 +15,5 @@ topics:
   - "Automated vehicles"
   - "Deep Reinforcement Learning"
   - "Traffic Flow Theory"
+themes: [traffic-flow-theory, ai-for-mobility, vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---

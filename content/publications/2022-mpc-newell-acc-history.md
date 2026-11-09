@@ -15,4 +15,5 @@ thumb: "/img/publications/MPCDesign.jpg"
 topics:
   - "Control Theory"
   - "Automated vehicles"
+themes: [vehicle-technologies, traffic-flow-theory]  # research themes, primary first (drives the Research page)
 ---

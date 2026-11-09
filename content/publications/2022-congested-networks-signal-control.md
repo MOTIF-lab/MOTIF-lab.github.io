@@ -11,4 +11,5 @@ thumb: "/img/publications/NetworkTheory.gif"
 topics:
   - "Network Theory"
   - "Deep Reinforcement Learning"
+themes: [traffic-flow-theory, ai-for-mobility]  # research themes, primary first (drives the Research page)
 ---

@@ -12,4 +12,5 @@ pdf: "https://journals.sagepub.com/doi/10.3141/2637-09"
 thumb: "/img/publications/Bernoulli.png"
 topics:
   - "Traffic Safety"
+themes: [vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---

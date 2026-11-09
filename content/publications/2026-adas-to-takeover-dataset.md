@@ -16,6 +16,7 @@ pdf: "https://arxiv.org/abs/2603.06986"
 topics:
   - "Automated vehicles"
   - "Traffic Safety"
+themes: [vehicle-technologies, ai-for-mobility]  # research themes, primary first (drives the Research page)
 ---
 
 Project page: [ADAS-TO](/projects/adas-to/) · [Dataset on Hugging Face](https://huggingface.co/datasets/HenryYHW/ADAS-TO)

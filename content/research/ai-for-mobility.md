@@ -3,6 +3,13 @@ title: "AI for mobility"
 description: "Emerging AI, including language models, world models, and AI agents, applied to traffic operations, driving safety, and agency needs such as road damage inspection."
 weight: 3
 datasets: [drivemotion, vlalert, tridrive]
+questions:
+  - "When should an in-car system stay silent, keep watching, or alert the driver?"
+  - "Can one model forecast the driver, the vehicle and the road together, in real time?"
+  - "How can language models and AI agents help agencies inspect roads and run daily operations?"
+figure:
+  src: "/img/projects/th_vlalert.jpg"
+  paper: "/publications/2026-observe-before-you-alert-corl"
 ---
 
 Modern vision and learning systems extend the reach of traditional traffic monitoring. We develop and evaluate AI tools that turn dash-cam video, roadside cameras, and probe data into operational signals — vehicle counts, incident alerts, pavement and roadside hazard detections — at a fraction of the cost of fixed instrumentation.

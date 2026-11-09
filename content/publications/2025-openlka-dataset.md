@@ -13,6 +13,7 @@ pdf: "https://arxiv.org/abs/2501.03287"
 thumb: "/img/publications/OpenLKA.png"
 topics:
   - "Automated vehicles"
+themes: [vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---
 
 Project page: [OpenLKA](/projects/openlka/) · [Project entry](/projects/openlka/)

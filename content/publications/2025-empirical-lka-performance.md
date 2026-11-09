@@ -12,4 +12,5 @@ pdf: "https://arxiv.org/abs/2505.11534"
 topics:
   - "Automated vehicles"
   - "Traffic Safety"
+themes: [vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---

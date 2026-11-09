@@ -14,4 +14,5 @@ pdf: "https://ieeexplore.ieee.org/document/10250916"
 topics:
   - "Automated vehicles"
   - "Traffic Safety"
+themes: [vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---

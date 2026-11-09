@@ -17,6 +17,7 @@ pdf: "https://arxiv.org/abs/2604.07263"
 topics:
   - "Automated vehicles"
   - "Traffic Safety"
+themes: [vehicle-technologies, ai-for-mobility]  # research themes, primary first (drives the Research page)
 ---
 
 Project page: [BATON](/projects/baton/) · [Benchmark on Hugging Face](https://huggingface.co/datasets/HenryYHW/BATON)

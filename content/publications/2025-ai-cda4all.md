@@ -10,4 +10,5 @@ pdf: "https://arxiv.org/abs/2505.06749"
 topics:
   - "Automated vehicles"
   - "Other"
+themes: [ai-for-mobility, vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---

@@ -1,0 +1,16 @@
+{{- /* venue-label.html — short venue name for compact cards. arg: a publication page. Returns a string. */ -}}
+{{- $p := . -}}
+{{- $v := $p.Params.venue | default "" -}}
+{{- $out := $p.Params.venue_short | default "" -}}
+{{- if not $out -}}
+  {{- if hasPrefix (lower $v) "arxiv" }}{{ $out = "arXiv preprint" -}}
+  {{- else if in $v "(ITSC)" }}{{ $out = printf "IEEE ITSC %v" $p.Params.year -}}
+  {{- else if in $v "Transactions on Intelligent Transportation Systems" }}{{ $out = "IEEE T-ITS" -}}
+  {{- else if in $v "Intelligent Transportation Systems Magazine" }}{{ $out = "IEEE ITS Magazine" -}}
+  {{- else -}}
+    {{- $out = index (split $v ",") 0 -}}
+    {{- if hasPrefix $out "Transportation Research Part" }}{{ $out = index (split $out ":") 0 }}{{ end -}}
+    {{- if hasPrefix $out "Transportmetrica" }}{{ $out = index (split $out ":") 0 }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

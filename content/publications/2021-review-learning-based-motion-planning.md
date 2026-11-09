@@ -16,4 +16,5 @@ thumb: "/img/publications/ReviewofMotionPlanning.jpeg"
 topics:
   - "Automated vehicles"
   - "Deep Reinforcement Learning"
+themes: [ai-for-mobility, vehicle-technologies, traffic-flow-theory]  # research themes, primary first (drives the Research page)
 ---

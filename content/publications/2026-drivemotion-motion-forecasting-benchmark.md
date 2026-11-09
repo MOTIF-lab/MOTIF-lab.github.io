@@ -16,6 +16,7 @@ pdf: "https://arxiv.org/abs/2609.08117"
 topics:
   - "Automated vehicles"
   - "Traffic Safety"
+themes: [ai-for-mobility, vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---
 
 Project page: [DriveMotion](/projects/drivemotion/) · [Dataset on Hugging Face](https://huggingface.co/datasets/HenryYHW/DriveMotion)

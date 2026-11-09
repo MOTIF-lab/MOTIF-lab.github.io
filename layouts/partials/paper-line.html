@@ -1,0 +1,12 @@
+{{- /* paper-line.html — one publication as a compact card: venue · year, title, authors, award.
+       arg: a publication page */ -}}
+{{- $p := . -}}
+{{- $venue := partial "venue-label.html" $p -}}
+{{- $authors := $p.Params.authors | default slice -}}
+<article class="rs-paper">
+  <p class="rs-paper__meta">{{ $venue }}{{ with $p.Params.year }}{{ if not (in $venue (string .)) }} · {{ . }}{{ end }}{{ end }}{{ with $p.Params.award }} <span class="pill pill-cat-award">{{ . }}</span>{{ end }}</p>
+  <h4 class="rs-paper__title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h4>
+  {{- with $authors }}
+  <p class="rs-paper__authors">{{ delimit (first 3 .) ", " }}{{ if gt (len .) 3 }} et al.{{ end }}</p>
+  {{- end }}
+</article>

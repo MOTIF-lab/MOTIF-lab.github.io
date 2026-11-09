@@ -12,4 +12,5 @@ pdf: ""              # TODO add PDF / DOI link if available
 thumb: "/img/publications/HybridModeling.jpg"
 topics:
   - "Traffic Flow Theory"
+themes: [traffic-flow-theory]  # research themes, primary first (drives the Research page)
 ---

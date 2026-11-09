@@ -14,4 +14,5 @@ thumb: "/img/publications/Fundamental.png"
 topics:
   - "Traffic Flow Theory"
   - "Automated vehicles"
+themes: [traffic-flow-theory, vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---

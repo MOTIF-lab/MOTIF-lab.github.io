@@ -15,4 +15,5 @@ thumb: "/img/publications/LowLevelControl.png"
 topics:
   - "Control Theory"
   - "Automated vehicles"
+themes: [traffic-flow-theory, vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---

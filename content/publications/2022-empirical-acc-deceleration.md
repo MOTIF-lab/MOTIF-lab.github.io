@@ -14,4 +14,5 @@ thumb: "/img/publications/EmpiricalACDC.gif"
 topics:
   - "Automated vehicles"
   - "Traffic Flow Theory"
+themes: [vehicle-technologies, traffic-flow-theory]  # research themes, primary first (drives the Research page)
 ---

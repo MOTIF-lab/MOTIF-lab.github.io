@@ -1,0 +1,132 @@
+{{ define "main" }}
+{{- /* Research overview. Built from the publications: each paper's front matter lists
+       `themes: [primary, ...]` using the theme slugs below. Counts, the overlap diagram,
+       featured papers and "where the themes meet" all update when papers are added. */ -}}
+{{- $themes := .Pages.ByWeight -}}
+{{- $T := "traffic-flow-theory" }}{{ $V := "vehicle-technologies" }}{{ $A := "ai-for-mobility" -}}
+{{- $pubs := where (where site.RegularPages "Section" "publications") "Params.themes" "!=" nil -}}
+{{- $newest := $pubs.ByDate.Reverse -}}
+
+{{- /* region key per paper: "TVA" flags, e.g. "110" = traffic flow + vehicle tech */ -}}
+{{- $regions := dict -}}
+{{- $keyOf := dict -}}
+{{- range $pubs -}}
+  {{- $t := .Params.themes -}}
+  {{- $k := printf "%d%d%d" (cond (in $t $T) 1 0) (cond (in $t $V) 1 0) (cond (in $t $A) 1 0) -}}
+  {{- $regions = merge $regions (dict $k (add (index $regions $k | default 0) 1)) -}}
+  {{- $keyOf = merge $keyOf (dict .RelPermalink $k) -}}
+{{- end -}}
+{{- $total := len $pubs -}}
+{{- $single := add (add (index $regions "100" | default 0) (index $regions "010" | default 0)) (index $regions "001" | default 0) -}}
+{{- $multi := sub $total $single -}}
+{{- $count := dict -}}
+{{- range slice $T $V $A }}{{ $count = merge $count (dict . (len (where $pubs "Params.themes" "intersect" (slice .)))) }}{{ end -}}
+
+{{- /* featured: 3 newest papers whose primary (first) theme is this theme */ -}}
+{{- $featured := dict -}}
+{{- $featuredLinks := slice -}}
+{{- range slice $T $V $A -}}
+  {{- $slug := . }}{{ $list := slice -}}
+  {{- range $newest }}{{ if eq (index .Params.themes 0) $slug }}{{ $list = $list | append . }}{{ end }}{{ end -}}
+  {{- $list = first 3 $list -}}
+  {{- $featured = merge $featured (dict $slug $list) -}}
+  {{- range $list }}{{ $featuredLinks = $featuredLinks | append .RelPermalink }}{{ end -}}
+{{- end -}}
+
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="section rs-approach">
+  <div class="container rs-approach-grid">
+    <div class="rs-approach-text">
+      <h2 class="section-title">Our approach</h2>
+      <div class="rs-content">{{ .Content }}</div>
+      <p class="rs-stat"><strong>{{ $multi }} of {{ $total }}</strong> papers span two or more themes.</p>
+      <h3 class="rs-sub">Where the themes meet</h3>
+      <ul class="rs-bridges">
+        {{- $labels := slice (slice "110" "Traffic flow + vehicle technologies") (slice "011" "Vehicle technologies + AI") (slice "101" "Traffic flow + AI") (slice "111" "All three themes") -}}
+        {{- range $labels -}}
+          {{- $k := index . 0 }}{{ $lab := index . 1 }}{{ $pick := false -}}
+          {{- range $newest }}{{ if and (not $pick) (eq (index $keyOf .RelPermalink) $k) (not (in $featuredLinks .RelPermalink)) }}{{ $pick = . }}{{ end }}{{ end -}}
+          {{- with $pick }}
+        <li><span class="rs-chip rs-chip--{{ $k }}">{{ $lab }}</span>{{ partial "paper-line.html" . }}</li>
+          {{- end -}}
+        {{- end }}
+      </ul>
+    </div>
+
+    <figure class="rs-venn">
+      <svg viewBox="0 0 520 478" role="img" aria-labelledby="venn-title venn-desc">
+        <title id="venn-title">Papers by research theme</title>
+        <desc id="venn-desc">Traffic flow theory and operation: {{ index $count $T }} papers. Emerging vehicle technologies: {{ index $count $V }}. AI for mobility: {{ index $count $A }}. {{ $multi }} of {{ $total }} papers span two or more themes.</desc>
+        <circle class="v-t" cx="190" cy="178" r="130"/>
+        <circle class="v-v" cx="330" cy="178" r="130"/>
+        <circle class="v-a" cx="260" cy="298" r="130"/>
+        <text class="v-label" x="100" y="20"><tspan x="100">Traffic flow theory</tspan><tspan x="100" dy="18">and operation ({{ index $count $T }})</tspan></text>
+        <text class="v-label" x="420" y="20"><tspan x="420">Emerging vehicle</tspan><tspan x="420" dy="18">technologies ({{ index $count $V }})</tspan></text>
+        <text class="v-label" x="260" y="462">AI for mobility ({{ index $count $A }})</text>
+        {{- $pos := dict "100" (slice 130 148) "010" (slice 390 148) "001" (slice 260 378) "110" (slice 260 126) "101" (slice 193 272) "011" (slice 327 272) "111" (slice 260 222) }}
+        {{- range $k, $xy := $pos }}
+        <text class="v-num{{ if eq $k "111" }} v-num--all{{ end }}" x="{{ index $xy 0 }}" y="{{ index $xy 1 }}">{{ index $regions $k | default 0 }}</text>
+        {{- end }}
+      </svg>
+      <figcaption>Number of papers in each theme. The overlaps are papers that span two or three themes.</figcaption>
+    </figure>
+  </div>
+</section>
+
+{{ range $i, $t := $themes }}
+{{- $slug := $t.File.ContentBaseName -}}
+<section class="section rs-theme{{ if eq (mod $i 2) 0 }} section-alt{{ end }}" id="{{ $slug }}">
+  <div class="container">
+    <div class="rs-theme-grid{{ if eq (mod $i 2) 1 }} rs-theme-grid--flip{{ end }}">
+      {{- with $t.Params.figure }}
+      {{- $fp := site.GetPage .paper }}
+      <figure class="rs-figure">
+        <img src="{{ .src | relURL }}" alt="{{ with $fp }}Figure from the paper: {{ .Title }}{{ end }}" loading="lazy">
+        {{- with $fp }}
+        <figcaption>From <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ $vl := partial "venue-label.html" . }} · {{ $vl }}{{ with .Params.year }}{{ if not (in $vl (string .)) }} {{ . }}{{ end }}{{ end }}</figcaption>
+        {{- end }}
+      </figure>
+      {{- end }}
+      <div class="rs-theme-text">
+        <p class="eyebrow rs-eyebrow">Theme {{ add $i 1 }} · {{ index $count $slug | default 0 }} papers</p>
+        <h2 class="section-title"><a href="{{ $t.RelPermalink }}">{{ $t.Title }}</a></h2>
+        <p class="rs-desc">{{ $t.Description }}</p>
+        {{- with $t.Params.questions }}
+        <h3 class="rs-sub">Questions we ask</h3>
+        <ul class="rs-questions">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+        {{- end }}
+        {{- with $t.Params.datasets }}
+        <p class="rs-datasets"><span>Datasets:</span>
+          {{- range . }}{{ $s := . }}{{ range where site.Data.datasets "slug" $s }} <a class="rs-ds" href="{{ .links.showcase | relURL }}">{{ .name }}</a>{{ end }}{{ end }}
+        </p>
+        {{- end }}
+      </div>
+    </div>
+    {{- with index $featured $slug }}
+    <h3 class="rs-sub">Recent papers</h3>
+    <div class="rs-papers">
+      {{- range . }}{{ partial "paper-line.html" . }}{{ end }}
+    </div>
+    {{- end }}
+    <p class="rs-more"><a class="more-link" href="{{ $t.RelPermalink }}">More on {{ $t.Title }} →</a></p>
+  </div>
+</section>
+{{ end }}
+
+<section class="section rs-cta">
+  <div class="container rs-cta-inner">
+    <p>All {{ len (where site.RegularPages "Section" "publications") }} papers, the data behind them, and how to work with us:</p>
+    <div class="rs-cta-btns">
+      <a class="btn btn-primary" href="{{ "publications/" | relURL }}">All publications</a>
+      <a class="btn btn-ghost" href="{{ "datasets/" | relURL }}">Datasets &amp; benchmarks</a>
+      <a class="btn btn-ghost" href="{{ "join/" | relURL }}">Join the lab</a>
+    </div>
+  </div>
+</section>
+{{ end }}

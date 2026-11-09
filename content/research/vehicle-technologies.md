@@ -3,6 +3,13 @@ title: "Emerging vehicle technologies"
 description: "How ADAS, lane-keeping assist, and electric powertrains change traffic efficiency and safety at the system level."
 weight: 2
 datasets: [openlka, adas-to, baton, drivedna]
+questions:
+  - "How well do production lane keeping and adaptive cruise control actually perform on public roads?"
+  - "When and why do drivers take back control from driving automation?"
+  - "How do these systems change safety and efficiency once many cars on the road have them?"
+figure:
+  src: "/img/projects/th_adas-to.jpg"
+  paper: "/publications/2026-adas-to-takeover-dataset"
 ---
 
 A vehicle is no longer a fixed object in a flow model — it is a moving system whose perception, control, and powertrain shape its behavior. We characterize ADAS-equipped and electric vehicles empirically and analytically, then quantify what their adoption implies for capacity, stability, and safety on existing roadways.

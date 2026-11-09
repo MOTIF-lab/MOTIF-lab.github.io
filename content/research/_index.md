@@ -1,12 +1,8 @@
 ---
 title: "Research"
-description: "Three threads connecting classical traffic flow theory to modern vehicle and AI capabilities."
+description: "We improve mobility by combining traditional ideas, such as traffic flow theory and safety modeling, with frontier technologies, such as emerging driving technologies and AI."
 ---
 
-The MOTIF Lab works at the intersection of self-driving technologies, electric vehicles, and AI. Our research program is organized around **three threads** that reinforce one another:
+What sets MOTIF apart is a **synergistic view**. We integrate traffic flow theory with driving technologies and AI, because we believe technology guided by domain knowledge is the solution.
 
-- **Theory** disciplines what we expect new vehicles and AI tools to do, and where they will fail.
-- **Vehicle technology** is reshaping the assumptions classical traffic theory was built on — fixed reaction times, identical drivers, deterministic car-following — so we re-examine those assumptions empirically.
-- **AI** broadens the data we can use to test both, turning low-cost cameras and naturalistic driving streams into operational signals.
-
-Pick a thread below to read more, or skip to the [publications](/publications/) and [projects](/projects/) for concrete results.
+Our work is organized in three themes, and most of our papers sit where two of them meet.

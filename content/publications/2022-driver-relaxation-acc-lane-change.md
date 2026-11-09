@@ -14,4 +14,5 @@ thumb: "/img/publications/Incorporating.jpeg"
 topics:
   - "Automated vehicles"
   - "Traffic Flow Theory"
+themes: [traffic-flow-theory, vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---

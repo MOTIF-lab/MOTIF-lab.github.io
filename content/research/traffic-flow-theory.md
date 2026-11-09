@@ -3,6 +3,13 @@ title: "Traffic flow theory and operation"
 description: "Macroscopic and microscopic models of how vehicles aggregate into flow, congestion, and breakdown, and how those models guide traffic operations."
 weight: 1
 datasets: [openlka, adas-to]
+questions:
+  - "How do ADAS and electric vehicles change bottleneck capacity and the spread of stop-and-go waves?"
+  - "How do human drivers respond to automated vehicles, for example when cutting in front of them?"
+  - "When do classical traffic models still hold in mixed traffic, and what minimal extensions make them predictive again?"
+figure:
+  src: "/img/publications/CarFollowing.jpg"
+  paper: "/publications/2021-acc-car-following-empirical"
 ---
 
 Traffic flow theory remains the structural language of transportation engineering. Our work in this thread strengthens that language for an era in which vehicles are no longer interchangeable units. We study car-following and lane-changing behavior, the conditions under which fundamental diagrams hold or break, and the propagation of disturbances in heterogeneous traffic streams.

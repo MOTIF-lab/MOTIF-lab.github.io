@@ -19,6 +19,7 @@ also:
 topics:
   - "Automated vehicles"
   - "Traffic Safety"
+themes: [ai-for-mobility, vehicle-technologies]  # research themes, primary first (drives the Research page)
 ---
 
 Project page: [TriDrive](/projects/tridrive/) · [Project entry](/projects/tridrive/)

@@ -14,6 +14,7 @@ pdf: "https://arxiv.org/abs/2607.23822"
 topics:
   - "Traffic Safety"
   - "Other"
+themes: [vehicle-technologies, ai-for-mobility]  # research themes, primary first (drives the Research page)
 ---
 
 Project page: [DriveDNA](/projects/drivedna/) · [Dataset on Hugging Face](https://huggingface.co/datasets/HenryYHW/DriveDNA)
