@@ -6,15 +6,17 @@
        so we let it stand alone with no overlay text. The visually-hidden heading keeps the
        page semantically and SEO-correct for screen readers and crawlers. */}}
   <h1 class="visually-hidden">MOTIF Lab — Mobility Optimized by Traditional Ideas and Frontier technologies, University of South Florida</h1>
+  <a class="hero-banner-link" href="{{ "research/" | relURL }}" aria-label="Explore our research">
   <img class="hero-banner-img"
        src="{{ "img/homepage-banner.jpg" | relURL }}"
        alt="MOTIF Lab — Mobility Optimized by Traditional Ideas and Frontier technologies. University of South Florida, Department of Civil and Environmental Engineering. Research areas: perception, vehicle signals, driver behavior, control and safety."
        fetchpriority="high">
+  </a>
 </section>
 
 <section class="hero-cta-strip">
   <div class="container hero-cta-inner">
-    <p class="hero-tagline">{{ .Site.Params.description }}</p>
+    <p class="hero-tagline">{{ .Site.Params.tagline | default .Site.Params.description }}</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="{{ "research/" | relURL }}">Our research</a>
       <a class="btn btn-ghost" href="{{ "join/" | relURL }}">Join the lab</a>
@@ -48,18 +50,20 @@
 <section class="section section-alt strengths" data-countup>
   <div class="container">
     <h2 class="section-title">What sets MOTIF apart</h2>
+    <p class="str-lede">A <strong>synergistic view</strong>. We integrate traffic flow theory with driving technologies and AI, because we believe technology guided by domain knowledge is the solution.</p>
     <ul class="str-grid">
+      {{- $tft := len (where (where site.RegularPages "Section" "publications") "Params.topics" "intersect" (slice "Traffic Flow Theory")) }}
       <li class="str-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9c2.5-3 5-3 7.5 0s5 3 7.5 0 3.5-2.5 5-1.5"/><path d="M2 16c2.5-3 5-3 7.5 0s5 3 7.5 0 3.5-2.5 5-1.5"/></svg>
+        <p class="str-num"><data class="num" value="{{ $tft }}">{{ $tft }}</data><small>traffic flow theory papers, from ACC string stability to EV bottleneck capacity</small></p>
+        <h3>Theory that guides the technology</h3>
+        <p>Car-following and string-stability theory shows how ACC and EVs change capacity and stop-and-go waves, and how to design controllers that damp those waves.</p>
+      </li>
+      <li class="str-card reveal" style="--i:1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13l2-5h14l2 5v5H3z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/><path d="M5 13h14"/></svg>
         <p class="str-num">{{ partial "num.html" (dict "k" "adasto.v2_models" "N" $N) }}<small>vehicle models · {{ partial "num.html" (dict "k" "adasto.brands" "N" $N) }} automakers in one release</small></p>
         <h3>Production vehicles, not a test rig</h3>
         <p>We record what cars people actually drive — stock lane keeping, cruise control and the moments drivers take back control — across the market, not on a single instrumented platform.</p>
-      </li>
-      <li class="str-card reveal" style="--i:1">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
-        <p class="str-num">{{ partial "num.html" (dict "k" "family.datasets" "N" $N) }}<small>open datasets &amp; benchmarks · {{ partial "num.html" (dict "k" "family.hf_repos" "N" $N) }} Hugging Face repos</small></p>
-        <h3>Open data at scale</h3>
-        <p>{{ partial "num.html" (dict "k" "openlka.hours_release" "N" $N "unit" true) }} of production lane-keeping driving in OpenLKA alone; every release ships with its license, access tier and a verbatim source for every number.</p>
       </li>
       <li class="str-card reveal" style="--i:2">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.6.3 4.5 2.3 4.5 5.8"/></svg>

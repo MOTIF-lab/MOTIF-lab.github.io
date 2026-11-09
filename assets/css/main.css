@@ -200,6 +200,10 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 auto;
 }
 
+/* The whole banner is a link to /research/ (the "Explore our research" button is part of the image) */
+.hero-banner-link { display: block; }
+.hero-banner-link:focus-visible { outline: 3px solid var(--usf-gold); outline-offset: -3px; }
+
 /* Compact CTA strip directly under the banner */
 .hero-cta-strip {
   background: var(--bg);
@@ -1356,6 +1360,8 @@ html.reduced .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* ----- strengths ----- */
+.str-lede { font-size: 1.15rem; line-height: 1.55; color: var(--text); max-width: 70ch; margin: .25rem 0 1.25rem; }
+.str-lede strong { color: var(--usf-green-dark); }
 .str-grid { list-style: none; padding: 0; margin: 1rem 0 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; }
 .str-card { background: var(--bg); border: 1px solid var(--border); border-top: 3px solid var(--usf-gold); border-radius: var(--radius); padding: 1.25rem; }
 .str-card svg { width: 28px; height: 28px; color: var(--usf-green); margin-bottom: .5rem; }

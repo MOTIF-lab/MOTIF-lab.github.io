@@ -11,6 +11,8 @@ enableGitInfo = false
 
 [params]
   description = "Mobility Optimized by Traditional Ideas and Frontier technologies — a transportation engineering research lab at the University of South Florida."
+  # One line under the home-page banner. Kept separate from `description`, which feeds search and link previews.
+  tagline = "We improve mobility by combining traditional ideas, such as traffic flow theory and safety modeling, with frontier technologies, such as emerging driving technologies and AI."
   acronymExpansion = "Mobility Optimized by Traditional Ideas and Frontier technologies"
   university = "University of South Florida"
   college = "College of Engineering"
