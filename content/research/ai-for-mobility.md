@@ -1,6 +1,6 @@
 ---
 title: "AI for mobility"
-description: "Computer vision and machine learning for traffic monitoring, road hazard detection, and operations support."
+description: "Emerging AI, including language models, world models, and AI agents, applied to traffic operations, driving safety, and agency needs such as road damage inspection."
 weight: 3
 datasets: [drivemotion, vlalert, tridrive]
 ---
