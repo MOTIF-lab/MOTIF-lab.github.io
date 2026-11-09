@@ -1177,8 +1177,7 @@ ul.footer-affil li { margin: .1rem 0; }
 /* The datasets band sits on USF Green (#006747) instead of the near-black ink.
    Re-scoping the --ink-* variables here re-tints every card inside the band;
    the hero and the showcase project pages keep the original ink palette.
-   Contrast (WCAG): white on card 8.8:1, muted text on card 6.6:1 and on band 5.2:1,
-   sand-gold labels on card 5.0:1. */
+   Contrast (WCAG): white heading on band 6.9:1, muted intro text on band 5.2:1. */
 .ds-band {
   --ink-2: #00563b;                      /* card: one step deeper than USF Green */
   --ink-3: #004a33;                      /* thumbnail placeholder */
@@ -1188,10 +1187,29 @@ ul.footer-affil li { margin: .1rem 0; }
   border-bottom: 1px solid var(--ink-border);
 }
 .ds-band .section-title::after { background: var(--usf-gold); }
-.ds-band .ds-kind { color: var(--usf-gold-light); }   /* per-release accent colours are too dim on green; the accent stays on the card's top edge */
 .ds-band .more-link--light { color: #fff; }
 .ds-band .src { background: rgba(0,0,0,.28); }
-.ds-band .ds-card:hover { box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+
+/* White cards on the green band, so the cards don't blend into the background.
+   Each release keeps its accent colour on the card's top edge.
+   Contrast on white: green-dark titles 12.2:1, gray body text 7.6:1, green labels 6.9:1. */
+.ds-band .ds-card {
+  --ink-2: #fff;
+  --ink-3: #e9efec;
+  --ink-border: rgba(0,62,42,.14);
+  --ink-muted: #4B5563;
+  --ink-text: var(--text);
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+.ds-band .ds-card:hover { border-color: var(--usf-gold); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+.ds-band .ds-kind { color: var(--usf-green); }   /* per-release accent colours are too light for text on white */
+.ds-band .ds-card__title, .ds-band .ds-card__title a { color: var(--usf-green-dark); }
+.ds-band .ds-card__title a:hover { color: var(--usf-green); }
+.ds-band .ds-nums .num { color: var(--usf-green-dark); }
+.ds-band .ds-card__links a { color: var(--usf-green); border-color: rgba(0,103,71,.35); background: #fff; }
+.ds-band .ds-card__links a:hover { background: var(--usf-green); color: #fff; }
+.ds-band .ds-card .src { background: var(--usf-gold-light); color: var(--usf-green-dark); }
+.ds-band .ds-card .src:hover { background: var(--usf-gold); }
 .ds-intro { max-width: 75ch; margin: 0 0 1.5rem; }
 .ds-intro p { color: var(--ink-muted); }
 
