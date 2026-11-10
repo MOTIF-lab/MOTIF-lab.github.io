@@ -1,7 +1,7 @@
 ---
 title: "BATON: a multimodal benchmark for bidirectional automation transition observation in naturalistic driving"
 date: "2026-04-01"
-year: 2026
+year: 2027
 authors:
   - "Yuhang Wang"
   - "Yiyao Xu"
@@ -9,10 +9,12 @@ authors:
   - "L. Li"
   - "Jingran Sun"
   - "Hao Zhou"
-venue: "arXiv preprint arXiv:2604.07263"
-status: "preprint"
+venue: "ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2027)"
+venue_short: "KDD 2027"
+status: "accepted"
 also:
   - "TRB 2027 (presentation)"
+preprint: "https://arxiv.org/abs/2604.07263"
 pdf: "https://arxiv.org/abs/2604.07263"
 topics:
   - "Automated vehicles"

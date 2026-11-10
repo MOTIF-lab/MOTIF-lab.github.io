@@ -57,8 +57,8 @@
   access: gated-manual
   access_note: "Benchmark gated with manual approval; BATON-Sample (two drivers, 45 routes) auto-approved."
   license: "CC BY-NC 4.0"
-  venue: arXiv 2026 (v2)
-  year: 2026
+  venue: ACM KDD 2027
+  year: 2027
   accent: "#f0c34e"
   thumb: /img/projects/th_baton.jpg
   links: {showcase: /projects/baton/, hf: "https://huggingface.co/datasets/HenryYHW/BATON", github: "https://github.com/OpenLKA/BATON", arxiv: "https://arxiv.org/abs/2604.07263"}
@@ -84,8 +84,8 @@
   access: gated-manual
   access_note: "DriveDNA research license with manual approval; DriveDNA-Sample auto-approved. Prohibits re-identification and individual scoring."
   license: "DriveDNA research license"
-  venue: arXiv 2026
-  year: 2026
+  venue: ACM KDD 2027
+  year: 2027
   accent: "#b07cff"
   thumb: /img/projects/th_drivedna.jpg
   links: {showcase: /projects/drivedna/, hf: "https://huggingface.co/datasets/HenryYHW/DriveDNA", github: "https://github.com/WangYuHang-cmd/DriveDNA", arxiv: "https://arxiv.org/abs/2607.23822"}

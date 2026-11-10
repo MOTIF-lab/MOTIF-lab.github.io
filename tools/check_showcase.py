@@ -13,7 +13,7 @@ import argparse, html, json, os, re, sys
 from html.parser import HTMLParser
 LAB = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VENUE_RX = re.compile(r"\b(KDD|WACV|ICLR|NeurIPS|CVPR|anonymous authors?|anonymi[sz]ed for review|double-blind|under submission|submitted to)\b", re.I)
-ACCEPTED = ["WACV 2027", "Winter Conference on Applications of Computer Vision (WACV)", "CoRL 2026", "ITSC 2026", "ITSC 2025", "ACCIDENT @ CVPR 2026"]
+ACCEPTED = ["KDD 2027", "Knowledge Discovery and Data Mining (KDD)", "WACV 2027", "Winter Conference on Applications of Computer Vision (WACV)", "CoRL 2026", "ITSC 2026", "ITSC 2025", "ACCIDENT @ CVPR 2026"]
 ACCEPTED_RX = re.compile("|".join(re.escape(v) for v in ACCEPTED), re.I)
 SUPERLATIVE_RX = re.compile(r"\b(the first|the only|state[- ]of[- ]the[- ]art|SOTA|the largest|the best|unprecedented|novel)\b", re.I)
 MOTION_RX = re.compile(r"\b\d+(?:\.\d+)?m?s\b(?=[^<]*[;\"])|cubic-bezier\(")
