@@ -1,0 +1,18 @@
+{{- /* Public visitor map (MapMyVisitors): a small world map with a dot for each visitor's city.
+       The widget code lives in hugo.toml -> params.visitorMap. Leave it empty and no map appears.
+       Called with (dict "place" "footer") from footer.html, and (dict "place" "showcase") from the
+       showcase pages, which have their own footer and do not load main.css. MapMyVisitors only counts
+       pages that carry the widget, so it goes on both. */ -}}
+{{- with site.Params.visitorMap -}}
+{{- if eq $.place "showcase" -}}
+<div class="visitor-map visitor-map--showcase" style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.4rem;padding:20px 16px 40px">
+  <span style="font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.6">Visitors</span>
+  <div style="max-width:100%;overflow:hidden">{{ . | safeHTML }}</div>
+</div>
+{{- else -}}
+<div class="visitor-map">
+  <p class="footer-heading">Visitors</p>
+  <div class="visitor-map__widget">{{ . | safeHTML }}</div>
+</div>
+{{- end -}}
+{{- end -}}

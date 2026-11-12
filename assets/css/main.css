@@ -932,6 +932,18 @@ ul.footer-affil li { margin: .1rem 0; }
   color: var(--usf-gold-light);
 }
 .footer-bottom p { margin: 0; }
+/* Visitor map (MapMyVisitors) sits at the right end of the bottom row; it only renders when params.visitorMap is set. */
+.footer-bottom:has(.visitor-map) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem 2rem;
+}
+.visitor-map { max-width: 100%; }
+.visitor-map .footer-heading { margin-bottom: .35rem; }
+.visitor-map__widget { max-width: 100%; overflow: hidden; line-height: 0; }
+.visitor-map__widget img, .visitor-map__widget canvas, .visitor-map__widget iframe { max-width: 100%; height: auto; }
 
 /* ----- news archive (list page) ----- */
 .news-archive { list-style: none; padding: 0; margin: 0; }

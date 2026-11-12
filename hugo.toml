@@ -34,6 +34,9 @@ enableGitInfo = false
   youtube = "https://www.youtube.com/c/MOTIFLab"
   huggingface = "https://huggingface.co/HenryYHW"   # datasets & models are published under this account
   copyrightYear = 2026
+  # Public visitor map (MapMyVisitors) in the footer of every page, including the project showcase pages.
+  # Paste the widget code from mapmyvisitors.com between the ''' marks. Leave it empty to hide the map.
+  visitorMap = ''''''
   showRecruitingBanner = true
   recruitingMessage = "We are recruiting motivated PhD and MS students. See <a href=\"/join/\">Join us</a>."
 
