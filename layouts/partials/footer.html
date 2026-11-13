@@ -44,9 +44,9 @@
         <li><a href="https://www.usf.edu" rel="noopener">USF</a></li>
       </ul>
     </div>
+    {{ partial "visitor-map.html" (dict "place" "footer") }}
   </div>
   <div class="container footer-bottom">
     <p>&copy; {{ now.Year }} MOTIF Lab · {{ .Site.Params.university }}. Built with <a href="https://gohugo.io" rel="noopener">Hugo</a>.</p>
-    {{ partial "visitor-map.html" (dict "place" "footer") }}
   </div>
 </footer>
