@@ -35,8 +35,8 @@
   year: 2026
   accent: "#ff6b6b"
   thumb: /img/projects/th_adas-to.jpg
-  links: {showcase: /projects/adas-to/, hf: "https://huggingface.co/datasets/HenryYHW/ADAS-TO", github: "https://github.com/OpenLKA/ADAS-TO", arxiv: "https://arxiv.org/abs/2603.06986"}
-  hf_repos: [HenryYHW/ADAS-TO, HenryYHW/ADAS-TO-Sample, HenryYHW/ADAS-TO-Critical, HenryYHW/ADAS-TO_longitudinal]
+  links: {showcase: /projects/adas-to/, hf: "https://huggingface.co/datasets/MOTIF-Lab/ADAS-TO", github: "https://github.com/OpenLKA/ADAS-TO", arxiv: "https://arxiv.org/abs/2603.06986"}
+  hf_repos: [MOTIF-Lab/ADAS-TO, MOTIF-Lab/ADAS-TO-Sample, MOTIF-Lab/ADAS-TO-Critical, HenryYHW/ADAS-TO_longitudinal]
   numbers:
     - {k: adasto.clips, label: "takeover clips"}
     - {k: adasto.hours, label: "of driving"}
